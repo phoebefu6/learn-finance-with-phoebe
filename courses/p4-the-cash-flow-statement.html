@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Practitioner session 4 of 10. The indirect method built line by line: £445,631 of net income, plus £102,025 of depreciation, less £664,607 of working capital build, giving minus £116,951 of operating cash flow, less £180,310 of capex.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="The cash flow statement - learn finance with phoebe">
+<meta property="og:description" content="Practitioner session 4 of 10. Why the statement starts at profit rather than at the bank, and which section a movement belongs in when nobody agrees.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-finance-with-phoebe/courses/p4-the-cash-flow-statement.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-finance-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The cash flow statement - learn finance with phoebe">
+<meta name="twitter:description" content="Four lines from profit to the bank balance, and the two things about them that are genuinely disputed.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-finance-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Practitioner session 4 · The cash flow statement - learn finance with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-finance-with-phoebe</a> / Practitioner session 4 of 10</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Finance with Phoebe · Practitioner session 4 of 10</div>
+    <h1>The cash flow <span class="accent">statement</span></h1>
+    <p class="sub">Session 3 turned three collection settings into three balances. This one turns those balances into a statement. The indirect method is four moves long: start at net income, add back the cost that took no money, subtract the money that went into invoices and stock, subtract the money that went out of the door without being a cost. At Marchmont Instruments those four moves run <strong>£445,631</strong>, plus <strong>£102,025</strong>, less <strong>£664,607</strong>, less <strong>£180,310</strong>, and land on <strong>minus £297,261</strong>. Nothing is left over, which is the point of building it in this order. Two things about the statement are genuinely unsettled, and both are in the second half.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Hands on</span>
+      <span class="chip audience">Analysts who build the model</span>
+      <span class="chip audience">Anyone who has to sign off a cash number</span>
+      <span class="chip time">60 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-4 · Welcome</span>
+      <span class="a2" style="flex:6">4-32 · Four lines, and why profit is the start</span>
+      <span class="a3" style="flex:6">32-54 · Build-along: the bridge by hand</span>
+      <span class="a4" style="flex:1">54-60 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where this picks up</h2>
+    </div>
+    <p class="lede">Session 1 wired the three statements together and showed the two lines in the engine that do it. Session 2 took revenue down to net income. Session 3 turned DSO, DIO and DPO into receivables, inventory and payables. Today those pieces become the statement that connects them, built the way the engine builds it. Session 5 takes the balance sheet the same way and then breaks it on purpose. The model on this page is <span class="mono">assets/fin-live.js</span>, already loaded.</p>
+
+    <div class="legend">
+      <span class="pill">Live = run together in the session</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">🔍 Every diagram zooms</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with today.</strong> The indirect method as four signed moves you can write from memory, and the Marchmont twelve month bridge that goes with them: £445,631 to minus £297,261 with every pound accounted for on the way. The monthly operating cash flow path, which turns negative in month 2 and climbs back to minus £427 by month 12 without ever crossing zero again. A reason for starting at profit rather than at the bank statement that is about explanation, not convenience. And two arguments you should be able to state without taking a side: where a movement belongs, and what the word free is doing in free cash flow.</p>
+    </div>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>What the statement is actually for<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The income statement says what the period earned. The balance sheet says what the cash level is on the last day. Neither says how one became the other, and that is the only question the cash flow statement answers. It is a reconciliation with a fixed start, a fixed end, and a middle that has to add up.</p>
+        <p>That structure is what makes it checkable. If the four moves do not land on the change in the bank balance, a line is missing, and the amount by which you miss is the size of what you left out.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>Marchmont over twelve months: net income £445,631, free cash flow minus £297,261. The statement does not summarise that as a shortfall. It names four amounts, the largest of which is £664,607 of money now sitting in unpaid invoices and unsold instruments, and after the fourth one there is nothing left to explain.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The three fields the statement is made of<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Each row the engine returns already carries every figure the statement needs. There is no separate cash flow object, because the statement is a way of reading the row rather than a fifth thing to compute.</p>
+        <div class="prompt-box"><span class="label">row fields used today</span>netIncome      the income statement's answer for the month
+depreciation   the cost that moved no money
+deltaWC        the change in working capital over the month
+operatingCF    netIncome + depreciation - deltaWC
+capex          cash spent on fixed assets
+freeCF         operatingCF - capex
+cash           the closing bank balance</div>
+        <p class="mono">No credentials of any kind are involved. If an example ever needs one, the string is the word placeholder.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 1 ============ -->
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers the four lines</span>
+      <h2>The bridge, one signed move at a time</h2>
+      <span class="tag concept">12 min live</span>
+    </div>
+    <p class="lede">Four moves, each with a sign that follows from one question: did this change profit without moving money, or move money without changing profit? Everything on the statement is one or the other.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 438" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A six row bridge for Marchmont's first twelve months. Row one, net income, 445,631 pounds, the income statement's answer. Row two, add back depreciation, 102,025 pounds, a cost that took no money out of the bank. Row three, less the working capital build, minus 664,607 pounds, money that went into invoices and stock. Row four, the subtotal operating cash flow, minus 116,951 pounds. Row five, less capital spending, minus 180,310 pounds, money out of the door that was not a cost. Row six, the total free cash flow, minus 297,261 pounds, which is the change in the bank balance over the year. A note records that the bridge lands exactly, with nothing left unexplained.">
+        <style>
+          .p4aH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p4aT { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+          .p4aS { font: 400 10.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p4aK { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p4aL { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+          .p4aA { font: 800 12px Inter, sans-serif; fill: #9A3412; }
+          .p4aC { font: 400 10.5px Inter, sans-serif; fill: #9A3412; }
+        </style>
+
+        <text class="p4aH" x="14" y="20">Twelve months of Marchmont, from the income statement to the bank balance.</text>
+
+        <rect x="14" y="34" width="852" height="46" rx="9" fill="#175E4C"></rect>
+        <text class="p4aT" x="34" y="63">Net income</text>
+        <text class="p4aT" x="436" y="63" text-anchor="end">£445,631</text>
+        <text class="p4aS" x="466" y="63">the income statement's answer, twelve months of it</text>
+
+        <rect x="14" y="90" width="852" height="46" rx="9" fill="#C9E3D9"></rect>
+        <text class="p4aK" x="34" y="119">Add back depreciation</text>
+        <text class="p4aK" x="436" y="119" text-anchor="end">£102,025</text>
+        <text class="p4aL" x="466" y="119">a cost that took no money out of the bank</text>
+
+        <rect x="14" y="146" width="852" height="46" rx="9" fill="#FFF7ED" stroke="#9A3412"></rect>
+        <text class="p4aA" x="34" y="175">Less the working capital build</text>
+        <text class="p4aA" x="436" y="175" text-anchor="end">-£664,607</text>
+        <text class="p4aC" x="466" y="175">money that went into invoices and stock</text>
+
+        <rect x="14" y="202" width="852" height="46" rx="9" fill="#0C3A2E"></rect>
+        <text class="p4aT" x="34" y="231">Operating cash flow</text>
+        <text class="p4aT" x="436" y="231" text-anchor="end">-£116,951</text>
+        <text class="p4aS" x="466" y="231">what trading alone did to the bank balance</text>
+
+        <rect x="14" y="258" width="852" height="46" rx="9" fill="#FFF7ED" stroke="#9A3412"></rect>
+        <text class="p4aA" x="34" y="287">Less capital spending</text>
+        <text class="p4aA" x="436" y="287" text-anchor="end">-£180,310</text>
+        <text class="p4aC" x="466" y="287">money out of the door that was never a cost</text>
+
+        <rect x="14" y="314" width="852" height="46" rx="9" fill="#0C3A2E"></rect>
+        <text class="p4aT" x="34" y="343">Free cash flow</text>
+        <text class="p4aT" x="436" y="343" text-anchor="end">-£297,261</text>
+        <text class="p4aS" x="466" y="343">the change in the bank balance over the year</text>
+
+        <rect x="14" y="374" width="852" height="52" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p4aK" x="30" y="396">Two signs, asked the same way every time.</text>
+        <text class="p4aL" x="30" y="414">Add back what reduced profit without moving money. Subtract what moved money without reducing profit.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the two dark rows are subtotals, not new information. Everything that arrives arrives on the three rows between them.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Line one: net income, and why it is a starting point rather than an answer<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Net income is the figure the income statement finished with, after tax and after interest. It is already net of every cost the period incurred, which is exactly what makes it the right place to begin: everything still to come is a correction for timing, not a new cost.</p>
+        <p>Marchmont's twelve month figure is <strong>£445,631</strong>, and every month of it is positive. A statement that begins here and ends below zero has not found a loss. It has found three timing differences.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Line two: depreciation, added back<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Depreciation is the accounting recognition that an instrument bought three years ago is being used up. It reduced profit this month. No money left the bank this month because of it, so it has to come back out of the bridge.</p>
+        <p>Over twelve months that is <strong>£102,025</strong>. It is the only add back in the Marchmont model, which is unusual: real statements often carry several, and the test for each one is identical.</p>
+        <div class="prompt-box"><span class="label">fin-live.js</span>var depreciation = netFixed / a.depreciationLife;
+var ebit = ebitda - depreciation;
+// ... reduced profit above, added straight back below
+var operatingCF = netIncome + depreciation - dWC;</div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Line three: the working capital build, subtracted<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Session 3 built the three balances. Here they become one number. Receivables rising means revenue recorded and not collected. Inventory rising means money spent on instruments not yet sold. Payables rising works the other way, because an unpaid supplier is a cost recorded without money leaving.</p>
+        <p>Over the year the three together consumed <strong>£664,607</strong>, which is the single largest line on the bridge and larger than the profit above it. Receivables alone grew by <strong>£539,454</strong>.</p>
+        <div class="prompt-box"><span class="label">fin-live.js</span>var dWC = (arNew - ar) + (invNew - inv) - (apNew - ap);
+// receivables up: cash out.  inventory up: cash out.
+// payables up: cash held back, so it carries the opposite sign.</div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Line four: capital spending, and where the subtotal falls<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Capex is money paid for something that will be used over years, so the income statement refuses to treat it as this period's cost and spreads it through depreciation instead. The bank does not spread anything. The full <strong>£180,310</strong> came out during the year.</p>
+        <p>Notice where the subtotal sits. Operating cash flow of <strong>minus £116,951</strong> is struck before capex, so it describes trading alone. Free cash flow of <strong>minus £297,261</strong> is struck after it. The same twelve months, two legitimate summary figures, nearly £180,000 apart, and which one gets quoted is a choice somebody makes.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2 ============ -->
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers the method</span>
+      <h2>Why it starts at profit and not at the bank</h2>
+      <span class="tag concept">8 min live</span>
+    </div>
+    <p class="lede">There is a method that starts at the bank statement and adds up receipts and payments. It exists, it is permitted, and almost nobody publishes it. The reason is not laziness.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 306" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two methods side by side. The direct method starts at the bank: it adds up every receipt and every payment, reads like a bank statement, needs transaction level data that most readers never receive, and is rarely published. The indirect method starts at profit: it begins with net income, which is already published, undoes the timing one adjustment at a time, shows why profit and cash differ rather than only that they differ, and is what almost every published set of accounts uses. A note records that both land on the same bottom figure and that the indirect method is chosen because it explains the gap.">
+        <style>
+          .p4bH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p4bT { font: 800 12.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p4bS { font: 400 11px Inter, sans-serif; fill: #FFFFFF; }
+          .p4bK { font: 800 12px Inter, sans-serif; fill: #9A3412; }
+          .p4bL { font: 400 10.5px Inter, sans-serif; fill: #14201C; }
+        </style>
+
+        <text class="p4bH" x="14" y="20">Same destination, two routes, and only one of them explains itself.</text>
+
+        <rect x="14" y="34" width="418" height="186" rx="10" fill="#9A3412"></rect>
+        <text class="p4bT" x="32" y="60">Direct: start at the bank</text>
+        <text class="p4bS" x="32" y="88">Add up every receipt and every payment</text>
+        <text class="p4bS" x="32" y="112">Reads like a bank statement</text>
+        <text class="p4bS" x="32" y="136">Needs transaction level data</text>
+        <text class="p4bS" x="32" y="160">Which a reader outside the company never has</text>
+        <text class="p4bS" x="32" y="184">Reports the gap and says nothing about it</text>
+
+        <rect x="448" y="34" width="418" height="186" rx="10" fill="#175E4C"></rect>
+        <text class="p4bT" x="466" y="60">Indirect: start at profit</text>
+        <text class="p4bS" x="466" y="88">Begins with net income, already published</text>
+        <text class="p4bS" x="466" y="112">Undoes the timing, one adjustment at a time</text>
+        <text class="p4bS" x="466" y="136">Each adjustment names a cause</text>
+        <text class="p4bS" x="466" y="160">Ties the two statements a reader already has</text>
+        <text class="p4bS" x="466" y="184">Explains the gap rather than reporting it</text>
+
+        <rect x="14" y="236" width="852" height="56" rx="9" fill="#FFF7ED" stroke="#9A3412"></rect>
+        <text class="p4bK" x="30" y="258">The bottom line is identical. The middle is not.</text>
+        <text class="p4bL" x="30" y="278">Marchmont's £664,607 has an address on the indirect bridge. On the direct one it is spread across thousands of unlabelled movements.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the indirect method is not an approximation of the direct one. It is the same arithmetic, arranged so the difference has a name.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The reader already has the starting figure<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Anybody reading a set of accounts has the income statement and the balance sheet in front of them. The indirect method begins with a number they can already see and moves it using changes they can already compute from two balance sheets. That makes the statement auditable from outside, without access to the ledger.</p>
+        <p>The direct method's first line, total cash received from customers, cannot be reconstructed by a reader at all. It has to be taken on trust, which is the opposite of what a reconciliation is for.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>An explanation beats an observation<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Both methods would tell you Marchmont's bank balance fell. Only one tells you that £664,607 of it is recoverable money sitting in invoices and stock rather than money that has gone. Those two readings lead to completely different decisions, and the second one is a financing conversation rather than a performance one.</p>
+        <p>This is also the honest case against the indirect method. Starting from an accrual figure and adjusting it means the statement is built from estimates rather than from bank records, and an error in the accruals flows straight through. The direct method has no such exposure. That is a real trade and it is the reason the argument has never fully closed.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Reading the bridge backwards<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A bridge read from the bottom is a diagnostic. Free cash flow of minus £297,261 with capex of £180,310 says a little over half the drain was investment, which is a choice that can be paused. The other half is operating, which cannot.</p>
+        <p>Within the operating half, £664,607 went into working capital while profit contributed £445,631. A business whose operating cash flow is negative purely because of a working capital build is in a different position from one whose profit is negative, and the bridge is what distinguishes them.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3 ============ -->
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers the monthly shape</span>
+      <h2>The annual figure hides the path</h2>
+      <span class="tag concept">7 min live</span>
+    </div>
+    <p class="lede">Minus £116,951 for the year is one number for twelve very different months. The monthly column turns negative in month 2 and then improves every single month without ever getting back above zero.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 366" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Twelve bars of Marchmont's monthly operating cash flow. Month 1 is positive at 22,062 pounds. Month 2 is the worst month at minus 23,481 pounds. From there every month is negative but smaller than the one before: minus 21,565, minus 19,571, minus 17,497, minus 15,338, minus 13,093, minus 10,756, minus 8,325, minus 5,796, minus 3,165 and minus 427 pounds in month 12. The series climbs steadily back towards zero without crossing it again.">
+        <style>
+          .p4cH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p4cV { font: 700 10px Inter, sans-serif; fill: #9A3412; }
+          .p4cP { font: 700 10px Inter, sans-serif; fill: #175E4C; }
+          .p4cM { font: 400 10px Inter, sans-serif; fill: #55665F; }
+          .p4cN { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p4cA { font: 400 11px Inter, sans-serif; fill: #14201C; }
+        </style>
+
+        <text class="p4cH" x="14" y="20">Operating cash flow, month by month, from the same twelve months.</text>
+
+        <line x1="70" y1="147" x2="850" y2="147" stroke="#8FBFAE" stroke-width="1.2"></line>
+        <text class="p4cM" x="36" y="151">zero</text>
+        <text class="p4cM" x="30" y="294">month</text>
+
+        <rect x="82.5" y="50" width="40" height="97" fill="#175E4C"></rect>
+        <rect x="147.5" y="147" width="40" height="103.1" fill="#9A3412"></rect>
+        <rect x="212.5" y="147" width="40" height="94.7" fill="#9A3412"></rect>
+        <rect x="277.5" y="147" width="40" height="85.9" fill="#9A3412"></rect>
+        <rect x="342.5" y="147" width="40" height="76.8" fill="#9A3412"></rect>
+        <rect x="407.5" y="147" width="40" height="67.4" fill="#9A3412"></rect>
+        <rect x="472.5" y="147" width="40" height="57.5" fill="#9A3412"></rect>
+        <rect x="537.5" y="147" width="40" height="47.2" fill="#9A3412"></rect>
+        <rect x="602.5" y="147" width="40" height="36.6" fill="#9A3412"></rect>
+        <rect x="667.5" y="147" width="40" height="25.5" fill="#9A3412"></rect>
+        <rect x="732.5" y="147" width="40" height="13.9" fill="#9A3412"></rect>
+        <rect x="797.5" y="147" width="40" height="2.4" fill="#9A3412"></rect>
+
+        <text class="p4cP" x="102.5" y="42" text-anchor="middle">£22,062</text>
+        <text class="p4cV" x="167.5" y="263" text-anchor="middle">-£23,481</text>
+        <text class="p4cV" x="232.5" y="255" text-anchor="middle">-£21,565</text>
+        <text class="p4cV" x="297.5" y="246" text-anchor="middle">-£19,571</text>
+        <text class="p4cV" x="362.5" y="237" text-anchor="middle">-£17,497</text>
+        <text class="p4cV" x="427.5" y="227" text-anchor="middle">-£15,338</text>
+        <text class="p4cV" x="492.5" y="217" text-anchor="middle">-£13,093</text>
+        <text class="p4cV" x="557.5" y="207" text-anchor="middle">-£10,756</text>
+        <text class="p4cV" x="622.5" y="197" text-anchor="middle">-£8,325</text>
+        <text class="p4cV" x="687.5" y="186" text-anchor="middle">-£5,796</text>
+        <text class="p4cV" x="752.5" y="174" text-anchor="middle">-£3,165</text>
+        <text class="p4cV" x="817.5" y="162" text-anchor="middle">-£427</text>
+
+        <text class="p4cA" x="250" y="78">Positive once, in month 1, and never again in the year.</text>
+        <text class="p4cA" x="250" y="98">Worst in month 2, then better every single month.</text>
+        <text class="p4cA" x="250" y="118">Still short by £427 in month 12, which is short.</text>
+
+        <text class="p4cM" x="102.5" y="290" text-anchor="middle">1</text>
+        <text class="p4cM" x="167.5" y="290" text-anchor="middle">2</text>
+        <text class="p4cM" x="232.5" y="290" text-anchor="middle">3</text>
+        <text class="p4cM" x="297.5" y="290" text-anchor="middle">4</text>
+        <text class="p4cM" x="362.5" y="290" text-anchor="middle">5</text>
+        <text class="p4cM" x="427.5" y="290" text-anchor="middle">6</text>
+        <text class="p4cM" x="492.5" y="290" text-anchor="middle">7</text>
+        <text class="p4cM" x="557.5" y="290" text-anchor="middle">8</text>
+        <text class="p4cM" x="622.5" y="290" text-anchor="middle">9</text>
+        <text class="p4cM" x="687.5" y="290" text-anchor="middle">10</text>
+        <text class="p4cM" x="752.5" y="290" text-anchor="middle">11</text>
+        <text class="p4cM" x="817.5" y="290" text-anchor="middle">12</text>
+
+        <rect x="14" y="302" width="852" height="52" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p4cN" x="30" y="324">An improving series can still be a draining one.</text>
+        <text class="p4cM" x="30" y="342">Eleven consecutive months of improvement, and the bank balance went down in every one of them, because every bar is below the line.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the month 1 bar is positive because the working capital delta is zero that month by construction, which is a modelling choice rather than a finding.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Why the column improves while the balance falls<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Profit grows faster than the working capital build does, so the gap between them narrows every month. That is the improvement. But the gap is still a gap: minus £3,165 in month 11 and minus £427 in month 12 are smaller drains, not deposits.</p>
+        <p>A level only rises when the flow into it is positive. Reading an improving flow as a recovering level is the most common misreading of a cash flow statement, and it is comfortable because the direction of travel looks right.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Month 1 is a modelling choice, not a result<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Opening receivables, inventory and payables are set consistently with month 1 activity, so the working capital delta in month 1 is exactly zero and operating cash flow that month is <strong>£22,062</strong>. That figure is real output from the model and it is not evidence about Marchmont.</p>
+        <p>Any model with a constructed opening position has a month 1 like this. Quoting it as a finding is a mistake worth making once, in private, rather than in a board pack.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Reproducing the column<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <div class="prompt-box"><span class="label">console</span>const m = MARCHMONT.run({}, 12);
+
+m.rows.map(r =&gt; [r.month, Math.round(r.operatingCF)]);
+// month 1 positive, months 2 to 12 negative and rising
+
+MARCHMONT.cumulative(m, "operatingCF", 12);
+// -116951, the subtotal on the bridge
+
+MARCHMONT.cumulative(m, "netIncome", 12)
+  + MARCHMONT.cumulative(m, "depreciation", 12)
+  - MARCHMONT.cumulative(m, "deltaWC", 12);
+// the same figure, rebuilt from its three parts</div>
+        <p>The third expression is the check worth keeping. A subtotal that cannot be rebuilt from the lines above it is a subtotal that has picked something up on the way.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 4 ============ -->
+  <section class="section" id="part-4">
+    <div class="section-kicker">
+      <span class="klabel">Part 4 · covers the arguments</span>
+      <h2>Where a movement belongs, and who gets to decide</h2>
+      <span class="tag concept">7 min live</span>
+    </div>
+    <p class="lede">The bridge is arithmetic and does not argue. The three headed sections it is usually printed under do argue, and so does the adjective in free cash flow. Both disputes move published figures without a pound of bank activity changing.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The three sections of a cash flow statement. Operating covers trading, net income and the timing adjustments, and comes to minus 116,951 pounds for Marchmont over twelve months. Investing covers buying and selling long lived assets, and is 180,310 pounds of capital spending. Financing covers money from and to lenders and owners, and for Marchmont it is empty because debt is fixed at 300,000 pounds and nothing is drawn or repaid. Below, a first note records that interest paid sits inside net income and therefore inside operating here, that one reporting framework lets a preparer place it in financing instead while another requires operating, and that moving it changes the operating figure without any bank activity changing. A second note records that the word free has no agreed subtraction list.">
+        <style>
+          .p4dH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p4dT { font: 800 12.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p4dS { font: 400 10.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p4dB { font: 800 11.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p4dK { font: 800 12px Inter, sans-serif; fill: #9A3412; }
+          .p4dC { font: 400 10.5px Inter, sans-serif; fill: #14201C; }
+          .p4dN { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p4dM { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+        </style>
+
+        <text class="p4dH" x="14" y="20">Three sections. The arithmetic is settled. The sorting is not.</text>
+
+        <rect x="14" y="34" width="268" height="132" rx="10" fill="#175E4C"></rect>
+        <text class="p4dT" x="32" y="58">Operating</text>
+        <text class="p4dS" x="32" y="80">Trading. Net income, then the</text>
+        <text class="p4dS" x="32" y="98">timing adjustments.</text>
+        <text class="p4dB" x="32" y="124">-£116,951</text>
+        <text class="p4dS" x="32" y="146">twelve months, Marchmont</text>
+
+        <rect x="306" y="34" width="268" height="132" rx="10" fill="#0C3A2E"></rect>
+        <text class="p4dT" x="324" y="58">Investing</text>
+        <text class="p4dS" x="324" y="80">Buying and selling assets that</text>
+        <text class="p4dS" x="324" y="98">last more than a year.</text>
+        <text class="p4dB" x="324" y="124">£180,310 of capex</text>
+        <text class="p4dS" x="324" y="146">twelve months, Marchmont</text>
+
+        <rect x="598" y="34" width="268" height="132" rx="10" fill="#9A3412"></rect>
+        <text class="p4dT" x="616" y="58">Financing</text>
+        <text class="p4dS" x="616" y="80">Money from and to lenders</text>
+        <text class="p4dS" x="616" y="98">and owners.</text>
+        <text class="p4dB" x="616" y="124">Empty, in this model</text>
+        <text class="p4dS" x="616" y="146">debt stays at £300,000 throughout</text>
+
+        <rect x="14" y="182" width="852" height="64" rx="9" fill="#FFF7ED" stroke="#9A3412"></rect>
+        <text class="p4dK" x="30" y="204">Argument one: interest paid.</text>
+        <text class="p4dC" x="30" y="222">It is inside net income here, so it lands in operating. One reporting framework lets a preparer put it in financing instead;</text>
+        <text class="p4dC" x="30" y="238">another requires operating. The operating figure moves either way, and not one pound of bank activity has changed.</text>
+
+        <rect x="14" y="260" width="852" height="68" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p4dN" x="30" y="282">Argument two: the word free.</text>
+        <text class="p4dM" x="30" y="300">Here it is operating cash flow less all capex. Others subtract only the capex needed to stand still, or lease payments too,</text>
+        <text class="p4dM" x="30" y="318">or dividends. Three analysts, three subtraction lists, all defensible, and three different headline figures.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - both arguments are about sorting, not about money. That is precisely why they are worth knowing before you compare two companies.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The interest argument, stated fairly<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>One side says interest is a cost of running the business as it is currently funded, so it belongs with trading and operating cash flow should be struck after it. On that view, moving interest out of operating flatters a leveraged company and makes it look like a lightly geared one.</p>
+        <p>The other side says interest is a payment to a capital provider, exactly like a dividend, and that operating cash flow should describe what the assets produce regardless of who financed them. On that view, leaving interest in operating makes two identical businesses look different purely because one borrowed.</p>
+        <p>Both are coherent and the frameworks have not converged. In the Marchmont engine interest is deducted before net income, so it is inside the operating figure, and the minus £116,951 is an after interest number. Saying which convention a figure used is more useful than defending either one.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The word free, and the question that replaces it<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>There is no single agreed definition of free cash flow. Subtract all capex and you get minus £297,261. Subtract only the capex needed to keep the existing instruments running and you get something less negative, because part of Marchmont's £180,310 is buying capacity for growth rather than replacing what wore out. Both figures are honestly labelled free cash flow.</p>
+        <p>The useful move is not to pick a winner. It is to ask what was subtracted to get there, which is a fair question to put to your own team as well as to somebody else's filing. A free cash flow figure with no stated subtraction list is not wrong, it is unreadable.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>What an empty financing section is telling you<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Marchmont's debt never moves in this model, no shares are issued and no dividend is paid, so the financing section is empty and free cash flow happens to equal the change in the bank balance exactly. That equality is a property of these assumptions, not a general rule, and it will stop holding the moment session 8 adds borrowing.</p>
+        <p>It is worth noticing in a real statement too. A company whose financing section is empty is living on what it generates. One whose operating section is negative and whose financing section is large is living on somebody else's money, which is a position rather than a verdict.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 5 ============ -->
+  <section class="section" id="part-5">
+    <div class="section-kicker">
+      <span class="klabel">Part 5 · build-along</span>
+      <h2>Build the bridge from the rows</h2>
+      <span class="tag build">22 min hands on</span>
+    </div>
+    <p class="lede">Six steps in the browser console on this page. <span class="mono">MARCHMONT</span> is loaded already, so nothing needs installing.</p>
+
+    <div class="steps">
+      <div class="step">
+        <h4>Rebuild the four lines from scratch</h4>
+        <p>Run <span class="mono">MARCHMONT.run({}, 12)</span> and use <span class="mono">cumulative</span> on netIncome, depreciation, deltaWC and capex. Write the four figures down in bridge order with their signs and check you land on minus £297,261. If you do not, you have a sign wrong, and which one is the exercise.</p>
+      </div>
+      <div class="step">
+        <h4>Prove the subtotal is not stored</h4>
+        <p>Compare <span class="mono">cumulative(m, "operatingCF", 12)</span> against netIncome plus depreciation less deltaWC, computed separately. They should agree to the penny. This is how you find out whether a subtotal in somebody else's model is a formula or a typed number.</p>
+      </div>
+      <div class="step">
+        <h4>Check the bridge against the bank balance</h4>
+        <p>Take <span class="mono">rows[11].cash</span> and subtract the opening cash of £250,000. The difference should equal twelve month free cash flow. When it does, the statement has explained the whole movement and there is nothing outstanding.</p>
+      </div>
+      <div class="step">
+        <h4>Find the month the sign settles</h4>
+        <p>Print operatingCF for all twelve months. Identify the last positive month and the worst month, and say in one sentence why the worst month is month 2 rather than month 12 when the business is much larger by then.</p>
+      </div>
+      <div class="step">
+        <h4>Move capex and watch the summary move</h4>
+        <p>Compute operating cash flow and free cash flow for the same run. The pair differ by £180,310 of capital spending. Decide which of the two you would put on the first page of a board pack, and write one line defending the choice to somebody who wanted the other one.</p>
+      </div>
+      <div class="step">
+        <h4>Re-run with a different collection setting</h4>
+        <p>Run <span class="mono">{ dso: 45 }</span> to twelve months and rebuild the bridge. Net income will not have moved at all. Say which of the four lines absorbed the entire change, and confirm the run still ties before you believe any of it.</p>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>The habit to keep.</strong> Never quote an operating cash flow figure without saying whether it is before or after interest, and never quote a free cash flow figure without saying what was subtracted. Both take four extra words and both prevent a comparison that was never valid.</p>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">Why is depreciation added back on the way from net income to operating cash flow?</p>
+      <div class="qopt">A · Because depreciation is an estimate and estimates are removed from cash figures</div>
+      <div class="qopt">B · Because it reduced profit without any money leaving the bank, so the bridge has to put it back</div>
+      <div class="qopt">C · Because the equipment will be sold later and the money will come back then</div>
+      <q class="qwhy">The test for every add back is the same: did this reduce profit without moving money? Marchmont's £102,025 of depreciation did, so it comes straight back. Capital spending is the mirror case and is subtracted for the opposite reason.</q>
+    </div>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">Marchmont's monthly operating cash flow improves in every month from month 2 to month 12, ending at minus £427. What does that mean for the bank balance?</p>
+      <div class="qopt">A · The balance recovered over those months, because the trend is upwards</div>
+      <div class="qopt">B · The balance was flat, because an improving flow cancels out</div>
+      <div class="qopt">C · The balance fell in every one of those months, because every figure is still below zero</div>
+      <q class="qwhy">A level only rises when the flow into it is positive. Eleven months of improvement with every month still negative is eleven more months of draining, just more slowly each time. Reading the direction of the flow as the direction of the level is the standard mistake.</q>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">Two companies report operating cash flow. One puts interest paid in operating, the other puts it in financing. What follows?</p>
+      <div class="qopt">A · The two figures are not comparable until you know which convention each used, even though both are correctly prepared</div>
+      <div class="qopt">B · One of them has made an error, because there is a single correct section for interest</div>
+      <div class="qopt">C · It makes no difference, because the bottom line change in cash is the same either way</div>
+      <q class="qwhy">The classification is genuinely disputed: one framework permits the choice and another requires operating, and both positions have a real argument behind them. The change in cash is indeed identical, which is exactly why the operating subtotal alone is not a comparison.</q>
+    </div>
+
+    <div class="quiz-score"></div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="homework">
+    <div class="section-kicker">
+      <span class="klabel">Before session 5</span>
+      <h2>Homework</h2>
+    </div>
+    <p class="lede">Thirty minutes, in the console and then on one real filing.</p>
+    <div class="steps">
+      <div class="step">
+        <h4>Bridge a published set of accounts</h4>
+        <p>Find any company's cash flow statement and mark each line as an add back, a working capital movement, an investing item or a financing item. Note every line you could not place confidently, because those are the classification choices somebody made on your behalf.</p>
+      </div>
+      <div class="step">
+        <h4>Write the tie check you will need next time</h4>
+        <p>Run the model to 48 months and confirm <span class="mono">MARCHMONT.ties(m)</span> returns ok before reading anything else from it. Session 5 takes that one line apart and then breaks it deliberately, so arrive knowing what it currently returns.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OFFICIAL ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Covered today</span>
+      <h2>What this session covers</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The indirect method, line by line</span><span class="note">£445,631, plus £102,025, less £664,607, less £180,310, landing on minus £297,261.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The sign rule for every adjustment</span><span class="note">Add back what reduced profit without moving money; subtract the reverse.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Operating cash flow against free cash flow</span><span class="note">Minus £116,951 before capex, minus £297,261 after it.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Why the method starts at profit</span><span class="note">A reader can rebuild it; the direct method's first line has to be taken on trust.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The monthly path</span><span class="note">Negative from month 2, improving every month, still minus £427 in month 12.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Two open arguments</span><span class="note">Where interest paid belongs, and what the word free subtracts.</span></div>
+      <div class="covered-row"><span class="status pill inkpill">◐</span><span class="name">Why the sheet the statement feeds has to tie</span><span class="note">Practitioner session 5, including breaking it on purpose.</span></div>
+      <div class="covered-row"><span class="status pill inkpill">◐</span><span class="name">Sizing the borrowing this path implies</span><span class="note">Practitioner session 8.</span></div>
+      <div class="covered-row"><span class="status pill light">○</span><span class="name">Discounting cash flows to a value</span><span class="note">A different subject with different tools; not covered here.</span></div>
+    </div>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="section" id="cheatsheet">
+    <div class="section-kicker">
+      <span class="klabel">Take this with you</span>
+      <h2>Cheat sheet</h2>
+    </div>
+    <div class="cheat">
+      <div class="cheat-item"><strong>The four moves.</strong> Net income, add back depreciation, less the working capital build, less capex.</div>
+      <div class="cheat-item"><strong>The Marchmont bridge.</strong> £445,631 + £102,025 - £664,607 = -£116,951, then -£180,310 = -£297,261.</div>
+      <div class="cheat-item"><strong>The sign rule.</strong> Add back what cost profit but not money. Subtract what cost money but not profit.</div>
+      <div class="cheat-item"><strong>The subtotal line.</strong> Operating cash flow is struck before capex. Free cash flow is struck after it.</div>
+      <div class="cheat-item"><strong>Monthly shape.</strong> Positive only in month 1, worst at minus £23,481 in month 2, minus £427 by month 12.</div>
+      <div class="cheat-item"><strong>Improving is not recovering.</strong> Every bar below the line is another month of draining.</div>
+      <div class="cheat-item"><strong>Interest.</strong> Disputed. Operating here, because it sits inside net income. Say which convention you used.</div>
+      <div class="cheat-item"><strong>Free cash flow.</strong> No agreed definition. Always ask what was subtracted to get there.</div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <div class="wrap">
+      <p>Practitioner session 4 of 10 · learn-finance-with-phoebe · by Phoebe Fu</p>
+      <nav class="pagenav">
+        <a href="p3-working-capital.html">← Practitioner session 3 · Working capital</a>
+        <a href="p5-the-balance-sheet-and-the-tie.html">Practitioner session 5 · The balance sheet and the tie →</a>
+      </nav>
+    </div>
+  </footer>
+
+</main>
+
+<script src="../assets/fin-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

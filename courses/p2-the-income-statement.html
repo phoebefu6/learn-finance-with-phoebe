@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Practitioner session 2 of 10. Ten lines in a fixed order, revenue down to net income, with what each one decides and where judgement enters. Marchmont earns 63,370 pounds in month 12 and its bank balance is minus 47,261.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="The income statement - learn finance with phoebe">
+<meta property="og:description" content="Practitioner session 2 of 10. Revenue, cost of sales, opex, EBITDA, depreciation, interest, tax, net income. The statement everybody quotes and the one furthest from the bank.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-finance-with-phoebe/courses/p2-the-income-statement.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-finance-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The income statement - learn finance with phoebe">
+<meta name="twitter:description" content="Ten lines, a fixed order, and judgement in almost every one of them.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-finance-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Practitioner session 2 · The income statement - learn finance with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-finance-with-phoebe</a> / Practitioner session 2 of 10</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Finance with Phoebe · Practitioner session 2 of 10</div>
+    <h1>The income <span class="accent">statement</span></h1>
+    <p class="sub">Ten lines, in an order that is not decorative. Each line subtracts one kind of cost from what is left of the one above it, so where a cost sits changes which subtotal it damages even when it leaves net income untouched. Marchmont starts at revenue of £400,000 in month 1 and finishes month 1 with net income of £14,062. By month 12 revenue is £615,782 and net income is £63,370, and it rises in every month in between. That bottom figure is the one quoted in every meeting the company holds. In the same month 12 the bank balance is minus £47,261. Both come out of the same ten lines.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Hands on</span>
+      <span class="chip audience">Analysts who build the model</span>
+      <span class="chip audience">Anyone who signs off a P&amp;L</span>
+      <span class="chip time">60 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-4 · Welcome</span>
+      <span class="a2" style="flex:5">4-26 · Ten lines, one at a time</span>
+      <span class="a3" style="flex:6">26-54 · Build-along: print it, move it</span>
+      <span class="a4" style="flex:1">54-60 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where this sits in the model</h2>
+    </div>
+    <p class="lede">Session 1 put two wires in: net income into equity, the change in cash into the cash line. Today walks the first of those wires from the top. Revenue, cost of sales, gross profit, operating expenses split fixed and variable, EBITDA, depreciation, EBIT, interest, tax, net income. Ten lines, each with a job, each with somewhere that judgement enters. Session 3 is working capital and the three dials that turn these lines into a cash position. Session 4 builds the cash flow statement that connects them. The company is <strong>Marchmont Instruments</strong> and the engine is <span class="mono">assets/fin-live.js</span>, loaded on this page.</p>
+
+    <div class="legend">
+      <span class="pill">Live = run together in the session</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">🔍 Every diagram zooms</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with today.</strong> The ten lines in order, and the ability to say for any cost which subtotal it lands in and which it does not. The three places judgement actually enters, which are revenue recognition, the cost of sales boundary and the depreciation life. The argument about EBITDA, from both sides, unresolved. And the month 12 pair that makes the practitioner point: net income £63,370 against a bank balance of minus £47,261, in the same month, from the same transactions.</p>
+    </div>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Why the order matters more than the lines<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>An income statement is a single subtraction repeated nine times. Every line takes one category of cost off the running total and publishes the remainder under a name. The names are the useful part: gross profit, EBITDA, EBIT and net income are four answers to four different questions, and they exist as separate subtotals because different people need to stop reading at different points.</p>
+        <p>The consequence is that moving a cost from one category to another changes several subtotals while leaving net income identical. That is not a loophole, it is the arithmetic working as designed, and it is the first thing to check when two people quoting the same business quote different margins.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>Marchmont employs a quality engineer who signs off every instrument before it ships. Put that salary in cost of sales and gross margin falls. Put it in operating expenses and gross margin holds while EBITDA falls by the same amount. Net income is the same figure either way, and both treatments are defensible.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The fields on a row, and how to get one<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Every income statement line is a field on a row. One call returns them all, and there are no stored results anywhere in the course.</p>
+        <div class="prompt-box"><span class="label">console</span>const m = MARCHMONT.run({}, 12);
+const r = m.rows[0];
+
+r.revenue      r.cogs        r.grossProfit
+r.opex         r.ebitda      r.depreciation
+r.ebit         r.interest    r.tax
+r.netIncome</div>
+        <p>The assumptions that drive them are on <span class="mono">MARCHMONT.BASE</span> and any of them can be overridden per run.</p>
+        <div class="prompt-box"><span class="label">assumptions used today</span>startRevenue      400000    month 1 revenue, in pounds
+growth            0.04      month on month revenue growth
+grossMargin       0.42
+opexFixed         95000     salaries, rent, the things that do not flex
+opexVariable      0.11      as a share of revenue
+taxRate           0.25
+interestRate      0.09      annual, on drawn debt
+openingDebt       300000
+openingNetFixed   480000    opening net book value of fixed assets
+depreciationLife  60        months</div>
+        <p class="mono">No credentials of any kind are involved. If an example ever needs one, the string is the word placeholder.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 1 ============ -->
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers the ten lines</span>
+      <h2>Ten lines, in a fixed order</h2>
+      <span class="tag concept">12 min live</span>
+    </div>
+    <p class="lede">Read down the ladder once and the shape of every income statement you will ever be handed is on the page. The formulas are the engine's own, so a figure on any later page can be traced back to one of these rows.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 464" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The income statement as ten stacked rows, each with its formula and a note. Revenue equals the previous month grown by the growth rate, 400,000 pounds in month 1 and 615,782 in month 12. Cost of sales equals revenue times one minus the gross margin. Gross profit equals revenue less cost of sales. Operating expenses equal a fixed 95,000 pounds plus 11 percent of revenue. EBITDA equals gross profit less operating expenses. Depreciation equals net fixed assets divided by the 60 month life and takes no money out of the bank. EBIT equals EBITDA less depreciation. Interest equals debt times the 9 percent annual rate divided by twelve. Tax is 25 percent of pretax profit and zero on a loss. Net income equals pretax profit less tax, 14,062 pounds in month 1 and 63,370 in month 12.">
+        <style>
+          .p2aH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p2aL { font: 800 11.5px Inter, sans-serif; fill: #14201C; }
+          .p2aLW { font: 800 11.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p2aF { font: 400 11px Inter, sans-serif; fill: #55665F; }
+          .p2aFD { font: 400 11px Inter, sans-serif; fill: #175E4C; }
+          .p2aFW { font: 400 11px Inter, sans-serif; fill: #FFFFFF; }
+          .p2aN { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+          .p2aNW { font: 400 10.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p2aB { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p2aM { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+        </style>
+
+        <text class="p2aH" x="14" y="20">Line, formula as the engine writes it, and what it is for.</text>
+
+        <rect x="14" y="34" width="852" height="32" rx="7" fill="#175E4C"></rect>
+        <text class="p2aLW" x="30" y="55">Revenue</text>
+        <text class="p2aFW" x="300" y="55">revenue x (1 + growth)</text>
+        <text class="p2aNW" x="580" y="55">Month 1 £400,000, month 12 £615,782</text>
+
+        <rect x="14" y="70" width="852" height="32" rx="7" fill="#FFFFFF" stroke="#DCE8E3"></rect>
+        <text class="p2aL" x="30" y="91">Cost of sales</text>
+        <text class="p2aF" x="300" y="91">revenue x (1 - grossMargin)</text>
+        <text class="p2aN" x="580" y="91">grossMargin 0.42. Materials and build</text>
+
+        <rect x="14" y="106" width="852" height="32" rx="7" fill="#C9E3D9"></rect>
+        <text class="p2aL" x="30" y="127">= Gross profit</text>
+        <text class="p2aFD" x="300" y="127">revenue - cogs</text>
+        <text class="p2aN" x="580" y="127">What is left to pay for everything else</text>
+
+        <rect x="14" y="142" width="852" height="32" rx="7" fill="#FFFFFF" stroke="#DCE8E3"></rect>
+        <text class="p2aL" x="30" y="163">Operating expenses</text>
+        <text class="p2aF" x="300" y="163">opexFixed + opexVariable x revenue</text>
+        <text class="p2aN" x="580" y="163">£95,000 flat, plus 11% of revenue</text>
+
+        <rect x="14" y="178" width="852" height="32" rx="7" fill="#C9E3D9"></rect>
+        <text class="p2aL" x="30" y="199">= EBITDA</text>
+        <text class="p2aFD" x="300" y="199">grossProfit - opex</text>
+        <text class="p2aN" x="580" y="199">Trading, before the four lines below</text>
+
+        <rect x="14" y="214" width="852" height="32" rx="7" fill="#FFFFFF" stroke="#DCE8E3"></rect>
+        <text class="p2aL" x="30" y="235">Depreciation</text>
+        <text class="p2aF" x="300" y="235">netFixed / depreciationLife</text>
+        <text class="p2aN" x="580" y="235">60 months. No money leaves the bank</text>
+
+        <rect x="14" y="250" width="852" height="32" rx="7" fill="#C9E3D9"></rect>
+        <text class="p2aL" x="30" y="271">= EBIT</text>
+        <text class="p2aFD" x="300" y="271">ebitda - depreciation</text>
+        <text class="p2aN" x="580" y="271">Operating profit, machines included</text>
+
+        <rect x="14" y="286" width="852" height="32" rx="7" fill="#FFFFFF" stroke="#DCE8E3"></rect>
+        <text class="p2aL" x="30" y="307">Interest</text>
+        <text class="p2aF" x="300" y="307">debt x interestRate / 12</text>
+        <text class="p2aN" x="580" y="307">9% a year on drawn debt. Financing</text>
+
+        <rect x="14" y="322" width="852" height="32" rx="7" fill="#FFFFFF" stroke="#DCE8E3"></rect>
+        <text class="p2aL" x="30" y="343">Tax</text>
+        <text class="p2aF" x="300" y="343">pretax x taxRate, zero on a loss</text>
+        <text class="p2aN" x="580" y="343">taxRate 0.25. pretax = ebit - interest</text>
+
+        <rect x="14" y="358" width="852" height="32" rx="7" fill="#0C3A2E"></rect>
+        <text class="p2aLW" x="30" y="379">= Net income</text>
+        <text class="p2aFW" x="300" y="379">pretax - tax</text>
+        <text class="p2aNW" x="580" y="379">Month 1 £14,062, month 12 £63,370</text>
+
+        <rect x="14" y="402" width="852" height="52" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p2aB" x="30" y="424">Four subtotals, because four people stop reading in four different places.</text>
+        <text class="p2aM" x="30" y="442">Gross profit, EBITDA, EBIT and net income answer different questions. Quoting one as if it were another is where most arguments start.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - every formula here is the line the engine actually runs, which is why a number on any later page can be traced back to a row.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The same ten lines, priced<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The formulas above, run. Month 1 is the first month of the base case and month 12 is the last month before the first year closes. Reading down either column is the whole statement, and reading across is what a year of 4 percent monthly growth does to each line.</p>
+        <table style="width:100%;border-collapse:collapse;font-size:.92rem">
+          <tbody>
+            <tr><td></td><td style="padding:.3rem 0;text-align:right;font-weight:800;color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em">Month 1</td><td style="padding:.3rem 0 .3rem 1.4rem;text-align:right;font-weight:800;color:var(--muted);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em">Month 12</td></tr>
+            <tr><td style="padding:.32rem .6rem .32rem 0;font-weight:400;">Revenue</td><td style="padding:.32rem 0;text-align:right;font-weight:400;">£400,000</td><td style="padding:.32rem 0 .32rem 1.4rem;text-align:right;font-weight:400;">£615,782</td></tr>
+            <tr><td style="padding:.32rem .6rem .32rem 0;font-weight:400;">Cost of sales</td><td style="padding:.32rem 0;text-align:right;font-weight:400;">-£232,000</td><td style="padding:.32rem 0 .32rem 1.4rem;text-align:right;font-weight:400;">-£357,153</td></tr>
+            <tr><td style="padding:.32rem .6rem .32rem 0;font-weight:800;border-top:1px solid var(--hairline);">Gross profit</td><td style="padding:.32rem 0;text-align:right;font-weight:800;border-top:1px solid var(--hairline);">£168,000</td><td style="padding:.32rem 0 .32rem 1.4rem;text-align:right;font-weight:800;border-top:1px solid var(--hairline);">£258,628</td></tr>
+            <tr><td style="padding:.32rem .6rem .32rem 0;font-weight:400;">Operating expenses</td><td style="padding:.32rem 0;text-align:right;font-weight:400;">-£139,000</td><td style="padding:.32rem 0 .32rem 1.4rem;text-align:right;font-weight:400;">-£162,736</td></tr>
+            <tr><td style="padding:.32rem .6rem .32rem 0;font-weight:800;border-top:1px solid var(--hairline);">EBITDA</td><td style="padding:.32rem 0;text-align:right;font-weight:800;border-top:1px solid var(--hairline);">£29,000</td><td style="padding:.32rem 0 .32rem 1.4rem;text-align:right;font-weight:800;border-top:1px solid var(--hairline);">£95,892</td></tr>
+            <tr><td style="padding:.32rem .6rem .32rem 0;font-weight:400;">Depreciation</td><td style="padding:.32rem 0;text-align:right;font-weight:400;">-£8,000</td><td style="padding:.32rem 0 .32rem 1.4rem;text-align:right;font-weight:400;">-£9,149</td></tr>
+            <tr><td style="padding:.32rem .6rem .32rem 0;font-weight:800;border-top:1px solid var(--hairline);">EBIT</td><td style="padding:.32rem 0;text-align:right;font-weight:800;border-top:1px solid var(--hairline);">£21,000</td><td style="padding:.32rem 0 .32rem 1.4rem;text-align:right;font-weight:800;border-top:1px solid var(--hairline);">£86,743</td></tr>
+            <tr><td style="padding:.32rem .6rem .32rem 0;font-weight:400;">Interest</td><td style="padding:.32rem 0;text-align:right;font-weight:400;">-£2,250</td><td style="padding:.32rem 0 .32rem 1.4rem;text-align:right;font-weight:400;">-£2,250</td></tr>
+            <tr><td style="padding:.32rem .6rem .32rem 0;font-weight:400;">Tax</td><td style="padding:.32rem 0;text-align:right;font-weight:400;">-£4,687</td><td style="padding:.32rem 0 .32rem 1.4rem;text-align:right;font-weight:400;">-£21,123</td></tr>
+            <tr><td style="padding:.32rem .6rem .32rem 0;font-weight:800;border-top:2px solid var(--indigo);">Net income</td><td style="padding:.32rem 0;text-align:right;font-weight:800;border-top:2px solid var(--indigo);">£14,062</td><td style="padding:.32rem 0 .32rem 1.4rem;text-align:right;font-weight:800;border-top:2px solid var(--indigo);">£63,370</td></tr>
+          </tbody>
+        </table>
+        <p>Revenue grew by 54 percent over the eleven months and net income grew by 351 percent, because the fixed £95,000 of operating expenses and the £2,250 of interest did not grow with it. That is operating leverage, and it is the reason the profit line looks so healthy at exactly the point the cash position is failing.</p>
+      </div>
+    </details>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Revenue, and the moment a sale becomes a sale<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Revenue is what the business earned in the period, whether or not anybody paid. Marchmont despatches an instrument, raises an invoice, and the revenue belongs to that month. The customer has 75 days. Nothing about that gap appears anywhere on this statement, which is the single most important thing to know about the top line.</p>
+        <p><strong>What it decides.</strong> Whether a product line is growing, what the sales team is measured on, and the base that almost every other ratio is divided by. <strong>Where judgement enters.</strong> The moment of recognition. An instrument sold on its own is easy. An instrument sold with installation, calibration and a twelve month service contract is one price covering three things delivered at three different times, and splitting it is a decision somebody has to make and defend.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>Two finance teams at two instrument makers can book identical contracts and report different revenue in the same quarter, entirely legitimately, because they split the service element differently. Comparing their growth rates without asking is comparing two policies.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Cost of sales, gross profit, and the boundary people argue about<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Cost of sales is what it cost to produce the specific things sold in the period. In the engine it is one multiplication, <span class="mono">revenue x (1 - grossMargin)</span>, because gross margin is an input here. In a real business gross margin is an output: it is whatever is left after the costing decisions, and the costing decisions are arguable.</p>
+        <p>Gross profit is what survives. A <span class="mono">grossMargin</span> of 0.42 means 42 pence in every pound of revenue is still available once the instrument itself has been paid for, and everything below this line has to come out of those 42 pence.</p>
+        <p><strong>What it decides.</strong> The pricing floor, how much discount a salesperson can give away before a deal stops being worth doing, and whether a product line earns its shelf space. <strong>Where judgement enters.</strong> The boundary. Factory rent is usually above the line. The quality engineer is arguable. The customer support team who talk buyers through a calibration are arguable in the other direction. Whoever sets that boundary sets the gross margin, and the margin then gets compared against competitors who drew it somewhere else.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>EBITDA, and the argument that does not settle<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>EBITDA is gross profit less operating expenses: earnings before interest, tax, depreciation and amortisation. It is the most quoted subtotal in business and the most contested, and the argument is worth carrying around unresolved rather than picking a side and forgetting there was one.</p>
+        <p><strong>The case for it.</strong> Interest depends on how a company chose to fund itself. Tax depends on which country it sits in. Depreciation depends on a policy somebody wrote down about how long a machine lasts. None of the three tells you anything about whether the business is good at making and selling instruments. Strip them out and two companies become comparable on the only thing being compared, which is operations. On this reading EBITDA is not a trick, it is the correction that makes the comparison honest.</p>
+        <p><strong>The case against it.</strong> Marchmont's instruments are built on machines, and machines wear out. Depreciation is the cost of that wearing out, spread across the months that benefit from it. Reporting profit before it is reporting profit before a real cost, and the reason the measure is popular is that it is the flattering one. There is a harder version of the objection: EBITDA is routinely described as a proxy for cash generation, and it is not. Marchmont's month 12 net income is £63,370, so every subtotal above it is positive, and its operating cash flow that month is minus £427.</p>
+        <p>Both cases are right about something. The practical move is not to resolve them but to notice which one the person quoting the number is making, and to ask for the depreciation charge whenever EBITDA arrives on its own.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2 ============ -->
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers the cost structure</span>
+      <h2>Fixed does not move, and that is where the leverage is</h2>
+      <span class="tag concept">10 min live</span>
+    </div>
+    <p class="lede">Operating expenses are one line in the statement and two completely different things in the business. £95,000 of it does not care what revenue did. The rest is 11 pence in every pound sold. Draw month 1 and month 12 side by side and the consequence is visible without any arithmetic.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 422" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two stacked bars, month 1 with revenue of 400,000 pounds and month 12 with revenue of 615,782 pounds, each split into cost of sales, variable operating expenses, fixed operating expenses and EBITDA. The cost of sales and variable operating expense slabs are taller in month 12 because they scale with revenue. The fixed operating expense slab is drawn at exactly the same height in both bars because it is 95,000 pounds in each. The EBITDA slab at the top of month 12 is more than three times the height of the one in month 1, because the fixed slab did not grow with the rest.">
+        <style>
+          .p2bH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p2bA { font: 800 10.5px Inter, sans-serif; fill: #14201C; }
+          .p2bL { font: 800 11.5px Inter, sans-serif; fill: #14201C; }
+          .p2bD { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+          .p2bB { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p2bM { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+        </style>
+
+        <text class="p2bH" x="14" y="20">One revenue pound, split four ways, in two different months.</text>
+
+        <line x1="60" y1="330" x2="380" y2="330" stroke="#CBD9D3" stroke-width="1"></line>
+
+        <rect x="90" y="233" width="100" height="97" fill="#0C3A2E"></rect>
+        <rect x="90" y="214" width="100" height="19" fill="#175E4C"></rect>
+        <rect x="90" y="174" width="100" height="40" fill="#8FBFAE"></rect>
+        <rect x="90" y="162" width="100" height="12" fill="#9A3412"></rect>
+
+        <rect x="250" y="180" width="100" height="150" fill="#0C3A2E"></rect>
+        <rect x="250" y="152" width="100" height="28" fill="#175E4C"></rect>
+        <rect x="250" y="112" width="100" height="40" fill="#8FBFAE"></rect>
+        <rect x="250" y="71" width="100" height="41" fill="#9A3412"></rect>
+
+        <text class="p2bA" x="72" y="348">month 1 · £400,000</text>
+        <text class="p2bA" x="232" y="348">month 12 · £615,782</text>
+
+        <rect x="400" y="44" width="466" height="270" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+
+        <rect x="418" y="65" width="14" height="14" rx="3" fill="#0C3A2E"></rect>
+        <text class="p2bL" x="440" y="76">Cost of sales</text>
+        <text class="p2bD" x="418" y="94">revenue x (1 - grossMargin). Scales with every pound sold.</text>
+
+        <rect x="418" y="127" width="14" height="14" rx="3" fill="#175E4C"></rect>
+        <text class="p2bL" x="440" y="138">Variable operating expenses</text>
+        <text class="p2bD" x="418" y="156">11% of revenue. Scales too, at a different rate.</text>
+
+        <rect x="418" y="189" width="14" height="14" rx="3" fill="#8FBFAE"></rect>
+        <text class="p2bL" x="440" y="200">Fixed operating expenses</text>
+        <text class="p2bD" x="418" y="218">£95,000. Identical in both bars, which is the point.</text>
+
+        <rect x="418" y="251" width="14" height="14" rx="3" fill="#9A3412"></rect>
+        <text class="p2bL" x="440" y="262">EBITDA</text>
+        <text class="p2bD" x="418" y="280">What is left. It grows faster than revenue did.</text>
+
+        <rect x="14" y="362" width="852" height="52" rx="9" fill="#FFF7ED" stroke="#9A3412"></rect>
+        <text class="p2bB" x="30" y="384">Operating leverage is just a slab that refused to grow.</text>
+        <text class="p2bM" x="30" y="402">It runs the other way with equal force. Revenue falls, the fixed slab stays, and the top of the bar disappears first.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the fixed slab is drawn at the same pixel height in both bars because it is the same £95,000 in both months.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The split is a model, not a fact<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The engine writes operating expenses as <span class="mono">opexFixed + opexVariable x revenue</span>, which makes the split look like a property of the business. It is a description of a range. A sales commission really is variable. Rent is fixed until the lease ends and then it is a negotiation. A sales manager is fixed until the territory needs a second one, at which point the whole cost steps up at once and stays there.</p>
+        <p><strong>What it decides.</strong> What a growth plan actually costs, and how far revenue can fall before the business is in trouble. Both of those questions are answered by the fixed slab and neither is answered by the total. <strong>Where judgement enters.</strong> The boundary again, and the range over which the split is even true. A model that says opex is £95,000 plus 11% is telling you something useful about a doubling and something misleading about a tenfold.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Depreciation, and the life nobody can check<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Marchmont bought its production equipment before month 1 and the money left the bank then. Depreciation spreads that cost across the months that benefit from the machine, at <span class="mono">netFixed / depreciationLife</span>, with a life of 60 months.</p>
+        <p><strong>What it decides.</strong> Very little directly, which is part of why the EBITDA argument exists. Its real job is to stop a business that bought a machine looking permanently more profitable than one that rents an identical machine. <strong>Where judgement enters.</strong> The life. Sixty months is a choice somebody made. Choose 36 and monthly profit falls; choose 120 and it rises. Same machine, same money already spent, a different reported profit, and no external party can verify which number is right because the truth depends on how long the machine actually lasts, which nobody knows yet.</p>
+        <div class="prompt-box"><span class="label">console</span>const a = MARCHMONT.run({}, 12);
+const b = MARCHMONT.run({ depreciationLife: 36 }, 12);
+
+a.rows[11].netIncome;   // the 60 month life
+b.rows[11].netIncome;   // the 36 month life, on identical operations
+
+a.rows[11].freeCF;
+b.rows[11].freeCF;      // predict the direction before you look</div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Interest, tax, and what they are not telling you<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>Interest.</strong> <span class="mono">debt x interestRate / 12</span>, at 9% a year on drawn debt. This is the price of the funding decision, not of the trading. Two instrument makers with identical factories, identical customers and identical EBIT will report different net income if one of them borrowed and the other did not, and the difference says nothing about which is the better business at making instruments.</p>
+        <p><strong>Tax.</strong> 25% of pretax profit, and nothing at all on a loss. The engine is deliberately simple here and real corporate tax is not a rate multiplied by a profit: it is computed on a different profit figure, in a different order, with reliefs, timing differences and losses carried between periods. Treat the tax line in any model as an approximation flagged as one, and never as a filing position.</p>
+        <p><strong>Net income.</strong> What the owners' claim on the business rose by this month. It is the figure that leaves the income statement and lands in equity, and it is where session 1 wired the first of the two links.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3 ============ -->
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers the distance to the bank</span>
+      <h2>The most quoted statement is the furthest from the money</h2>
+      <span class="tag concept">6 min live</span>
+    </div>
+    <p class="lede">Every line above is correct and not one of them is a bank balance. Put Marchmont's month 12 up twice, once as the income statement reports it and once as the bank saw it, and the gap is the whole reason there are three statements.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 296" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels for the same month. On the left, month 12 on the income statement: revenue 615,782 pounds, net income 63,370 pounds, the best month the company has had, and nothing on the panel is a bank balance. On the right, month 12 at the bank: operating cash flow minus 427 pounds, free cash flow minus 18,901 pounds, and cash at the end of the month minus 47,261 pounds, every figure of which is money. A band below records that both panels are computed from the same transactions and that the difference is timing rather than performance.">
+        <style>
+          .p2cH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p2cT { font: 800 12.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p2cS { font: 400 11.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p2cA { font: 800 11.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p2cB { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p2cM { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+        </style>
+
+        <text class="p2cH" x="14" y="20">Marchmont, month 12, from both ends of the same books.</text>
+
+        <rect x="14" y="34" width="418" height="180" rx="10" fill="#175E4C"></rect>
+        <text class="p2cT" x="32" y="60">On the income statement</text>
+        <text class="p2cS" x="32" y="92">Revenue</text>
+        <text class="p2cA" x="414" y="92" text-anchor="end">£615,782</text>
+        <text class="p2cS" x="32" y="118">Net income</text>
+        <text class="p2cA" x="414" y="118" text-anchor="end">£63,370</text>
+        <text class="p2cS" x="32" y="144">Better than every month before it</text>
+        <text class="p2cA" x="32" y="182">Nothing on this panel is money.</text>
+
+        <rect x="448" y="34" width="418" height="180" rx="10" fill="#9A3412"></rect>
+        <text class="p2cT" x="466" y="60">At the bank</text>
+        <text class="p2cS" x="466" y="92">Operating cash flow</text>
+        <text class="p2cA" x="848" y="92" text-anchor="end">-£427</text>
+        <text class="p2cS" x="466" y="118">Free cash flow</text>
+        <text class="p2cA" x="848" y="118" text-anchor="end">-£18,901</text>
+        <text class="p2cS" x="466" y="144">Cash at the end of the month</text>
+        <text class="p2cA" x="848" y="144" text-anchor="end">-£47,261</text>
+        <text class="p2cA" x="466" y="182">Every figure here is money.</text>
+
+        <rect x="14" y="228" width="852" height="56" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p2cB" x="30" y="250">Same month, same transactions, two panels that would lead to opposite decisions.</text>
+        <text class="p2cM" x="30" y="270">The income statement is the one that gets circulated, and it is the one that answers the question nobody in a cash meeting is asking.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - neither panel is wrong. Sessions 3 and 4 account for every pound of the distance between them.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Three reasons the gap is structural<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Nothing has gone wrong. Three of the ten lines above are recorded on a different clock from the money.</p>
+        <ul>
+          <li><strong>Revenue.</strong> Recorded on despatch. Collected 75 days later. In a month where sales grew, more was recorded than was collected, and the difference is sitting in a receivables balance.</li>
+          <li><strong>Cost of sales.</strong> Recorded when the instrument sells. The materials were bought and largely paid for before that, and the finished instruments that have not sold yet are money already spent that no line above has charged against anything.</li>
+          <li><strong>Depreciation.</strong> Reduced profit this month and moved no money at all. The money left when the equipment was bought.</li>
+        </ul>
+        <p>The first two are working capital and are session 3. The third is the first adjustment in the cash flow statement and is session 4.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>What net income is actually good for<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Criticising net income for not being cash is criticising a ruler for not weighing things. It is a period measure of whether the business earned more than it consumed, on a basis that is consistent from one period to the next and roughly comparable across companies. That consistency is exactly what makes it useless for liquidity: it deliberately ignores when the money moves, because when the money moves is not the question it was built to answer.</p>
+        <p>So it is the right number for whether a product line is worth keeping, for whether a price rise worked, and for what the owners' claim is worth. It is the wrong number for whether payroll clears. Marchmont's month 12 is the demonstration: <strong>£63,370</strong> earned, <strong>minus £47,261</strong> in the bank, both computed from the same ten lines.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 4 ============ -->
+  <section class="section" id="part-4">
+    <div class="section-kicker">
+      <span class="klabel">Part 4 · build-along</span>
+      <h2>Print it, check it, then move a cost</h2>
+      <span class="tag build">28 min hands on</span>
+    </div>
+    <p class="lede">Six steps in the browser console on this page. <span class="mono">MARCHMONT</span> is already loaded, so the first call works as soon as the console opens.</p>
+
+    <div class="steps">
+      <div class="step">
+        <h4>Print one income statement in order</h4>
+        <p>Call <span class="mono">MARCHMONT.run({}, 12)</span> and write out <span class="mono">rows[0]</span> as revenue, cogs, grossProfit, opex, ebitda, depreciation, ebit, interest, tax, netIncome. Down a page, in that order, with the subtraction between each pair visible. This is the artefact everything else in the course is checked against.</p>
+      </div>
+      <div class="step">
+        <h4>Verify every subtraction yourself</h4>
+        <p>Confirm that grossProfit equals revenue minus cogs, that ebitda equals grossProfit minus opex, that ebit equals ebitda minus depreciation, and that netIncome equals ebit minus interest minus tax. All four should hold to the penny. Doing it once by hand is what stops you accepting a subtotal you have not seen derived.</p>
+      </div>
+      <div class="step">
+        <h4>Anchor on the two canon figures</h4>
+        <p>Check <span class="mono">rows[0].netIncome</span> against £14,062 and <span class="mono">rows[11].netIncome</span> against £63,370. If either is out, an assumption has been overridden somewhere. Finding which one is the exercise, and it is faster than it sounds because there are only ten keys that could do it.</p>
+      </div>
+      <div class="step">
+        <h4>Prove net income rises every month</h4>
+        <p>Walk the twelve rows and confirm each netIncome is larger than the one before it. Then call <span class="mono">MARCHMONT.profitableThrough(m, 12)</span> and see that it agrees. A statement that only ever goes up is exactly the shape that makes a cash problem invisible for nine months.</p>
+      </div>
+      <div class="step">
+        <h4>Shorten the depreciation life and watch two numbers disagree</h4>
+        <p>Run with <span class="mono">{ depreciationLife: 36 }</span> and compare netIncome and freeCF in month 12 against the base run. Profit moves a long way. Cash barely moves, and the small amount it does move is the tax the lower profit no longer pays. Say that out loud before you look, then check whether you were right.</p>
+      </div>
+      <div class="step">
+        <h4>Cut the fixed slab and reproduce the measured result</h4>
+        <p>Run with <span class="mono">{ opexFixed: 80000 }</span> out to 24 months. Twelve month net income should come to £580,631 against the base £445,631, and cash at month 12 should be £87,739 against minus £47,261. Use <span class="mono">MARCHMONT.cumulative</span> for the first and <span class="mono">rows[11].cash</span> for the second.</p>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>The habit to keep.</strong> When someone quotes a margin, ask which subtotal it came from before you compare it to anything. Gross, EBITDA, EBIT and net are four different numbers with four different boundaries, and two of those boundaries were drawn by a person who could defensibly have drawn them elsewhere.</p>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">A cost of £6,000 a month is moved out of operating expenses and into cost of sales. Nothing else changes. What happens?</p>
+      <div class="qopt">A · Net income falls by £6,000, because the cost now hits earlier in the statement</div>
+      <div class="qopt">B · Net income rises by £6,000, because cost of sales is deducted before the tax line</div>
+      <div class="qopt">C · Gross profit falls by £6,000 and operating expenses fall by £6,000, so EBITDA, EBIT and net income are all unchanged</div>
+      <q class="qwhy">The statement is one running subtraction. Moving a cost between categories changes which subtotals carry it and changes nothing below the point where both categories have been deducted. Gross margin moves, net income does not, and comparing two companies' gross margins without asking where they drew this boundary compares two policies.</q>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">The depreciation life is shortened from 60 months to 36. What has happened to the business?</p>
+      <div class="qopt">A · Nothing. The same machine was bought with the same money, and only the reported profit has changed</div>
+      <div class="qopt">B · It has spent more on equipment, which is why the charge is higher</div>
+      <div class="qopt">C · It has become less efficient, since it is now consuming its assets faster</div>
+      <q class="qwhy">The money left the bank when the equipment was bought. The life is a judgement about how long the machine will be useful, and it is not independently checkable at the time it is made. A different life gives a different profit from identical operations and identical cash, which is the strongest part of the case for looking at EBITDA and the weakest part of the case for trusting it.</q>
+    </div>
+
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">Month 12 shows net income of £63,370 and operating cash flow of minus £427. Which statement is correct?</p>
+      <div class="qopt">A · One of the two has been computed incorrectly, since a profitable month cannot generate negative operating cash</div>
+      <div class="qopt">B · Both are right; revenue was recorded before it was collected and stock was paid for before it was sold, so the earnings are real and are not yet money</div>
+      <div class="qopt">C · The company made a loss and the income statement is presenting it as a profit</div>
+      <q class="qwhy">Profit is a period measure of what was earned and operating cash flow is what actually moved. Marchmont's customers take 75 days and its stock is paid for before it sells, so a growing month records more than it collects by design. Session 3 accounts for every pound of the difference.</q>
+    </div>
+
+    <div class="quiz-score"></div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="homework">
+    <div class="section-kicker">
+      <span class="klabel">Before session 3</span>
+      <h2>Homework</h2>
+    </div>
+    <p class="lede">Thirty minutes, half in the console and half on a real set of accounts.</p>
+    <div class="steps">
+      <div class="step">
+        <h4>Mark the judgement points on a real statement</h4>
+        <p>Take any published income statement and mark three things: where revenue recognition could reasonably have been done differently, where the cost of sales boundary sits, and what depreciation policy is disclosed. If the third is not disclosed, write that down, because it is a finding.</p>
+      </div>
+      <div class="step">
+        <h4>Build the working capital balances by hand</h4>
+        <p>From <span class="mono">rows[0]</span> read ar, inventory and ap, and write down what each one is in a sentence without using the words receivables, inventory or payables. Session 3 turns those three balances into the reason the bank balance and the profit line disagree.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OFFICIAL ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Covered today</span>
+      <h2>What this session covers</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The ten lines and the order they run in</span><span class="note">Four subtotals, because four readers stop in four places.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Revenue and the moment of recognition</span><span class="note">Recorded on despatch, collected 75 days later, and the split on bundled contracts.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Cost of sales, gross profit and the boundary</span><span class="note">Move a cost across it and gross margin changes while net income does not.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Fixed and variable operating expenses</span><span class="note">£95,000 that does not move, plus 11% of revenue that does.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">EBITDA, argued from both sides</span><span class="note">Comparability against a real cost of the machines, left unresolved.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Depreciation, interest and tax</span><span class="note">A chosen life, a funding decision, and an approximation flagged as one.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Net income against the bank, in one month</span><span class="note">£63,370 earned in month 12, minus £47,261 in the bank.</span></div>
+      <div class="covered-row"><span class="status pill inkpill">◐</span><span class="name">Where the difference is sitting</span><span class="note">Receivables, inventory and payables; session 3.</span></div>
+      <div class="covered-row"><span class="status pill inkpill">◐</span><span class="name">The bridge from net income to cash, line by line</span><span class="note">Session 4, by the indirect method.</span></div>
+      <div class="covered-row"><span class="status pill light">○</span><span class="name">Valuation and multiples of any subtotal</span><span class="note">A different subject with different tools.</span></div>
+      <div class="covered-row"><span class="status pill light">○</span><span class="name">Tax planning, audit and statutory filing</span><span class="note">Jurisdiction specific and not the point here.</span></div>
+    </div>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="section" id="cheatsheet">
+    <div class="section-kicker">
+      <span class="klabel">Take this with you</span>
+      <h2>Cheat sheet</h2>
+    </div>
+    <div class="cheat">
+      <div class="cheat-item"><strong>The order.</strong> Revenue, cogs, grossProfit, opex, ebitda, depreciation, ebit, interest, tax, netIncome.</div>
+      <div class="cheat-item"><strong>Four subtotals.</strong> Gross profit, EBITDA, EBIT, net income. Never compare one against another.</div>
+      <div class="cheat-item"><strong>Opex.</strong> opexFixed £95,000 plus opexVariable 11% of revenue. Only one of them grows.</div>
+      <div class="cheat-item"><strong>Depreciation.</strong> netFixed / 60 months. A chosen life, and a cost that moves no money.</div>
+      <div class="cheat-item"><strong>Interest.</strong> debt x 9% / 12. The price of the funding decision, not of the trading.</div>
+      <div class="cheat-item"><strong>The boundary test.</strong> Move a cost between categories: subtotals change, net income does not.</div>
+      <div class="cheat-item"><strong>The EBITDA question.</strong> "And what was the depreciation charge?" Ask it every time.</div>
+      <div class="cheat-item"><strong>Month 12.</strong> £63,370 of net income, minus £427 of operating cash flow, minus £47,261 in the bank.</div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <div class="wrap">
+      <p>Practitioner session 2 of 10 · learn-finance-with-phoebe · by Phoebe Fu</p>
+      <nav class="pagenav">
+        <a href="p1-three-statements-wired-together.html">← Practitioner session 1 · The three statements, wired together</a>
+        <a href="p3-working-capital.html">Practitioner session 3 · Working capital →</a>
+      </nav>
+    </div>
+  </footer>
+
+</main>
+
+<script src="../assets/fin-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

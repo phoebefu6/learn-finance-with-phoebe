@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Sixteen sessions on reading a company's numbers: the three statements, why profit and cash diverge, what growth costs, and how to size a funding gap. Built on a real three-statement model that runs in your browser. Free.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Learn Finance with Phoebe">
+<meta property="og:description" content="Best month in the company's history. Same month the money ran out. Both true.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-finance-with-phoebe/">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-finance-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Learn Finance with Phoebe">
+<meta name="twitter:description" content="A profitable company, a real model, and the month the cash ran out.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-finance-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Learn Finance with Phoebe</title>
+<link rel="stylesheet" href="assets/style.css?v=1">
+<style>
+
+  .stats-row { display: flex; gap: 2.4rem; margin-top: 1.5rem; flex-wrap: wrap; }
+  .stat b { display: block; font-size: 2.1rem; font-weight: 800; line-height: 1.05; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: .72rem; opacity: .85; text-transform: uppercase; letter-spacing: .09em; font-weight: 600; }
+
+  .course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+  .course-card {
+    border: 1px solid var(--hairline);
+    border-top: 4px solid var(--diff, var(--indigo));
+    border-radius: var(--radius);
+    padding: 1.2rem 1.3rem 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    text-decoration: none;
+    color: var(--ink);
+    background: #fff;
+    transition: box-shadow .15s ease, border-color .15s ease, transform .15s ease;
+    position: relative;
+  }
+  .course-card:hover { border-color: var(--indigo-soft); border-top-color: var(--diff, var(--indigo)); box-shadow: 0 8px 28px rgba(23,94,76,.16); transform: translateY(-3px); }
+  .course-card .cicon { font-size: 1.7rem; line-height: 1; }
+  .course-card .cnum { font-size: .72rem; font-weight: 700; color: var(--indigo); text-transform: uppercase; letter-spacing: .1em; }
+  .course-card h3 { font-size: 1.05rem; font-weight: 800; line-height: 1.3; }
+  .course-card p { font-size: .85rem; color: var(--muted); flex: 1; }
+  .course-card .meta { display: flex; gap: .4rem; flex-wrap: wrap; }
+
+  .diff-legend { display: flex; gap: 1rem; margin-top: 1.6rem; font-size: .74rem; color: var(--muted); font-weight: 600; flex-wrap: wrap; }
+  .diff-legend i { display: inline-block; width: .85rem; height: .35rem; border-radius: 999px; margin-right: .35rem; vertical-align: middle; }
+
+  .paths { margin-top: 2.6rem; }
+  .paths h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: .3rem; }
+  .paths .plede { color: var(--muted); font-size: .92rem; margin-bottom: .8rem; }
+  .path { display: flex; gap: .55rem; align-items: center; padding: .75rem 0; border-bottom: .5px solid var(--hairline); flex-wrap: wrap; }
+  .path:last-child { border-bottom: none; }
+  .path b { min-width: 15.5rem; font-size: .9rem; }
+  .path .pstep { background: var(--indigo-50); color: var(--indigo); border-radius: 999px; padding: .16rem .68rem; font-weight: 700; font-size: .8rem; text-decoration: none; transition: all .12s ease; }
+  .path .pstep:hover { background: var(--indigo); color: #fff; }
+  .path .parr { color: var(--faint); font-weight: 700; }
+
+  .mm-section { margin-top: 1.6rem; }
+  .mm-section h2 { font-size: 1.3rem; font-weight: 800; margin-bottom: .2rem; }
+  .mm-section .mm-lede { color: var(--muted); font-size: .92rem; margin-bottom: .4rem; }
+  .mm-wrap { border: 1px solid var(--hairline); border-radius: var(--radius); background: linear-gradient(180deg,#fff,#F0F7F4); padding: .6rem; overflow-x: auto; }
+  .mm-svg { width: 100%; height: auto; display: block; max-width: 60rem; margin: 0 auto; min-width: 34rem; }
+  .mm-link { cursor: pointer; text-decoration: none; }
+  .mm-node rect { transition: opacity .15s ease, filter .15s ease; }
+  .mm-node text { pointer-events: none; }
+  .mm-link:hover .mm-node rect { filter: brightness(1.06); }
+  .mm-edge { transition: opacity .15s ease; }
+
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn with Phoebe · Entrepreneurship &amp; Business</div>
+    <h1>Learn <span class="accent">Finance</span> with Phoebe</h1>
+    <p class="sub">In month 10, Marchmont Instruments earned £52,781. It was the best month the company had ever had, every month before it had also been profitable, and nobody had made a mistake. In the same month the bank balance went to minus £7,432. Both numbers are correct and both come out of the same set of books. This is a course about reading a company's numbers well enough to see that coming: what the three statements are each for, why profit and cash pull apart, what growth actually costs, and how to size the gap and ask for the money. Six leader sessions with no spreadsheets, ten practitioner sessions building a real three-statement model, and a bench that runs the whole thing in your browser so every figure can be checked rather than believed.</p>
+    <div class="stats-row">
+      <div class="stat"><b data-count="16">16</b><span>sessions, two tracks</span></div>
+      <div class="stat"><b data-count="3">3</b><span>statements, one model</span></div>
+      <div class="stat"><b data-count="50">50</b><span>model runs behind the numbers</span></div>
+      <div class="stat"><b data-count="8">8</b><span>levers, measured</span></div>
+      <div class="stat"><b data-count="45">45</b><span>min per session</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="section">
+    <div class="paths" style="margin-top:0">
+      <h2>Leader track 🧾 <span style="font-size:.85rem;font-weight:600;color:var(--muted)">· six sessions, no spreadsheets</span></h2>
+      <p class="plede">For anyone handed a P&amp;L in a meeting, or who has to argue for a budget. What the statements are for, why profit is an opinion, where the money went, what growth costs, how to read accounts somebody else prepared, and how to ask for money and be believed.</p>
+    </div>
+    <div class="course-grid">
+      <a class="course-card" href="courses/a1-what-a-set-of-accounts-is-for.html" style="--diff:#FBBF24">
+        <span class="cicon">🧾</span>
+        <span class="cnum">Leader session 1 · start here</span>
+        <h3>What a set of accounts is for</h3>
+        <p>Three statements, three different questions. Marchmont earns its best month ever and runs out of cash in the same month.</p>
+        <span class="meta"><span class="pill amber">▶ Start here</span></span>
+      </a>
+      <a class="course-card" href="courses/a2-profit-is-an-opinion.html" style="--diff:#FBBF24">
+        <span class="cicon">⚖️</span>
+        <span class="cnum">Leader session 2</span>
+        <h3>Profit is an opinion, cash is a fact</h3>
+        <p>Accruals, and the four judgement calls sitting inside every profit figure.</p>
+      </a>
+      <a class="course-card" href="courses/a3-where-the-money-went.html" style="--diff:#FB923C">
+        <span class="cicon">🔎</span>
+        <span class="cnum">Leader session 3</span>
+        <h3>Where the money actually went</h3>
+        <p>The cash flow statement as a bridge. £445,631 of profit, minus £297,261 of cash, and every pound accounted for.</p>
+      </a>
+      <a class="course-card" href="courses/a4-the-cost-of-growing.html" style="--diff:#FB923C">
+        <span class="cicon">📈</span>
+        <span class="cnum">Leader session 4</span>
+        <h3>The cost of growing</h3>
+        <p>Grow faster, earn more, and go broke sooner. The same company across five growth rates.</p>
+      </a>
+      <a class="course-card" href="courses/a5-reading-someone-elses-accounts.html" style="--diff:#F87171">
+        <span class="cicon">📰</span>
+        <span class="cnum">Leader session 5</span>
+        <h3>Reading someone else's accounts</h3>
+        <p>What published accounts can and cannot tell you, and the six cheapest checks first.</p>
+      </a>
+      <a class="course-card" href="courses/a6-defending-a-number.html" style="--diff:#F87171">
+        <span class="cicon">🎯</span>
+        <span class="cnum">Leader session 6</span>
+        <h3>Defending a number</h3>
+        <p>Taking a funding requirement to a board or a bank, and why a bridge is fundable when a rescue is not.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="paths" style="margin-top:0">
+      <h2>Practitioner track 🏗️ <span style="font-size:.85rem;font-weight:600;color:var(--muted)">· ten sessions, hands on</span></h2>
+      <p class="plede">For the people who build the model. The three statements wired together, each one line by line, working capital, the tie, driving it with assumptions, the levers, sizing a gap, a finding that changed when the horizon changed, and a capstone bench.</p>
+    </div>
+    <div class="course-grid">
+      <a class="course-card" href="courses/p1-three-statements-wired-together.html" style="--diff:#FBBF24">
+        <span class="cicon">🔗</span>
+        <span class="cnum">Practitioner session 1 · start here</span>
+        <h3>The three statements, wired together</h3>
+        <p>Two wires hold the model together. Break either one and the balance sheet stops tying.</p>
+        <span class="meta"><span class="pill amber">▶ Start here</span></span>
+      </a>
+      <a class="course-card" href="courses/p2-the-income-statement.html" style="--diff:#FBBF24">
+        <span class="cicon">🧮</span>
+        <span class="cnum">Practitioner session 2</span>
+        <h3>The income statement</h3>
+        <p>Revenue down to net income, line by line, and where judgement enters each one.</p>
+      </a>
+      <a class="course-card" href="courses/p3-working-capital.html" style="--diff:#FB923C">
+        <span class="cicon">🔄</span>
+        <span class="cnum">Practitioner session 3</span>
+        <h3>Working capital</h3>
+        <p>Three dials turn trading into a cash position. Receivables grow £539,454 in a year.</p>
+      </a>
+      <a class="course-card" href="courses/p4-the-cash-flow-statement.html" style="--diff:#FB923C">
+        <span class="cicon">🌉</span>
+        <span class="cnum">Practitioner session 4</span>
+        <h3>The cash flow statement</h3>
+        <p>The indirect method built line by line, from net income to the change in cash.</p>
+      </a>
+      <a class="course-card" href="courses/p5-the-balance-sheet-and-the-tie.html" style="--diff:#FB923C">
+        <span class="cicon">⚓</span>
+        <span class="cnum">Practitioner session 5</span>
+        <h3>The balance sheet and the tie</h3>
+        <p>Why it must balance, what it means when it does not, and how to break it on purpose.</p>
+      </a>
+      <a class="course-card" href="courses/p6-driving-the-model.html" style="--diff:#F87171">
+        <span class="cicon">🎛️</span>
+        <span class="cnum">Practitioner session 6</span>
+        <h3>Driving the model</h3>
+        <p>The same model over 24 months and 48 months tells two different stories. Pick the horizon deliberately.</p>
+      </a>
+      <a class="course-card" href="courses/p7-the-levers.html" style="--diff:#F87171">
+        <span class="cicon">🔧</span>
+        <span class="cnum">Practitioner session 7</span>
+        <h3>The levers</h3>
+        <p>Eight ways out, measured. Four of them change the profit figure by exactly nothing.</p>
+      </a>
+      <a class="course-card" href="courses/p8-sizing-a-funding-requirement.html" style="--diff:#F87171">
+        <span class="cicon">📐</span>
+        <span class="cnum">Practitioner session 8</span>
+        <h3>Sizing a funding requirement</h3>
+        <p>The trough, the buffer, and the number you actually ask for.</p>
+      </a>
+      <a class="course-card" href="courses/p9-the-finding-that-changed.html" style="--diff:#EF4444">
+        <span class="cicon">💥</span>
+        <span class="cnum">Practitioner session 9</span>
+        <h3>The finding that changed at 48 months</h3>
+        <p>A 24 month window said the company died. It recovers in month 28.</p>
+      </a>
+      <a class="course-card" href="courses/p10-the-model-bench.html" style="--diff:#EF4444">
+        <span class="cicon">🏗️</span>
+        <span class="cnum">Practitioner session 10</span>
+        <h3>The model bench</h3>
+        <p>Build it, drive it, break it, and size the gap. The whole model live in the page.</p>
+      </a>
+    </div>
+    <div class="diff-legend">
+      <span><i style="background:#FBBF24"></i>Foundations</span>
+      <span><i style="background:#FB923C"></i>Working depth</span>
+      <span><i style="background:#F87171"></i>Advanced</span>
+      <span><i style="background:#EF4444"></i>Hardest</span>
+    </div>
+  </section>
+
+  <section class="section mm-section">
+    <h2>The whole thing on one page</h2>
+    <p class="mm-lede">Every idea in the course and the session that owns it. Click any node to jump there.</p>
+    <div class="mm-wrap"><div id="mindmap"></div></div>
+  </section>
+
+  <section class="section">
+    <div class="paths">
+      <h2>Three ways through</h2>
+      <p class="plede">Everyone starts at session 1 of their track. These are the shortest useful routes if you cannot take all sixteen.</p>
+      <div class="path"><b>I get handed the numbers</b>
+        <a class="pstep" href="courses/a1-what-a-set-of-accounts-is-for.html">What accounts are for</a><span class="parr">→</span>
+        <a class="pstep" href="courses/a2-profit-is-an-opinion.html">Profit against cash</a><span class="parr">→</span>
+        <a class="pstep" href="courses/a5-reading-someone-elses-accounts.html">Reading accounts</a>
+      </div>
+      <div class="path"><b>I have to ask for money</b>
+        <a class="pstep" href="courses/a4-the-cost-of-growing.html">The cost of growing</a><span class="parr">→</span>
+        <a class="pstep" href="courses/p7-the-levers.html">The levers</a><span class="parr">→</span>
+        <a class="pstep" href="courses/p8-sizing-a-funding-requirement.html">Sizing the gap</a><span class="parr">→</span>
+        <a class="pstep" href="courses/a6-defending-a-number.html">Defending it</a>
+      </div>
+      <div class="path"><b>I build the model</b>
+        <a class="pstep" href="courses/p1-three-statements-wired-together.html">Wired together</a><span class="parr">→</span>
+        <a class="pstep" href="courses/p3-working-capital.html">Working capital</a><span class="parr">→</span>
+        <a class="pstep" href="courses/p5-the-balance-sheet-and-the-tie.html">The tie</a><span class="parr">→</span>
+        <a class="pstep" href="courses/p10-the-model-bench.html">The bench</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="paths">
+      <h2>What is real here</h2>
+      <p class="plede">Every figure on every page comes out of a model that runs when you open the page. Nothing is a stored result.</p>
+      <table class="pp-strip" style="width:100%;border-collapse:collapse">
+        <tr><td style="padding:.5rem 0;font-weight:700">The company</td><td style="padding:.5rem 0;color:var(--muted)">Marchmont Instruments is invented, but its accounts are computed from assumptions written out in <span class="mono">assets/fin-live.js</span></td></tr>
+        <tr><td style="padding:.5rem 0;font-weight:700">Every statement</td><td style="padding:.5rem 0;color:var(--muted)">Income statement, balance sheet and cash flow, generated month by month and linked by two wires</td></tr>
+        <tr><td style="padding:.5rem 0;font-weight:700">The balance sheet ties</td><td style="padding:.5rem 0;color:var(--muted)">Across 50 model runs the worst error is 0.0000000224, which is floating point noise. A model that does not tie is reported as broken, not plotted</td></tr>
+        <tr><td style="padding:.5rem 0;font-weight:700">The finding that changed</td><td style="padding:.5rem 0;color:var(--muted)">Run to 24 months the company looks dead. Run to 48 it recovers in month 28. Session 9 keeps the record</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span class="meta">part of <a href="https://phoebefu6.github.io/learn-with-phoebe/">Learn with Phoebe ↗</a> · by Phoebe Fu · nothing here is investment advice · AI for month-end close and forecasting lives in <a href="https://phoebefu6.github.io/learn-ai-finance-with-phoebe/">learn AI finance ↗</a>, and unit economics in <a href="https://phoebefu6.github.io/learn-strategic-thinking-with-phoebe/">learn strategic thinking ↗</a></span>
+  </footer>
+
+</main>
+
+<script>
+window.MINDMAP_DATA = {
+  "title": "Finance",
+  "centerColor": "#0C3A2E",
+  "sessions": [
+    {
+      "label": "What accounts are for",
+      "href": "courses/a1-what-a-set-of-accounts-is-for.html",
+      "concepts": [
+        {
+          "label": "Income statement",
+          "href": "courses/p2-the-income-statement.html"
+        },
+        {
+          "label": "Balance sheet",
+          "href": "courses/p5-the-balance-sheet-and-the-tie.html"
+        },
+        {
+          "label": "Cash flow statement",
+          "href": "courses/p4-the-cash-flow-statement.html"
+        }
+      ]
+    },
+    {
+      "label": "Profit against cash",
+      "href": "courses/a2-profit-is-an-opinion.html",
+      "concepts": [
+        {
+          "label": "Accruals",
+          "href": "courses/a2-profit-is-an-opinion.html"
+        },
+        {
+          "label": "The judgement calls",
+          "href": "courses/a2-profit-is-an-opinion.html"
+        }
+      ]
+    },
+    {
+      "label": "Where it went",
+      "href": "courses/a3-where-the-money-went.html",
+      "concepts": [
+        {
+          "label": "The bridge",
+          "href": "courses/p4-the-cash-flow-statement.html"
+        },
+        {
+          "label": "Working capital",
+          "href": "courses/p3-working-capital.html"
+        }
+      ]
+    },
+    {
+      "label": "The cost of growing",
+      "href": "courses/a4-the-cost-of-growing.html",
+      "concepts": [
+        {
+          "label": "The growth ladder",
+          "href": "courses/p6-driving-the-model.html"
+        },
+        {
+          "label": "Choosing a horizon",
+          "href": "courses/p6-driving-the-model.html"
+        },
+        {
+          "label": "A finding that changed",
+          "href": "courses/p9-the-finding-that-changed.html"
+        }
+      ]
+    },
+    {
+      "label": "Reading accounts",
+      "href": "courses/a5-reading-someone-elses-accounts.html",
+      "concepts": [
+        {
+          "label": "What the notes carry",
+          "href": "courses/a5-reading-someone-elses-accounts.html"
+        },
+        {
+          "label": "Cheapest checks first",
+          "href": "courses/a5-reading-someone-elses-accounts.html"
+        }
+      ]
+    },
+    {
+      "label": "Asking for money",
+      "href": "courses/a6-defending-a-number.html",
+      "concepts": [
+        {
+          "label": "The eight levers",
+          "href": "courses/p7-the-levers.html"
+        },
+        {
+          "label": "Sizing the gap",
+          "href": "courses/p8-sizing-a-funding-requirement.html"
+        },
+        {
+          "label": "The bench",
+          "href": "courses/p10-the-model-bench.html"
+        }
+      ]
+    }
+  ]
+};
+</script>
+<script src="assets/mindmap.js?v=1"></script>
+<script src="assets/app.js?v=1"></script>
+</body>
+</html>

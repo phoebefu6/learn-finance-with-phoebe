@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Practitioner session 6 of 10. The engine takes fifteen assumption keys and a horizon. Run the growth ladder live, then run the same base case to 24 months and to 48 and read two different stories out of one unchanged model.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Driving the model - learn finance with phoebe">
+<meta property="og:description" content="Practitioner session 6 of 10. Sweeping instead of guessing, the growth ladder read off the engine, and the horizon nobody writes down.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-finance-with-phoebe/courses/p6-driving-the-model.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-finance-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Driving the model - learn finance with phoebe">
+<meta name="twitter:description" content="Two arguments go into the engine. One gets argued about. The other decides the answer and nobody records it.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-finance-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Practitioner session 6 · Driving the model - learn finance with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-finance-with-phoebe</a> / Practitioner session 6 of 10</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Finance with Phoebe · Practitioner session 6 of 10</div>
+    <h1>Driving the <span class="accent">model</span></h1>
+    <p class="sub">The engine takes two arguments. The first is a set of assumption keys, fifteen of them, and it is the one everybody argues about in the room. The second is how many months to run, and it is the one nobody writes down. Marchmont's base case run to 24 months ends underwater and looks like a company that does not come back. The same base case, not one key changed, run to 48 months troughs at -£115,501 in month 19 and is back above zero in month 28. Both runs are correct. Today is about driving the thing on purpose: sweeping rather than guessing, reading the growth ladder off the engine instead of off a slide, and choosing the horizon deliberately because the horizon is picking the answer.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Hands on</span>
+      <span class="chip audience">Analysts who run the scenarios</span>
+      <span class="chip audience">Anyone who signs off a forecast</span>
+      <span class="chip time">60 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-4 · Welcome</span>
+      <span class="a2" style="flex:4">4-20 · Fifteen keys and a horizon</span>
+      <span class="a3" style="flex:5">20-40 · The ladder and the window</span>
+      <span class="a4" style="flex:5">40-60 · Build-along and Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>What you are actually steering</h2>
+    </div>
+    <p class="lede">Sessions 1 to 5 built the machine and proved it ties. From here it is a machine you drive. Driving it badly looks exactly like driving it well: both produce a tidy table of pounds. The difference is whether the number came out of a sweep or out of a guess, and whether anyone recorded the window it was measured through. Everything today runs against <span class="mono">assets/fin-live.js</span>, which is loaded on this page, so every figure can be reproduced in the console while you read.</p>
+
+    <div class="legend">
+      <span class="pill">Live = run together in the session</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">🔍 Every diagram zooms</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with today.</strong> The two arguments to <span class="mono">run</span> and why the second one is an assumption rather than a setting. A sweep you can write in six lines that tie checks every run before it reads a single figure. The growth ladder read off the engine across all five rows, including the two where the lowest point lands on the edge of the window and is therefore not a lowest point at all. And the habit of writing the horizon next to the answer, because a figure without its window cannot be checked by anybody else.</p>
+    </div>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>A forecast is a statement about assumptions<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A single figure out of this model is not a prediction about Marchmont. It is a sentence of the form: if revenue grows 4% a month, if customers keep paying on 75 day terms, if the margin holds at 42%, and if you look for 24 months, then cash at month 12 is -£47,261. Strip the conditions off and the sentence becomes a claim about the future that the model never made and cannot support.</p>
+        <p>That is not a reason to distrust the output. It is a reason to keep the conditions attached to it. The practical form is short: quote the figure, name the assumptions you changed from base, and name the horizon. Three clauses, and the figure survives being questioned.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>The same base case, unchanged, is a company that dies or a company that needs about £115,501 of financing, depending entirely on whether the run stopped at month 24 or month 48. The assumptions did not decide that. The window did.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Nothing here is advice about buying anything<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Marchmont is a modelled company and every figure on the page is a model output. Nothing on it is a recommendation to buy, sell or hold any security, to lend to anybody, or to take on debt. What a business is worth, and whether it is a good investment, uses different tools and belongs to a different subject.</p>
+        <p>The skill being built here is narrower and more durable: given a model, find out what it is sensitive to, and report the answer in a form somebody else can check.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 1 ============ -->
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers the interface</span>
+      <h2>Fifteen keys, and the argument nobody records</h2>
+      <span class="tag concept">14 min live</span>
+    </div>
+    <p class="lede">The whole interface is one function call with two arguments. Learning the keys is learning what the model believes can vary, and noticing the second argument is learning what it believes about time.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The two arguments to the run function. On the left, argument one is the overrides object, fifteen assumption keys of which you set only the ones under discussion and the rest come from BASE. On the right, argument two is the horizon in months, twenty four or forty eight, which is an assumption as well. Both arrows point down into the engine, which recomputes every row from scratch with no stored results. A band below records that the first argument is written into the deck and the second is usually left in the conversation and then forgotten.">
+        <style>
+          .p6aH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p6aT { font: 800 12.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p6aS { font: 400 11px Inter, sans-serif; fill: #FFFFFF; }
+          .p6aC { font: 800 11.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p6aN { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p6aM { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+        </style>
+        <defs>
+          <marker id="p6aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9A3412"></path></marker>
+        </defs>
+
+        <text class="p6aH" x="14" y="20">Two arguments go in. Only one of them gets minuted.</text>
+
+        <rect x="14" y="34" width="410" height="98" rx="10" fill="#175E4C"></rect>
+        <text class="p6aT" x="32" y="58">Argument one: the overrides</text>
+        <text class="p6aC" x="32" y="82">{ growth: 0.06, dso: 45 }</text>
+        <text class="p6aS" x="32" y="104">Fifteen keys exist. Set the ones under discussion,</text>
+        <text class="p6aS" x="32" y="122">the rest are filled from BASE.</text>
+
+        <rect x="456" y="34" width="410" height="98" rx="10" fill="#9A3412"></rect>
+        <text class="p6aT" x="474" y="58">Argument two: the horizon</text>
+        <text class="p6aC" x="474" y="82">MARCHMONT.run(over, 48)</text>
+        <text class="p6aS" x="474" y="104">Also an assumption. It decides which months</text>
+        <text class="p6aS" x="474" y="122">the answer is allowed to contain.</text>
+
+        <path d="M 219 134 L 219 156" fill="none" stroke="#9A3412" stroke-width="1.8" marker-end="url(#p6aAr)"></path>
+        <path d="M 661 134 L 661 156" fill="none" stroke="#9A3412" stroke-width="1.8" marker-end="url(#p6aAr)"></path>
+
+        <rect x="170" y="160" width="540" height="74" rx="10" fill="#0C3A2E"></rect>
+        <text class="p6aT" x="190" y="186">The engine recomputes every row from scratch.</text>
+        <text class="p6aS" x="190" y="208">No stored results anywhere. Change one key and all three</text>
+        <text class="p6aS" x="190" y="226">statements move together, then the tie is checked again.</text>
+
+        <path d="M 440 236 L 440 250" fill="none" stroke="#9A3412" stroke-width="1.8" marker-end="url(#p6aAr)"></path>
+
+        <rect x="14" y="254" width="852" height="62" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p6aN" x="30" y="278">Two arguments, two kinds of assumption, one of them invisible.</text>
+        <text class="p6aM" x="30" y="298">The overrides end up on a slide. The horizon stays in the conversation, and six weeks later nobody can say which window the figure came from.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the second argument has no default worth trusting, because every default is somebody's earlier guess about how far ahead the question reaches.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Sweep, do not guess<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The instinct when somebody asks what happens if collection slips is to reason about it. Reasoning gets the direction right and the magnitude wrong, every time, because the movement runs through receivables, then through the cash line, then through interest, then through tax. Running it costs one line and returns the magnitude.</p>
+        <p>A sweep is just a loop over one key with everything else held at base, and it has one rule: tie check inside the loop, before anything is read. A run that does not tie is a broken model, and a broken model plotted next to four good ones is worse than no chart at all.</p>
+        <div class="prompt-box"><span class="label">console</span>const out = [];
+
+for (const growth of [0, 0.02, 0.04, 0.06, 0.08]) {
+  const r = MARCHMONT.run({ growth: growth }, 48);
+  if (!MARCHMONT.ties(r).ok) throw new Error("does not tie at growth " + growth);
+
+  out.push({
+    growth: growth,
+    cashOut: MARCHMONT.cashOutMonth(r),
+    profit12: MARCHMONT.cumulative(r, "netIncome", 12)
+  });
+}
+
+console.table(out);</div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Which keys move the answer, and how you find out<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Three of the fifteen keys, <span class="mono">dso</span>, <span class="mono">dio</span> and <span class="mono">dpo</span>, only change when money moves. Nothing they do reaches the income statement. The rest change what the business earns as well as when it banks it. That split is structural, it is readable straight off the engine, and session 7 measures exactly what it is worth.</p>
+        <p>Sensitivity beyond that split is not something to reason about. It is something to run. The measured levers span cash at month 12 from £60,630 to £232,489 against a base of -£47,261, so the weakest measured intervention and the strongest are a long way apart on the same company in the same year.</p>
+        <div class="callout warn">
+          <p><strong>A ranking of levers is partly a ranking of the step sizes you chose.</strong> Thirty days off collection and five points of margin are not the same size of change, so putting them in order by cash moved says as much about the two steps as about the two keys. If the ordering is going to be used to decide anything, sweep each key by a comparable step and say what the step was.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>What the canon set does and does not sweep<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The canon set behind every figure in the track is 50 runs: five growth rates, 0%, 2%, 4%, 6% and 8%, crossed with five collection settings, 30, 45, 60, 75 and 90 days, each run to both 24 and 48 months. The worst balance sheet error anywhere in those 50 runs is 2.24e-8, which is floating point noise.</p>
+        <p>So growth and collection are swept. Tax rate, interest rate, capex rate and depreciation life are not, and a claim about how much any of those matters would be a claim nobody has run. That is worth knowing about any model you are handed, not just this one: the swept dimensions are the ones whose behaviour is known, and everything else is untested territory that happens to be inside the same function.</p>
+        <div class="prompt-box"><span class="label">console</span>// the canon set, as a nested loop
+let worst = 0;
+
+for (const growth of [0, 0.02, 0.04, 0.06, 0.08]) {
+  for (const dso of [30, 45, 60, 75, 90]) {
+    for (const months of [24, 48]) {
+      const t = MARCHMONT.ties(MARCHMONT.run({ growth: growth, dso: dso }, months));
+      if (!t.ok) throw new Error("does not tie: growth " + growth + ", dso " + dso);
+      if (t.worst > worst) worst = t.worst;
+    }
+  }
+}
+
+worst;   // 50 runs, and the answer is noise rather than accounting</div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2 ============ -->
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers the ladder, run live</span>
+      <h2>Five growth rates, read off the engine</h2>
+      <span class="tag concept">12 min live</span>
+    </div>
+    <p class="lede">Same margin, same customers, same terms, same cost base, five values of one key. Run each to 48 months and read four things: when cash goes below zero, how far it falls, whether it comes back, and what the twelve month profit was. Reading only the last of the four is how a growth plan gets signed.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The growth ladder drawn as underwater intervals on a forty eight month axis. At 0 percent growth cash never goes below zero and the lowest point is 260,062 pounds in month 1, with twelve month profit of 165,627 pounds. At 2 percent cash never goes below zero, the lowest point is 186,555 pounds in month 12 and profit is 296,285 pounds. At 4 percent cash goes under in month 10, troughs at minus 115,501 pounds in month 19 and is back above zero in month 28, with profit of 445,631 pounds. At 6 percent cash goes under in month 6, troughs at minus 897,962 pounds in month 31 and is still under at month 48, with profit of 616,336 pounds. At 8 percent cash goes under in month 5, is still falling at month 48 where it reaches minus 7,885,358 pounds, and profit is 811,427 pounds. A dashed vertical line marks where a twenty four month window would have ended.">
+        <style>
+          .p6bH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p6bG { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p6bP { font: 700 10px Inter, sans-serif; fill: #175E4C; }
+          .p6bA { font: 400 10px Inter, sans-serif; fill: #55665F; }
+          .p6bI { font: 700 10px Inter, sans-serif; fill: #FFFFFF; }
+          .p6bK { font: 800 10px Inter, sans-serif; fill: #9A3412; }
+          .p6bO { font: 700 10px Inter, sans-serif; fill: #175E4C; }
+          .p6bN { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p6bM { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+        </style>
+
+        <text class="p6bH" x="14" y="20">Each bar is the stretch spent below zero, on a run out to 48 months.</text>
+
+        <text class="p6bA" x="14" y="40">growth</text>
+        <text class="p6bA" x="56" y="40">12m profit</text>
+
+        <line x1="160" y1="64" x2="840" y2="64" stroke="#DCE8E3" stroke-width="1"></line>
+        <text class="p6bA" x="319" y="58" text-anchor="middle">m12</text>
+        <text class="p6bA" x="493" y="58" text-anchor="middle">m24</text>
+        <text class="p6bA" x="666" y="58" text-anchor="middle">m36</text>
+        <text class="p6bA" x="840" y="58" text-anchor="middle">m48</text>
+
+        <line x1="493" y1="64" x2="493" y2="256" stroke="#8FBFAE" stroke-width="1.4" stroke-dasharray="5 4"></line>
+
+        <text class="p6bG" x="14" y="80">0%</text>
+        <text class="p6bP" x="56" y="80">£165,627</text>
+        <text class="p6bO" x="170" y="80">never below zero, lowest £260,062 in month 1</text>
+
+        <text class="p6bG" x="14" y="120">2%</text>
+        <text class="p6bP" x="56" y="120">£296,285</text>
+        <text class="p6bO" x="170" y="120">never below zero, lowest £186,555 in month 12</text>
+
+        <text class="p6bG" x="14" y="160">4%</text>
+        <text class="p6bP" x="56" y="160">£445,631</text>
+        <text class="p6bK" x="420" y="144" text-anchor="middle">-£115,501 in month 19</text>
+        <rect x="290" y="149" width="261" height="15" rx="4" fill="#9A3412"></rect>
+        <text class="p6bI" x="296" y="160">under from m10</text>
+        <circle cx="420" cy="156.5" r="3" fill="#FFF7ED"></circle>
+        <text class="p6bO" x="558" y="160">back above zero in month 28</text>
+
+        <text class="p6bG" x="14" y="200">6%</text>
+        <text class="p6bP" x="56" y="200">£616,336</text>
+        <text class="p6bK" x="594" y="184" text-anchor="middle">-£897,962 in month 31</text>
+        <rect x="232" y="189" width="608" height="15" rx="4" fill="#9A3412"></rect>
+        <text class="p6bI" x="238" y="200">under from m6</text>
+        <circle cx="594" cy="196.5" r="3" fill="#FFF7ED"></circle>
+        <text class="p6bI" x="834" y="200" text-anchor="end">still under at m48</text>
+
+        <text class="p6bG" x="14" y="240">8%</text>
+        <text class="p6bP" x="56" y="240">£811,427</text>
+        <text class="p6bK" x="840" y="224" text-anchor="end">-£7,885,358 at month 48</text>
+        <rect x="218" y="229" width="622" height="15" rx="4" fill="#0C3A2E"></rect>
+        <text class="p6bI" x="224" y="240">under from m5</text>
+        <text class="p6bI" x="834" y="240" text-anchor="end">lowest point is the last month in the window</text>
+
+        <text class="p6bA" x="493" y="270" text-anchor="middle">a 24 month run stops here</text>
+
+        <rect x="14" y="280" width="852" height="52" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p6bN" x="30" y="302">Profit climbs every rung, from £165,627 to £811,427. So does the time spent underwater.</text>
+        <text class="p6bM" x="30" y="322">Two of the five lowest points sit on the edge of the window, at month 1 and month 48, which means the model never found a bottom for them.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the 8% bar is drawn in the darker fill because its lowest point is the final month of the run rather than a turning point the model actually reached.</figcaption>
+    </figure>
+
+    <table class="clean">
+      <thead>
+        <tr><th>Monthly growth</th><th>Cash goes negative</th><th>Lowest cash point</th><th>Back above zero</th><th>Twelve month profit</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>0%</td><td>never</td><td>£260,062 (m1)</td><td>never below it</td><td>£165,627</td></tr>
+        <tr><td>2%</td><td>never</td><td>£186,555 (m12)</td><td>never below it</td><td>£296,285</td></tr>
+        <tr><td>4%</td><td>month 10</td><td>-£115,501 (m19)</td><td>month 28</td><td>£445,631</td></tr>
+        <tr><td>6%</td><td>month 6</td><td>-£897,962 (m31)</td><td>not by month 48</td><td>£616,336</td></tr>
+        <tr><td>8%</td><td>month 5</td><td>-£7,885,358 (m48)</td><td>not by month 48</td><td>£811,427</td></tr>
+      </tbody>
+    </table>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Reading all five rows, not the two ends<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Row by row, the engine says five different things. At <strong>0%</strong> there is no cash question at all and £165,627 of profit. At <strong>2%</strong> there is still no cash question, profit is £296,285, and the lowest point the cash line reaches is £186,555, which arrives in month 12 and is comfortably positive. Those two rows are the only ones where the answer is a single number.</p>
+        <p>At <strong>4%</strong> the answer becomes an interval rather than a number: eighteen months below zero, a trough of -£115,501 in month 19, recovery in month 28. At <strong>6%</strong> the interval outlasts the run, the trough is -£897,962 in month 31 and nothing has recovered by month 48. At <strong>8%</strong> the shape stops being an interval at all: cash is still falling on the last month the model computes, where it stands at -£7,885,358, and profit is £811,427.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>A trough on the edge of the window is not a trough<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Two of the five lowest points land on a boundary month. At 0% the lowest cash is month 1, which is the first month the model computes. At 8% the lowest cash is month 48, which is the last. In both cases the minimum is an artefact of where the run was cut, and reporting either as "the trough" would be reporting the edge of the window as a property of the company.</p>
+        <p>The check is mechanical and worth wiring into any sweep: if the argmin is the first or last month, the model has not found a bottom and the honest output is "still falling at the end of the run", not a figure. Getting this wrong in the other direction is expensive, because -£7,885,358 quoted as a trough invites somebody to size a facility against it.</p>
+        <div class="prompt-box"><span class="label">console</span>function trough(r) {
+  let low = Infinity, at = 0;
+  for (const row of r.rows) {
+    if (row.cash < low) { low = row.cash; at = row.month; }
+  }
+  const last = r.rows[r.rows.length - 1].month;
+  return { low: low, at: at, onEdge: (at === 1 || at === last) };
+}
+
+trough(MARCHMONT.run({ growth: 0.04 }, 48)).onEdge;   // false, month 19 is a real bottom
+trough(MARCHMONT.run({ growth: 0.08 }, 48)).onEdge;   // true, so do not call it a trough</div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Recovery, and the two different zeros<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><span class="mono">cashOutMonth</span> returns 0 when cash never goes below zero, which is unambiguous because the months are numbered from 1. A recovery reader written the same way is not unambiguous, and the difference matters.</p>
+        <div class="prompt-box"><span class="label">console</span>function recovers(r) {
+  const out = MARCHMONT.cashOutMonth(r);
+  if (!out) return 0;                                  // never went under
+  for (const row of r.rows) {
+    if (row.month > out && row.cash >= 0) return row.month;
+  }
+  return 0;                                            // still under when the window ended
+}</div>
+        <p>Two very different situations come back as 0: a company that was never in trouble, and a company that was still in trouble when you stopped looking. On the base case at 24 months this function returns 0, and read carelessly that reads as "fine". On the same base case at 48 months it returns 28. A sentinel that means two things is a bug waiting for a deadline, and the fix is to return the reason rather than a number.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3 ============ -->
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers the horizon</span>
+      <h2>The same run, through two windows</h2>
+      <span class="tag concept">10 min live</span>
+    </div>
+    <p class="lede">Nothing below changes a single assumption key. The only difference between the two panels is the second argument to <span class="mono">run</span>, and the two panels support opposite decisions.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two readings of the identical base case. Through a twenty four month window: cash goes below zero in month 10, the lowest point reached is minus 115,501 pounds in month 19, and cash is still below zero when the run ends, so the reading is that the company does not come back. Through a forty eight month window: cash goes below zero in month 10, the lowest point is the same minus 115,501 pounds in month 19, and cash is back above zero in month 28, so the reading is a financing requirement of about 115,501 pounds. A band below records that the assumptions were identical in both panels and that the horizon should be reported next to the answer.">
+        <style>
+          .p6cH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p6cT { font: 800 13px Inter, sans-serif; fill: #FFFFFF; }
+          .p6cS { font: 400 11px Inter, sans-serif; fill: #FFFFFF; }
+          .p6cB { font: 800 11.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p6cN { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p6cM { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+        </style>
+
+        <text class="p6cH" x="14" y="20">MARCHMONT.run({}, 24) and MARCHMONT.run({}, 48). No key changed between them.</text>
+
+        <rect x="14" y="34" width="418" height="182" rx="10" fill="#9A3412"></rect>
+        <text class="p6cT" x="32" y="60">Window: 24 months</text>
+        <text class="p6cS" x="32" y="86">Cash goes below zero in month 10.</text>
+        <text class="p6cS" x="32" y="108">Lowest point in view: -£115,501, month 19.</text>
+        <text class="p6cS" x="32" y="130">Still below zero when the run ends.</text>
+        <text class="p6cS" x="32" y="152">Recovery reader returns 0.</text>
+        <text class="p6cB" x="32" y="182">Reading: it does not come back.</text>
+        <text class="p6cS" x="32" y="202">Decision this supports: stop growing, or sell.</text>
+
+        <rect x="448" y="34" width="418" height="182" rx="10" fill="#175E4C"></rect>
+        <text class="p6cT" x="466" y="60">Window: 48 months</text>
+        <text class="p6cS" x="466" y="86">Cash goes below zero in month 10.</text>
+        <text class="p6cS" x="466" y="108">Lowest point: -£115,501, month 19.</text>
+        <text class="p6cS" x="466" y="130">Back above zero in month 28.</text>
+        <text class="p6cS" x="466" y="152">Eighteen months underwater, then out.</text>
+        <text class="p6cB" x="466" y="182">Reading: a financing requirement.</text>
+        <text class="p6cS" x="466" y="202">Decision this supports: borrow about £115,501.</text>
+
+        <rect x="14" y="230" width="852" height="58" rx="9" fill="#FFF7ED" stroke="#9A3412"></rect>
+        <text class="p6cN" x="30" y="254">A figure with no horizon attached cannot be checked, argued with, or reproduced.</text>
+        <text class="p6cM" x="30" y="274">The first pass of this bench stopped at 24 months and very nearly published the left hand panel. Session 9 takes that near miss apart in full.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - both panels are true readings of the same model. Only one of them is a description of the company.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Choosing a horizon on purpose<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The horizon should be set by the question, not by the default in the function signature or by how far the spreadsheet happened to be dragged. Three tests do most of the work. Does the window contain the turning point, or does the line still have a direction at the end of it? Is it long enough to cover the thing being decided, which for a facility means the term of the facility? And would extending it by half again change the answer?</p>
+        <p>That last one is the cheapest check in modelling. Run it, run it again at 1.5 times the length, and compare the conclusion rather than the numbers. If the conclusion flips, the original window was the finding.</p>
+        <div class="prompt-box"><span class="label">console</span>const short = MARCHMONT.run({}, 24);
+const long  = MARCHMONT.run({}, 48);
+
+MARCHMONT.cashOutMonth(short);   // 10
+MARCHMONT.cashOutMonth(long);    // 10, identical: the months before 24 cannot change
+
+recovers(short);                 // 0, meaning "not inside this window"
+recovers(long);                  // 28</div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Where the room splits: one number or a range<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Once you accept that the output is a statement about assumptions, there is a real argument about what to publish, and it does not have a settled answer.</p>
+        <p>One school says never publish a single point. A model like this has fifteen dials and a window, and a single figure launders all of that into something that looks measured. Publish the sweep: the range across the settings you consider plausible, with the setting that produced each end. On this view a point estimate is a false precision that survives into other people's slides with the conditions stripped off, which is exactly how the 24 month reading nearly got out.</p>
+        <p>The other school says a range is frequently a way of declining to commit. A board cannot approve a facility of between zero and eight million pounds, and a range wide enough to be honest is usually too wide to act on, so somebody quietly picks a point out of it anyway and now the choice has been made by whoever was last to touch the document. On this view the discipline is to commit to a point, state the assumptions and the horizon beside it in one sentence, and update it when the assumptions move.</p>
+        <p>Both are defensible and both are widely practised. What is not defensible is either one without the conditions attached, and the disagreement is worth having out loud with whoever is going to act on the figure.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why the early months never move<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Extending the horizon cannot change anything that already happened in the model. The engine computes month by month forward from the opening sheet, so months 1 to 24 of a 48 month run are identical, value for value, to months 1 to 24 of a 24 month run. That is worth confirming once by hand, because it is the property that makes the horizon a pure reporting choice rather than a modelling one.</p>
+        <p>The consequence is slightly uncomfortable. Every figure the short window produced was correct. The failure was not arithmetic and no check would have caught it, because the tie passes on both runs. It was a conclusion drawn from a window that did not contain the event, which is a category of error that only reading and judgement catch.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 4 ============ -->
+  <section class="section" id="part-4">
+    <div class="section-kicker">
+      <span class="klabel">Part 4 · build-along</span>
+      <h2>Sweep it yourself</h2>
+      <span class="tag build">18 min hands on</span>
+    </div>
+    <p class="lede">Six steps in the console on this page. <span class="mono">MARCHMONT</span> is loaded, so everything below runs as soon as the console opens.</p>
+
+    <div class="steps">
+      <div class="step">
+        <h4>Reproduce the ladder, all five rows</h4>
+        <p>Write the loop over the five growth rates out to 48 months, tie check inside it, and print growth, cash out month and twelve month profit. Check the profit column against £165,627, £296,285, £445,631, £616,336 and £811,427. If any row is off, an assumption other than growth has moved.</p>
+      </div>
+      <div class="step">
+        <h4>Add the trough and the edge flag</h4>
+        <p>Extend the loop with the <span class="mono">trough</span> function so each row reports its lowest cash, the month it fell on, and whether that month was the first or last in the window. Confirm that exactly two of the five rows come back with the flag set.</p>
+      </div>
+      <div class="step">
+        <h4>Run the horizon test on one rung</h4>
+        <p>Take the 4% row and run it at 24 months and at 48. Compare month 12, month 19 and month 24 across the two runs and confirm every value is identical. Then compare what you would write in a summary from each, which is the only thing that changed.</p>
+      </div>
+      <div class="step">
+        <h4>Give the recovery reader a mouth</h4>
+        <p>Rewrite <span class="mono">recovers</span> so it returns a reason rather than a number: never went under, recovered in month n, or still under at the end of a window of n months. Run it across the ladder and read the five sentences it produces. That output is publishable and the numeric one was not.</p>
+      </div>
+      <div class="step">
+        <h4>Sweep one key by a comparable step</h4>
+        <p>Pick three keys and move each by the same proportion of its base value, holding everything else at base, then compare cash at month 12 across the three. Write down the step you used, because the ordering you get is only meaningful next to it.</p>
+      </div>
+      <div class="step">
+        <h4>Extend by half again and check the conclusion</h4>
+        <p>Take whichever run you would put in front of somebody and run it again at 1.5 times the horizon. Write one sentence from each. If the two sentences disagree, the horizon was doing the work and the finding is that, not the figure.</p>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>The habit to keep.</strong> Every figure leaves the console with three things attached: what was overridden, how many months, and that the run tie checked. Written down it is one line, and it is the difference between a figure somebody can challenge and a figure somebody has to take on trust.</p>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">The base case run to 24 months ends below zero. The same base case run to 48 months recovers in month 28. Which assumption changed?</p>
+      <div class="qopt">A · Growth, because a longer run compounds revenue further</div>
+      <div class="qopt">B · The opening cash balance, which has to be raised to support a longer run</div>
+      <div class="qopt">C · None of the fifteen keys changed; the horizon changed, and the horizon is an assumption too</div>
+      <q class="qwhy">Months 1 to 24 are identical value for value across both runs, because the engine computes forward from the opening sheet. Only the window changed, and it changed the conclusion from "does not come back" to "needs about £115,501".</q>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">At 8% growth the lowest cash in a 48 month run is -£7,885,358, in month 48. How should that be reported?</p>
+      <div class="qopt">A · As still falling at the end of the run, because the minimum landing on the last month means the model never found a bottom</div>
+      <div class="qopt">B · As the trough, and a facility should be sized against it</div>
+      <div class="qopt">C · As proof that the model breaks down at high growth rates</div>
+      <q class="qwhy">A minimum on a boundary month is a property of where the run was cut, not of the company. The model has not broken, it has simply not been asked a long enough question, and quoting -£7,885,358 as a trough invites somebody to size something against a number that is not a bottom.</q>
+    </div>
+
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">Someone ranks the levers by cash moved and concludes that collection terms matter more than margin. What is the first thing to ask?</p>
+      <div class="qopt">A · Whether the balance sheet tied on each run, since an untied run would invalidate the ordering</div>
+      <div class="qopt">B · How big each step was, because an ordering built from steps of different sizes is partly an ordering of the steps rather than the keys</div>
+      <div class="qopt">C · Whether the runs used 24 or 48 months, since the ordering cannot survive a horizon change</div>
+      <q class="qwhy">Tie checking and the horizon both matter and both should be recorded, but neither is what breaks this particular claim. Thirty days off collection and five points of margin are not comparable steps, so the ordering they produce is not a ranking of sensitivity until the steps are made comparable and stated.</q>
+    </div>
+
+    <div class="quiz-score"></div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="homework">
+    <div class="section-kicker">
+      <span class="klabel">Before session 7</span>
+      <h2>Homework</h2>
+    </div>
+    <p class="lede">Thirty minutes, in the console on this page.</p>
+    <div class="steps">
+      <div class="step">
+        <h4>Predict the four working capital levers, then measure them</h4>
+        <p>Before running anything, write down what you expect cash at month 12 to be with collection at 45 days, and what you expect twelve month profit to be. Then run both and keep your two predictions next to the two results. Session 7 measures all eight levers and the gap between prediction and measurement is the useful part.</p>
+      </div>
+      <div class="step">
+        <h4>Find a figure in your own work with no horizon on it</h4>
+        <p>Locate one forecast figure that circulates in your organisation and try to establish what period it was computed over and what it assumed. Note how long that took. If it took more than a few minutes, that figure is currently uncheckable by anybody who receives it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OFFICIAL ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Covered today</span>
+      <h2>What this session covers</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Assumptions as the interface</span><span class="note">Fifteen keys, any subset overridden, the rest from BASE.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Sweeping instead of reasoning</span><span class="note">A loop with the tie check inside it, before anything is read.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The growth ladder run live, all five rows</span><span class="note">Cash out month, trough, recovery and twelve month profit for each.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">A minimum on a boundary month</span><span class="note">Month 1 at 0% and month 48 at 8%; neither is a trough.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The horizon as an assumption</span><span class="note">24 months and 48 months on identical keys, two opposite readings.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">What a single figure is a statement about</span><span class="note">The assumptions and the window, not the future.</span></div>
+      <div class="covered-row"><span class="status pill inkpill">◐</span><span class="name">The eight levers, measured one at a time</span><span class="note">Session 7, including the four that move no profit.</span></div>
+      <div class="covered-row"><span class="status pill inkpill">◐</span><span class="name">Turning the trough into a funding ask</span><span class="note">Session 8.</span></div>
+      <div class="covered-row"><span class="status pill inkpill">◐</span><span class="name">The 48 month reversal, in full</span><span class="note">Session 9.</span></div>
+      <div class="covered-row"><span class="status pill light">○</span><span class="name">Sensitivity of tax rate, interest rate, capex rate and depreciation life</span><span class="note">Not in the swept canon set, so not claimed anywhere.</span></div>
+      <div class="covered-row"><span class="status pill light">○</span><span class="name">Whether any of this is a reason to buy or sell anything</span><span class="note">Nothing here is advice about any investment.</span></div>
+    </div>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="section" id="cheatsheet">
+    <div class="section-kicker">
+      <span class="klabel">Take this with you</span>
+      <h2>Cheat sheet</h2>
+    </div>
+    <div class="cheat">
+      <div class="cheat-item"><strong>Two arguments.</strong> MARCHMONT.run(overrides, months). The second one is an assumption as well.</div>
+      <div class="cheat-item"><strong>Tie inside the loop.</strong> Check every run before reading any figure from any of them.</div>
+      <div class="cheat-item"><strong>The ladder.</strong> 0% and 2% never dip. 4% troughs at -£115,501 in m19 and recovers in m28. 6% troughs at -£897,962 in m31. 8% reaches -£7,885,358 by m48.</div>
+      <div class="cheat-item"><strong>Profit climbs anyway.</strong> £165,627 at 0% up to £811,427 at 8%, on the same company.</div>
+      <div class="cheat-item"><strong>Boundary minimum.</strong> If the argmin is the first or last month, say "still falling", not "trough".</div>
+      <div class="cheat-item"><strong>Two different zeros.</strong> Never went under, and still under when you stopped looking. Return a reason instead.</div>
+      <div class="cheat-item"><strong>The half again test.</strong> Rerun at 1.5 times the horizon and compare conclusions, not numbers.</div>
+      <div class="cheat-item"><strong>Three clauses.</strong> The figure, what was overridden, how many months. Anything less is uncheckable.</div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <div class="wrap">
+      <p>Practitioner session 6 of 10 · learn-finance-with-phoebe · by Phoebe Fu</p>
+      <nav class="pagenav">
+        <a href="p5-the-balance-sheet-and-the-tie.html">← Practitioner session 5 · The balance sheet and the tie</a>
+        <a href="p7-the-levers.html">Practitioner session 7 · The levers →</a>
+      </nav>
+    </div>
+  </footer>
+
+</main>
+
+<script src="../assets/fin-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

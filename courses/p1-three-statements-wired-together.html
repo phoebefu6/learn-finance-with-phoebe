@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Practitioner session 1 of 10. Three statements are one model with two links: net income into equity, the change in cash into the cash line. Build the skeleton, then use the tie as an error check that actually catches things.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="The three statements, wired together - learn finance with phoebe">
+<meta property="og:description" content="Practitioner session 1 of 10. One model, not three reports, and the tie that tells you when you have recorded half a transaction.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-finance-with-phoebe/courses/p1-three-statements-wired-together.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-finance-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The three statements, wired together - learn finance with phoebe">
+<meta name="twitter:description" content="Two links turn three reports into one model. The tie is how you know you wired them correctly.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-finance-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Practitioner session 1 · The three statements, wired together - learn finance with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-finance-with-phoebe</a> / Practitioner session 1 of 10</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Finance with Phoebe · Practitioner session 1 of 10</div>
+    <h1>The three statements, <span class="accent">wired together</span></h1>
+    <p class="sub">A set of accounts looks like three documents because it is printed as three documents. It is one model. Net income leaves the income statement and lands in equity. The change in cash leaves the cash flow statement and lands in the cash line. Those two wires are the whole connection, and once they are in place the balance sheet has to tie, every month, to the penny. When it does not tie you have recorded one side of something and not the other, and the size of the failure is the size of what you missed. That makes the tie the only error check in finance that finds your mistake for you.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Hands on</span>
+      <span class="chip audience">Analysts who build the model</span>
+      <span class="chip audience">Anyone who has to trust one</span>
+      <span class="chip time">60 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-4 · Welcome</span>
+      <span class="a2" style="flex:5">4-26 · One model, two wires</span>
+      <span class="a3" style="flex:6">26-54 · Build-along: run it, break it</span>
+      <span class="a4" style="flex:1">54-60 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>How the practitioner track works</h2>
+    </div>
+    <p class="lede">Ten sessions, hands on the model the whole way. Today is the skeleton and the tie. Session 2 is the income statement, revenue down to net income. Session 3 is working capital and how DSO, DIO and DPO each become a cash movement. Session 4 builds the cash flow statement by the indirect method, line by line. Session 5 is the balance sheet and the tie in depth, including breaking it on purpose. Session 6 drives the model from its assumptions and runs the growth ladder live. Session 7 measures the eight levers and finds the four that move no profit at all. Session 8 sizes a funding requirement from the trough. Session 9 is the finding that reversed when the horizon went from 24 months to 48. Session 10 is the bench: build it, break it, watch the tie fail, size the gap. The company throughout is <strong>Marchmont Instruments</strong>, and the model is <span class="mono">assets/fin-live.js</span>, which is loaded on this page.</p>
+
+    <div class="legend">
+      <span class="pill">Live = run together in the session</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">🔍 Every diagram zooms</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with today.</strong> The two links that turn three reports into one model, written the way the engine writes them. The tie as a working error check, with the measured result behind it: across the full canon set of 50 model runs the worst assets minus liabilities and equity error is 2.24e-8. The ability to run the Marchmont model from a console and get the canon figures back. And the reason a model that does not tie gets reported as broken rather than plotted.</p>
+    </div>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>One model, printed as three pages<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Three statements exist because a business raises three questions. They are computed from one set of transactions, which means the three cannot be independent and the printing is the only thing that separates them. Build them separately and you get three plausible documents that quietly disagree. Build them as one model and the disagreement becomes impossible, because the arithmetic that produces the third number has already used the first two.</p>
+        <p>The link list is short. Net income, produced at the bottom of the income statement, increases equity on the balance sheet. The change in cash, produced at the bottom of the cash flow statement, moves the cash line on the balance sheet. That is it. Everything else in a three statement model is a consequence of those two.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>In <span class="mono">fin-live.js</span> the two wires are two lines of code. <span class="mono">equityNew = equity + netIncome</span> and <span class="mono">cashNew = cash + freeCF</span>. Nothing else writes to equity, and nothing else writes to cash.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The engine, and how to call it<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The model exposes six things on a single global. Every figure quoted for Marchmont comes out of them, and there are no stored results anywhere.</p>
+        <div class="prompt-box"><span class="label">API</span>MARCHMONT.BASE
+// the default assumptions, as a plain object
+
+MARCHMONT.run(overrides, months)
+// returns { rows: [...], assumptions: {...} }
+// overrides is an object of assumption keys; months defaults to 24
+
+MARCHMONT.ties(result, tolerance)
+// returns { ok, worst }; tolerance defaults to 0.01
+
+MARCHMONT.cashOutMonth(result)
+// the first month where cash is below zero, or 0 if it never is
+
+MARCHMONT.profitableThrough(result, m)
+// true if netIncome was above zero in every month up to m
+
+MARCHMONT.cumulative(result, field, upto)
+// adds one field across the rows, optionally stopping at a month</div>
+        <p class="mono">No credentials of any kind are involved. If an example ever needs one, the string is the word placeholder.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 1 ============ -->
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers the wiring</span>
+      <h2>Two wires, and the rest is consequence</h2>
+      <span class="tag concept">12 min live</span>
+    </div>
+    <p class="lede">Draw the three statements once with the links on them and the structure of every three statement model you will ever meet is already on the page. The income statement and the cash flow statement both cover a period and both end in a single figure. The balance sheet is where both of those figures land.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 330" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A wiring diagram of a three statement model. On the left, the income statement covers a period and ends in net income, and below it the cash flow statement covers a period and ends in free cash flow, the change in cash. On the right, the balance sheet holds two highlighted lines: equity, which rises by net income every month, and cash, which moves by free cash flow. Two arrows carry net income into equity and free cash flow into cash. Below them the balance sheet identity is written out: assets equals cash plus receivables plus inventory plus net fixed assets, liabilities and equity equals payables plus debt plus equity, and the tie error is the difference between the two.">
+        <style>
+          .p1aH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p1aT { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+          .p1aS { font: 400 11px Inter, sans-serif; fill: #FFFFFF; }
+          .p1aB { font: 800 11px Inter, sans-serif; fill: #FFFFFF; }
+          .p1aK { font: 800 10px Inter, sans-serif; fill: #9A3412; }
+          .p1aN { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p1aM { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+        </style>
+        <defs>
+          <marker id="p1aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#9A3412"></path></marker>
+        </defs>
+
+        <text class="p1aH" x="14" y="20">Three documents, two wires, one model.</text>
+
+        <rect x="14" y="34" width="268" height="100" rx="10" fill="#175E4C"></rect>
+        <text class="p1aT" x="30" y="56">Income statement</text>
+        <text class="p1aS" x="30" y="76">Covers a period</text>
+        <text class="p1aS" x="30" y="94">Revenue down to the tax line</text>
+        <text class="p1aB" x="30" y="118">Ends in: netIncome</text>
+
+        <rect x="14" y="150" width="268" height="100" rx="10" fill="#9A3412"></rect>
+        <text class="p1aT" x="30" y="172">Cash flow statement</text>
+        <text class="p1aS" x="30" y="192">Covers a period</text>
+        <text class="p1aS" x="30" y="210">netIncome, then the timing</text>
+        <text class="p1aB" x="30" y="234">Ends in: freeCF</text>
+
+        <rect x="430" y="34" width="436" height="216" rx="10" fill="#0C3A2E"></rect>
+        <text class="p1aT" x="448" y="58">Balance sheet, at a single moment</text>
+
+        <rect x="448" y="70" width="400" height="46" rx="8" fill="#175E4C"></rect>
+        <text class="p1aB" x="464" y="92">equity</text>
+        <text class="p1aS" x="464" y="108">rises by netIncome, every month</text>
+
+        <rect x="448" y="124" width="400" height="46" rx="8" fill="#175E4C"></rect>
+        <text class="p1aB" x="464" y="146">cash</text>
+        <text class="p1aS" x="464" y="162">moves by freeCF, the change in cash</text>
+
+        <text class="p1aS" x="448" y="194">assets = cash + ar + inventory + netFixed</text>
+        <text class="p1aS" x="448" y="212">liabsEquity = ap + debt + equity</text>
+        <text class="p1aB" x="448" y="236">tieError = assets - liabsEquity</text>
+
+        <path d="M 282 84 C 340 84, 392 90, 442 92" fill="none" stroke="#9A3412" stroke-width="1.8" marker-end="url(#p1aAr)"></path>
+        <path d="M 282 200 C 340 200, 392 150, 442 146" fill="none" stroke="#9A3412" stroke-width="1.8" marker-end="url(#p1aAr)"></path>
+
+        <text class="p1aK" x="300" y="76">netIncome</text>
+        <text class="p1aK" x="300" y="188">freeCF</text>
+
+        <rect x="14" y="266" width="852" height="52" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p1aN" x="30" y="288">Two wires, and that is the whole connection.</text>
+        <text class="p1aM" x="30" y="306">Change one assumption and all three statements move together, or the model has a mistake in it and the tie will say so.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - nothing else writes to equity and nothing else writes to cash, which is what makes the tie a real test rather than a formality.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Net income into equity<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Profit belongs to the owners. If it is not paid out it stays in the business, and the balance sheet records that as a larger equity balance. So each month's net income is added to equity and the income statement is finished with it. That single addition is the reason the income statement is part of the balance sheet rather than a report that sits beside it.</p>
+        <p>In the engine there is one line doing this, and it runs after tax has been taken off.</p>
+        <div class="prompt-box"><span class="label">fin-live.js</span>var netIncome = pretax - tax;
+// ... later in the same month
+var equityNew = equity + netIncome;</div>
+        <p>Nothing else in the file touches equity after month 0, which is worth knowing because it means any equity movement you cannot explain is a bug rather than a subtlety.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>The change in cash into the cash line<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The cash flow statement starts from net income and then undoes the timing. Depreciation is added back because it reduced profit without moving money. The change in working capital is subtracted because a rising receivables balance is revenue that has been recorded and not collected. Capital spending is subtracted because it moved money without touching profit. What comes out at the bottom is the actual movement in the bank balance.</p>
+        <div class="prompt-box"><span class="label">fin-live.js</span>var operatingCF = netIncome + depreciation - dWC;
+var freeCF = operatingCF - capex;
+var cashNew = cash + freeCF;</div>
+        <p>Read those three lines in order and the whole indirect method is there. Session 4 builds each adjustment separately and explains why the sign is what it is.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The assumption keys, and how to override one<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><span class="mono">MARCHMONT.run</span> takes an object of overrides and fills everything else from <span class="mono">MARCHMONT.BASE</span>. The keys are the model, so learning them is learning what the model believes can vary.</p>
+        <div class="prompt-box"><span class="label">assumptions</span>startRevenue      400000    month 1 revenue, in pounds
+growth            0.04      month on month revenue growth
+grossMargin       0.42
+opexFixed         95000     salaries, rent, the things that do not flex
+opexVariable      0.11      as a share of revenue
+dso               75        days sales outstanding
+dio               60        days inventory on hand
+dpo               30        days payable
+taxRate           0.25
+interestRate      0.09      annual, on drawn debt
+openingCash       250000
+openingDebt       300000
+capexRate         0.03      capex as a share of revenue
+depreciationLife  60        months
+openingNetFixed             opening net book value of fixed assets
+openingEquity               present, but not read from: see below</div>
+        <p>One key changed and the whole model reruns, because every row is computed rather than stored.</p>
+        <div class="prompt-box"><span class="label">console</span>MARCHMONT.run({ dso: 45 }, 24);
+// collection at 45 days, everything else exactly as BASE
+
+MARCHMONT.run({ growth: 0.06, dso: 90 }, 48);
+// two keys changed, run out to 48 months</div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Opening equity is solved, and people argue about that<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A model has to start somewhere. Marchmont existed before month 1, so it opens with receivables, inventory, payables, cash, debt and fixed assets already on the books. The engine does not ask for an opening equity figure. It works one out, as whatever value makes the opening sheet tie.</p>
+        <div class="prompt-box"><span class="label">fin-live.js</span>var equity = (cash + ar + inv + netFixed) - (ap + debt);</div>
+        <p>One school says this weakens the check. If equity at month 0 is defined as the number that makes month 0 balance, then month 0 cannot fail, and the tie is only testing the forward mechanics rather than the opening data. On that view a model should take every opening balance as an input and let the sheet fail loudly when the inputs are inconsistent, because inconsistent opening balances are one of the commonest real errors.</p>
+        <p>The other school says equity is not an input in the first place. It is the accumulated history of everything the business has ever earned and everything the owners have ever put in, and in a model of a company you did not found, that history is not independently knowable. Solving for it states plainly what it is, and puts the test where the errors actually get made, which is in the month by month mechanics. Both positions are defensible and the engine has taken the second one. Knowing which it took is the point, because it tells you what the tie does and does not prove.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2 ============ -->
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers the tie</span>
+      <h2>The tie, and what a failure is telling you</h2>
+      <span class="tag concept">10 min live</span>
+    </div>
+    <p class="lede">Every transaction has two sides. Record both and the sheet stays balanced. Record one and the balance sheet is out by exactly the amount of the side you missed, which is why the failure is not just a signal, it is a measurement.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 296" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two panels comparing a complete and an incomplete entry. On the left, both legs recorded: an invoice of value V raises receivables by V and raises equity by V through net income, so assets minus liabilities and equity is zero and there is nothing to find. On the right, one leg recorded: receivables rise by V but equity does not move, so assets minus liabilities and equity equals V, and the error is exactly the size of the missing leg. Below, a band records that across the full canon set of 50 model runs the worst error is 2.24 times ten to the minus 8, against a tolerance of 0.01, which is floating point noise.">
+        <style>
+          .p1bH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p1bT { font: 800 12.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p1bS { font: 400 11px Inter, sans-serif; fill: #FFFFFF; }
+          .p1bF { font: 400 10px Inter, sans-serif; fill: #FFFFFF; }
+          .p1bN { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p1bM { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+        </style>
+
+        <text class="p1bH" x="14" y="20">One entry, two legs. Drop a leg and the sheet tells you how big it was.</text>
+
+        <rect x="14" y="34" width="418" height="180" rx="10" fill="#175E4C"></rect>
+        <text class="p1bT" x="32" y="60">Both legs recorded</text>
+        <text class="p1bS" x="32" y="86">An invoice is raised, value V.</text>
+        <text class="p1bS" x="32" y="112">ar rises by V</text>
+        <text class="p1bS" x="32" y="134">equity rises by V, through netIncome</text>
+        <text class="p1bT" x="32" y="168">assets - liabsEquity  =  0</text>
+        <text class="p1bF" x="32" y="192">Nothing to find, because nothing is missing.</text>
+
+        <rect x="448" y="34" width="418" height="180" rx="10" fill="#9A3412"></rect>
+        <text class="p1bT" x="466" y="60">One leg recorded</text>
+        <text class="p1bS" x="466" y="86">An invoice is raised, value V.</text>
+        <text class="p1bS" x="466" y="112">ar rises by V</text>
+        <text class="p1bS" x="466" y="134">equity does not move</text>
+        <text class="p1bT" x="466" y="168">assets - liabsEquity  =  V</text>
+        <text class="p1bF" x="466" y="192">The error is exactly the size of the missing leg.</text>
+
+        <rect x="14" y="228" width="852" height="56" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p1bN" x="30" y="250">Across the full canon set of 50 model runs the worst error is 2.24e-8, against a tolerance of 0.01.</text>
+        <text class="p1bM" x="30" y="270">That is floating point noise, not a modelling error. Anything worse makes ties() return ok false, and the model is reported as broken rather than plotted.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the right hand panel is what a real tie failure looks like. The number it reports is the transaction you half recorded.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Running the check<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Every row the engine produces carries its own <span class="mono">tieError</span>, and <span class="mono">ties</span> walks them and returns the worst one it found along with a verdict. The tolerance is there because a computer adding decimal numbers does not land on exact zero, and it defaults to a penny.</p>
+        <div class="prompt-box"><span class="label">console</span>const m = MARCHMONT.run({}, 48);
+const t = MARCHMONT.ties(m);
+
+t.ok;      // true
+t.worst;   // the largest absolute assets - liabsEquity over all 48 months
+
+if (!t.ok) {
+  throw new Error("balance sheet does not tie: " + t.worst);
+}</div>
+        <p>The throw is the important line. A model that does not tie has a mistake in it, and every chart drawn from it is a picture of that mistake. Reporting it as broken is not pessimism, it is the only response that does not publish a wrong number.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Checking it across a sweep, not one run<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A single passing run proves very little. Models fail on particular settings: a growth rate that changes a sign, a horizon long enough for a rounding difference to accumulate. The canon set is 50 runs, built from five growth rates, five collection settings and two horizons, and the worst error anywhere in it is 2.24e-8.</p>
+        <p>The growth ladder is the easiest slice to run yourself.</p>
+        <div class="prompt-box"><span class="label">console</span>const growths = [0, 0.02, 0.04, 0.06, 0.08];
+let worst = 0;
+
+for (const growth of growths) {
+  for (const months of [24, 48]) {
+    const r = MARCHMONT.run({ growth: growth }, months);
+    const t = MARCHMONT.ties(r);
+    if (!t.ok) throw new Error("does not tie at growth " + growth);
+    if (t.worst > worst) worst = t.worst;
+  }
+}
+
+worst;   // ten of the fifty canon runs, all comfortably inside tolerance</div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The three readers, and what they answer<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Three small helpers sit on top of the rows. They exist because the same three questions get asked of every run, and answering them by eye off a table is where transcription errors come from.</p>
+        <div class="prompt-box"><span class="label">console</span>const m = MARCHMONT.run({}, 48);
+
+MARCHMONT.cashOutMonth(m);
+// the first month cash is below zero; 0 means it never happens
+
+MARCHMONT.profitableThrough(m, 12);
+// true if netIncome was above zero in every month up to and including 12
+
+MARCHMONT.cumulative(m, "netIncome", 12);
+MARCHMONT.cumulative(m, "freeCF", 12);
+// one field added across the rows, stopping at month 12</div>
+        <p>Those last two are the pair the leader track opens with: twelve month net income of <strong>£445,631</strong> against free cash flow of <strong>minus £297,261</strong>, a gap of <strong>£742,892</strong>. They are computed here, not typed in, which is the only reason they can be trusted across sixteen pages.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3 ============ -->
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · build-along</span>
+      <h2>Run the model, then break it</h2>
+      <span class="tag build">28 min hands on</span>
+    </div>
+    <p class="lede">Six steps in the browser console on this page. The engine is already loaded, so <span class="mono">MARCHMONT</span> is there as soon as the console opens.</p>
+
+    <div class="steps">
+      <div class="step">
+        <h4>Get a run and look at one row</h4>
+        <p>Call <span class="mono">MARCHMONT.run({}, 12)</span> and inspect <span class="mono">rows[0]</span>. Find revenue, netIncome, deltaWC, freeCF, cash, assets, liabsEquity and tieError. Every later session works on one of those fields, so spend a minute on the names.</p>
+      </div>
+      <div class="step">
+        <h4>Confirm the tie before you look at anything else</h4>
+        <p>Run <span class="mono">MARCHMONT.ties(m)</span> and read both fields it returns. Make this the first thing you do with any run, including runs you did not produce. A figure from a model that has not been tie checked is a figure of unknown provenance.</p>
+      </div>
+      <div class="step">
+        <h4>Find the two wires in the rows</h4>
+        <p>Take any two consecutive rows. Check that the later equity minus the earlier equity equals the later netIncome, and that the later cash minus the earlier cash equals the later freeCF. Both should hold to the penny. If either does not, you have found something the tie was built to catch.</p>
+      </div>
+      <div class="step">
+        <h4>Break one wire on purpose</h4>
+        <p>Take the rows into a copy and add a pound to <span class="mono">assets</span> on one row without touching anything else. Recompute the difference against <span class="mono">liabsEquity</span> and watch the tie error become exactly one pound. That is the whole mechanism: the failure reports the size of what is missing.</p>
+      </div>
+      <div class="step">
+        <h4>Change a collection assumption and re-tie</h4>
+        <p>Run with <span class="mono">{ dso: 45 }</span> and then with <span class="mono">{ dso: 90 }</span>, and tie check both. The cash path changes completely and the tie does not move, because collecting sooner or later is a different arrangement of the same money rather than an extra pound from anywhere.</p>
+      </div>
+      <div class="step">
+        <h4>Reproduce two canon figures</h4>
+        <p>Use <span class="mono">cumulative</span> to get twelve month net income and twelve month free cash flow, and check them against £445,631 and minus £297,261. If either is off, you have changed an assumption somewhere. Finding out which one is the exercise.</p>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>The habit to keep.</strong> Tie check first, then look at the answer. In that order it costs one line. In the other order you can spend an afternoon interpreting a shape that came out of a broken model, and the interpretation will be confident.</p>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">What are the two links that turn three statements into one model?</p>
+      <div class="qopt">A · Revenue flows into the cash flow statement, and cash flows into the income statement</div>
+      <div class="qopt">B · Net income is added to equity, and the change in cash moves the cash line, both on the balance sheet</div>
+      <div class="qopt">C · Each statement is recalculated from the other two, so all three are derived</div>
+      <q class="qwhy">In the engine the two links are one line each: equity plus netIncome, and cash plus freeCF. Nothing else writes to either balance, which is exactly what makes the tie a genuine test rather than a restatement.</q>
+    </div>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">A run comes back with a worst tie error of 2.24e-8. What does that mean?</p>
+      <div class="qopt">A · The model has a small but real error that should be traced before the results are used</div>
+      <div class="qopt">B · The balance sheet has been forced to balance by a plug, so the check is meaningless</div>
+      <div class="qopt">C · Floating point noise well inside the 0.01 tolerance; the sheet ties and the run is usable</div>
+      <q class="qwhy">Adding decimal numbers on a computer does not land on exact zero. Two hundredths of a millionth of a penny is the arithmetic, not the accounting. That is the worst figure across the full canon set of 50 model runs.</q>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">A model reports assets minus liabilities and equity of £8,400 in month 7. What has most likely happened?</p>
+      <div class="qopt">A · One side of a transaction worth £8,400 has been recorded and the other side has not</div>
+      <div class="qopt">B · The company lost £8,400 in month 7 and the model is reporting it correctly</div>
+      <div class="qopt">C · The tolerance is set too tightly and should be widened until the check passes</div>
+      <q class="qwhy">The tie failure is not a loss and it is not a threshold problem. It is a measurement of an incomplete entry, and the amount is the amount you missed. Widening the tolerance to make it pass hides the one signal in the model that finds mistakes for you.</q>
+    </div>
+
+    <div class="quiz-score"></div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="homework">
+    <div class="section-kicker">
+      <span class="klabel">Before session 2</span>
+      <h2>Homework</h2>
+    </div>
+    <p class="lede">Thirty minutes, in the console on this page.</p>
+    <div class="steps">
+      <div class="step">
+        <h4>Sweep five collection settings</h4>
+        <p>Run the model at five different <span class="mono">dso</span> values out to 48 months, tie check every run, and record the worst error you see. Note whether any setting makes it meaningfully worse than the others, and write down what you would conclude if one did.</p>
+      </div>
+      <div class="step">
+        <h4>Write the income statement out by hand</h4>
+        <p>Take <span class="mono">rows[0]</span> and write revenue, cogs, grossProfit, opex, ebitda, depreciation, ebit, interest, tax and netIncome down a page in order, checking each arithmetic step. Session 2 goes through the same ten lines and assumes you have seen them.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OFFICIAL ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Covered today</span>
+      <h2>What this session covers</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Three statements as one model</span><span class="note">Why building them separately produces three documents that disagree.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Net income into equity</span><span class="note">One line in the engine, running after tax.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The change in cash into the cash line</span><span class="note">operatingCF to freeCF to the bank balance.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The tie as an error check</span><span class="note">2.24e-8 worst across the full canon set of 50 model runs.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">What a real tie failure means</span><span class="note">One side of a transaction recorded and not the other, sized exactly.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Running the engine</span><span class="note">run, ties, cashOutMonth, profitableThrough and cumulative.</span></div>
+      <div class="covered-row"><span class="status pill inkpill">◐</span><span class="name">Breaking the tie deliberately, in depth</span><span class="note">Practitioner session 5, and again on the bench in session 10.</span></div>
+      <div class="covered-row"><span class="status pill light">○</span><span class="name">Valuation and what a business is worth</span><span class="note">A different subject with different tools.</span></div>
+    </div>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="section" id="cheatsheet">
+    <div class="section-kicker">
+      <span class="klabel">Take this with you</span>
+      <h2>Cheat sheet</h2>
+    </div>
+    <div class="cheat">
+      <div class="cheat-item"><strong>Wire one.</strong> equity = equity + netIncome. The income statement lands on the balance sheet.</div>
+      <div class="cheat-item"><strong>Wire two.</strong> cash = cash + freeCF. The cash flow statement lands on the balance sheet.</div>
+      <div class="cheat-item"><strong>The identity.</strong> assets = cash + ar + inventory + netFixed. liabsEquity = ap + debt + equity.</div>
+      <div class="cheat-item"><strong>The check.</strong> MARCHMONT.ties(result) returns ok and worst. Tolerance defaults to 0.01.</div>
+      <div class="cheat-item"><strong>The measured result.</strong> 2.24e-8 worst across the full canon set of 50 model runs.</div>
+      <div class="cheat-item"><strong>A failure is a measurement.</strong> The error equals the leg you did not record.</div>
+      <div class="cheat-item"><strong>Broken beats plotted.</strong> A model that does not tie is reported, never charted.</div>
+      <div class="cheat-item"><strong>Overrides.</strong> MARCHMONT.run({ dso: 45 }, 48). One key changed, the rest from BASE.</div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <div class="wrap">
+      <p>Practitioner session 1 of 10 · learn-finance-with-phoebe · by Phoebe Fu</p>
+      <nav class="pagenav">
+        <a href="../index.html">← All sessions</a>
+        <a href="p2-the-income-statement.html">Practitioner session 2 · The income statement →</a>
+      </nav>
+    </div>
+  </footer>
+
+</main>
+
+<script src="../assets/fin-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Practitioner session 3 of 10. DSO, DIO and DPO are the three dials that turn trading into a cash position. Marchmont's cycle is 105 days and its twelve month working capital build is 664,607 pounds, none of which is a cost.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="Working capital - learn finance with phoebe">
+<meta property="og:description" content="Practitioner session 3 of 10. Receivables, inventory and payables, the 105 day cycle, and the levers that move cash without moving a single pound of profit.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-finance-with-phoebe/courses/p3-working-capital.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-finance-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Working capital - learn finance with phoebe">
+<meta name="twitter:description" content="Three dials, 105 days, and a build of 664,607 pounds that never appears as a cost.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-finance-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Practitioner session 3 · Working capital - learn finance with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-finance-with-phoebe</a> / Practitioner session 3 of 10</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Finance with Phoebe · Practitioner session 3 of 10</div>
+    <h1>Working <span class="accent">capital</span></h1>
+    <p class="sub">Three dials convert trading into a cash position, and only one of them turns in your favour. Marchmont pays its suppliers 30 days after buying materials, holds the finished instrument for 60 days before it sells, and waits 75 days after that to be paid. DSO 75, DIO 60, DPO 30. Over twelve months receivables grow from £1,000,000 to £1,539,454 and inventory from £464,000 to £714,307, while payables only reach £357,153. The build is £664,607, it is the largest single reason the bank balance and the profit line disagree, and not one pound of it is a cost.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Hands on</span>
+      <span class="chip audience">Analysts who build the model</span>
+      <span class="chip audience">Anyone who sets customer terms</span>
+      <span class="chip time">60 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-4 · Welcome</span>
+      <span class="a2" style="flex:5">4-28 · Three dials and the cycle</span>
+      <span class="a3" style="flex:6">28-54 · Build-along: turn the dials</span>
+      <span class="a4" style="flex:1">54-60 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where this sits in the model</h2>
+    </div>
+    <p class="lede">Session 2 walked the income statement down to net income and finished on a pair: <strong>£63,370</strong> earned in month 12 against <strong>minus £47,261</strong> in the bank. Today accounts for the largest part of that distance. Receivables are sales already made and not yet paid for. Inventory is money already spent on instruments that have not sold. Payables are the one that works the other way, because a supplier who has not been paid is funding the business for free. Session 4 assembles these into the cash flow statement proper. Session 7 measures all eight levers side by side. The company is <strong>Marchmont Instruments</strong> and the engine is <span class="mono">assets/fin-live.js</span>, loaded on this page.</p>
+
+    <div class="legend">
+      <span class="pill">Live = run together in the session</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">🔍 Every diagram zooms</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with today.</strong> The three dials and what each one is physically holding. Marchmont's cash conversion cycle, 105 days, and where that number comes from. The twelve month build of £664,607 and the monthly path underneath it. The three levers measured, all of which leave twelve month net income at exactly £445,631. And the part that matters more than any of it: what those levers cost, which the model does not price and nobody should pretend it does.</p>
+    </div>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Why timing becomes a balance<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>An income statement records a sale when it is earned. A bank account records it when the money lands. Between those two events the sale has to exist somewhere, and it exists as a balance on the balance sheet. That is all working capital is: the accumulated difference between when things are recorded and when they are paid for.</p>
+        <p>Three balances carry it. Receivables hold sales made and not collected. Inventory holds goods paid for and not sold. Payables hold purchases received and not paid, which is the same mechanism running in the business's favour. Add the first two, subtract the third, and the total is money that is in the business and not available.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>A laboratory orders an instrument in March. Marchmont ships it, books the revenue in March, and is paid in June. The March income statement is complete and correct. The March bank statement has nothing in it from that order, and June's payroll has to be met from somewhere else.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The three balances in the engine<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Each balance is one multiplication, driven by the month's own activity. Receivables scale with revenue because that is what customers owe against. Inventory and payables scale with cost of sales because that is what was bought.</p>
+        <div class="prompt-box"><span class="label">fin-live.js</span>var arNew  = revenue * a.dso / 30;
+var invNew = cogs    * a.dio / 30;
+var apNew  = cogs    * a.dpo / 30;
+
+var dWC = (arNew - ar) + (invNew - inv) - (apNew - ap);</div>
+        <p>The last line is the one that reaches the cash flow statement. It is the <strong>change</strong> in the three balances, not the balances themselves, because a business with a large but stable receivables book is not consuming cash. It is only growth in the balances that takes money out.</p>
+        <div class="prompt-box"><span class="label">console</span>const m = MARCHMONT.run({}, 12);
+const r = m.rows[0];
+
+r.ar            r.inventory     r.ap
+r.workingCapital                // ar + inventory - ap
+r.deltaWC                       // the movement that hits cash
+r.operatingCF                   // netIncome + depreciation - deltaWC</div>
+        <p class="mono">No credentials of any kind are involved. If an example ever needs one, the string is the word placeholder.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 1 ============ -->
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers the three dials</span>
+      <h2>Three dials, and only one of them is on your side</h2>
+      <span class="tag concept">12 min live</span>
+    </div>
+    <p class="lede">Follow one instrument from raw materials to collected payment and the whole subject is a timeline. The money goes out on one date and comes back on another, and the distance between them is a number with a name.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 296" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A timeline following one instrument. At day zero Marchmont buys materials. At day 30 it pays the supplier, which is DPO 30. The stock sits for 60 days, which is DIO 60, so the instrument ships and is invoiced at day 60. The invoice is unpaid for 75 days, which is DSO 75, so the customer pays at day 135. The cash conversion cycle runs from day 30, when the money left, to day 135, when it came back, a gap of 105 days. Below, a band states that 105 equals DIO 60 plus DSO 75 less DPO 30, and that payables is the only one of the three working in Marchmont's favour and the shortest of the three.">
+        <style>
+          .p3aH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p3aE { font: 800 11px Inter, sans-serif; fill: #14201C; }
+          .p3aD { font: 400 10px Inter, sans-serif; fill: #55665F; }
+          .p3aW { font: 800 11px Inter, sans-serif; fill: #FFFFFF; }
+          .p3aWs { font: 400 10.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p3aI { font: 800 10.5px Inter, sans-serif; fill: #14201C; }
+          .p3aWb { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+          .p3aK { font: 800 12px Inter, sans-serif; fill: #9A3412; }
+          .p3aM { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+        </style>
+
+        <text class="p3aH" x="14" y="20">One instrument, from materials in to money back.</text>
+
+        <text class="p3aE" x="80" y="48" text-anchor="middle">buy materials</text>
+        <text class="p3aD" x="80" y="64" text-anchor="middle">day 0</text>
+        <text class="p3aE" x="243" y="48" text-anchor="middle">pay the supplier</text>
+        <text class="p3aD" x="243" y="64" text-anchor="middle">day 30</text>
+        <text class="p3aE" x="406" y="48" text-anchor="middle">ship and invoice</text>
+        <text class="p3aD" x="406" y="64" text-anchor="middle">day 60</text>
+        <text class="p3aE" x="813" y="48" text-anchor="middle">customer pays</text>
+        <text class="p3aD" x="813" y="64" text-anchor="middle">day 135</text>
+
+        <line x1="80" y1="74" x2="80" y2="218" stroke="#CBD9D3" stroke-width="1"></line>
+        <line x1="243" y1="74" x2="243" y2="218" stroke="#CBD9D3" stroke-width="1"></line>
+        <line x1="406" y1="74" x2="406" y2="218" stroke="#CBD9D3" stroke-width="1"></line>
+        <line x1="813" y1="74" x2="813" y2="218" stroke="#CBD9D3" stroke-width="1"></line>
+
+        <rect x="80" y="84" width="326" height="32" rx="6" fill="#175E4C"></rect>
+        <text class="p3aW" x="94" y="105">DIO 60 - stock on the shelf</text>
+
+        <rect x="406" y="84" width="407" height="32" rx="6" fill="#0C3A2E"></rect>
+        <text class="p3aW" x="420" y="105">DSO 75 - invoice raised, not paid</text>
+
+        <rect x="80" y="124" width="163" height="32" rx="6" fill="#8FBFAE"></rect>
+        <text class="p3aI" x="94" y="145">DPO 30 - supplier waits</text>
+
+        <rect x="243" y="170" width="570" height="44" rx="7" fill="#9A3412"></rect>
+        <text class="p3aWb" x="257" y="190">Cash conversion cycle: 105 days</text>
+        <text class="p3aWs" x="257" y="207">Marchmont has paid for the goods and has not been paid for them.</text>
+
+        <rect x="14" y="232" width="852" height="52" rx="9" fill="#FFF7ED" stroke="#9A3412"></rect>
+        <text class="p3aK" x="30" y="254">105 = DIO 60 + DSO 75 - DPO 30</text>
+        <text class="p3aM" x="30" y="272">Only payables works in Marchmont's favour, and it is the shortest of the three dials by a wide margin.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the cycle is the gap between the two cash events, not between the two paper events.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Receivables: sales you have made and not been paid for<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Days sales outstanding is how long the average pound of revenue sits as an invoice before it becomes money. Marchmont's is 75, so the balance is <span class="mono">revenue x 75 / 30</span>, two and a half months of sales held as paper. In month 1 that is <strong>£1,000,000</strong>, which is already larger than the opening cash balance.</p>
+        <p><strong>What it decides.</strong> Credit terms, how hard collections are chased, and which customers get a credit limit at all. <strong>Where judgement enters.</strong> DSO is an average and averages hide the shape. Ninety-nine laboratories paying on the nail and one large teaching hospital nine months late produce the same DSO as everybody paying moderately late, and those are entirely different problems with entirely different fixes. A single figure should always be followed by an ageing profile.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Inventory: money spent and not yet sold<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Days inventory on hand is how long stock sits before it becomes a sale. Marchmont's is 60, computed on cost of sales rather than revenue because stock is carried at what it cost, not what it will fetch. In month 1 that balance is <strong>£464,000</strong>.</p>
+        <p><strong>What it decides.</strong> Whether a laboratory that orders on Tuesday gets an instrument this month or next. Two months of finished stock is a promise of availability, and availability is part of what a B2B buyer is paying for. <strong>Where judgement enters.</strong> The right level is a bet about demand nobody can settle in advance. Hold too much and the money is idle and the instruments may be superseded. Hold too little and the order goes to a competitor who had one on the shelf. Neither error appears in the accounts as an error.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Payables: the dial that works in your favour<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Days payable is how long the business holds its own suppliers' money before handing it over. Marchmont's is 30, against a balance of <strong>£232,000</strong> in month 1. Every pound sitting in payables is a pound of the business's operations that a supplier is currently financing at no charge.</p>
+        <p><strong>What it decides.</strong> How much of the cycle somebody else pays for. At 30 days against a 135 day journey, Marchmont's suppliers cover less than a quarter of it. <strong>Where judgement enters.</strong> Goodwill has no ledger account. Terms are extended by negotiation or by simply paying later and waiting to see what happens, and the second route works until the month a supplier is deciding who gets the last shipment of a scarce component.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The cash conversion cycle, and the businesses that run it backwards<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The cycle is <strong>DSO plus DIO less DPO</strong>. For Marchmont that is 75 plus 60 less 30, which is <strong>105 days</strong>. It is the number of days between the business's money leaving and the same trade's money returning, and it is the single most compact description of how much cash a business needs simply to operate at its current size.</p>
+        <p>The arithmetic runs in both directions. A retailer who sells for cash, holds stock briefly and pays suppliers on long terms has a negative cycle: the customer's money arrives before the supplier's invoice falls due, so growth generates cash instead of consuming it. A subscription business billed annually in advance is in the same position. Marchmont is the opposite case, and the sign of the cycle is most of what determines whether growth needs funding.</p>
+        <p>The practical use is that the cycle multiplied by daily sales gives a rough size for the working capital a business must carry. Cut the cycle and that requirement falls, in proportion, without a single sale being added.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2 ============ -->
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers the build</span>
+      <h2>Twelve months of build, and what it does to the bank</h2>
+      <span class="tag concept">10 min live</span>
+    </div>
+    <p class="lede">Each balance is proportional to the month's activity, and activity grows 4% a month, so each balance grows too. The two on the left grow by more, in pounds, than the one on the right, and the difference is what leaves the bank.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three pairs of horizontal bars comparing month 1 with month 12. Receivables grow from 1,000,000 pounds to 1,539,454. Inventory grows from 464,000 pounds to 714,307. Payables grow from 232,000 pounds to 357,153, a much smaller bar in both months. A band below records that receivables plus inventory less payables gives a twelve month build of 664,607 pounds and that no profit line moved to produce it.">
+        <style>
+          .p3bH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p3bG { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p3bT { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+          .p3bV1 { font: 400 11px Inter, sans-serif; fill: #55665F; }
+          .p3bV2 { font: 800 11px Inter, sans-serif; fill: #14201C; }
+          .p3bN { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+          .p3bB { font: 800 12px Inter, sans-serif; fill: #14201C; }
+        </style>
+
+        <text class="p3bH" x="14" y="20">The same three balances, twelve months apart.</text>
+
+        <text class="p3bG" x="14" y="65">Receivables</text>
+        <rect x="180" y="40" width="273" height="18" rx="3" fill="#C9E3D9" stroke="#8FBFAE"></rect>
+        <rect x="180" y="64" width="420" height="18" rx="3" fill="#175E4C"></rect>
+        <text class="p3bT" x="174" y="53" text-anchor="end">month 1</text>
+        <text class="p3bT" x="174" y="77" text-anchor="end">month 12</text>
+        <text class="p3bV1" x="463" y="53">£1,000,000</text>
+        <text class="p3bV2" x="610" y="77">£1,539,454</text>
+        <text class="p3bN" x="14" y="100">Sales already made and not yet paid for. Receivables alone grow by £539,454 over the year.</text>
+
+        <text class="p3bG" x="14" y="149">Inventory</text>
+        <rect x="180" y="124" width="127" height="18" rx="3" fill="#C9E3D9" stroke="#8FBFAE"></rect>
+        <rect x="180" y="148" width="195" height="18" rx="3" fill="#0C3A2E"></rect>
+        <text class="p3bT" x="174" y="137" text-anchor="end">month 1</text>
+        <text class="p3bT" x="174" y="161" text-anchor="end">month 12</text>
+        <text class="p3bV1" x="317" y="137">£464,000</text>
+        <text class="p3bV2" x="385" y="161">£714,307</text>
+        <text class="p3bN" x="14" y="184">Money already spent on instruments that have not been sold. Carried at cost, not at what they will fetch.</text>
+
+        <text class="p3bG" x="14" y="233">Payables</text>
+        <rect x="180" y="208" width="63" height="18" rx="3" fill="#C9E3D9" stroke="#8FBFAE"></rect>
+        <rect x="180" y="232" width="98" height="18" rx="3" fill="#8FBFAE" stroke="#175E4C"></rect>
+        <text class="p3bT" x="174" y="221" text-anchor="end">month 1</text>
+        <text class="p3bT" x="174" y="245" text-anchor="end">month 12</text>
+        <text class="p3bV1" x="253" y="221">£232,000</text>
+        <text class="p3bV2" x="288" y="245">£357,153</text>
+        <text class="p3bN" x="14" y="268">Suppliers Marchmont has not yet paid. The only one of the three that holds cash inside the business.</text>
+
+        <rect x="14" y="284" width="852" height="62" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p3bB" x="30" y="308">Receivables plus inventory, less payables: the twelve month build is £664,607.</text>
+        <text class="p3bN" x="30" y="328">Every pound of it is money Marchmont has earned or spent and cannot use, and not one pound of it appears as a cost anywhere.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the payables bar is drawn on the same scale as the other two, which is the fastest way to see how little of the cycle a supplier is funding.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Why the build tracks growth rather than size<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Only the <strong>change</strong> in the three balances touches cash. A business selling the same amount every month has a large receivables book that does not move, and a balance that does not move takes nothing out of the bank: the collections coming in match the invoices going out. Marchmont grows 4% a month, so each month's balances are larger than the last, and the difference is funded out of the bank balance.</p>
+        <p>That is the mechanism behind the whole course. Growth does not consume cash because growing is expensive. It consumes cash because a larger business needs a larger amount of money permanently parked in invoices and stock, and the increase has to be found before the extra profit arrives.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Reading the monthly operating cash flow<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Operating cash flow is net income plus depreciation less the working capital movement. Marchmont's is negative in every month from month 2, and it climbs steadily back towards zero without ever reaching it: <strong>minus £23,481</strong> in month 2, <strong>minus £5,796</strong> in month 10, <strong>minus £427</strong> in month 12.</p>
+        <p>It climbs because the two terms grow at different speeds. Net income rises from £17,732 in month 2 to £63,370 in month 12. The working capital movement rises from £49,280 to £72,946 over the same stretch. Profit is catching up. On this trajectory it eventually overtakes, which is session 9 and is the reason a twelve month window is not long enough to judge the business.</p>
+      </div>
+    </details>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 352" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Operating cash flow by month for Marchmont. Month 1 is positive at 22,062 pounds because the opening working capital balances were set consistent with month 1 activity, so no movement is recorded. Month 2 drops to minus 23,481 pounds, the lowest point on the chart, and every month after that climbs steadily towards the zero line without crossing it, reaching minus 427 pounds in month 12. A band below records that the month 1 figure is a modelling choice rather than a finding about the business.">
+        <style>
+          .p3dH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p3dV { font: 800 11px Inter, sans-serif; fill: #175E4C; }
+          .p3dC { font: 800 11px Inter, sans-serif; fill: #9A3412; }
+          .p3dM { font: 400 10px Inter, sans-serif; fill: #55665F; }
+          .p3dA { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+          .p3dB { font: 800 12px Inter, sans-serif; fill: #14201C; }
+        </style>
+
+        <text class="p3dH" x="14" y="20">Operating cash flow, month by month.</text>
+
+        <line x1="70" y1="147.2" x2="850" y2="147.2" stroke="#CBD9D3" stroke-width="1"></line>
+        <text class="p3dM" x="38" y="151">zero</text>
+
+        <polyline points="80,60 149,240 218,232.4 287,224.5 356,216.4 426,207.8 495,198.9 564,189.7 633,180.1 702,170.1 771,159.7 840,148.9"
+                  fill="none" stroke="#9A3412" stroke-width="2.6"></polyline>
+
+        <circle cx="218" cy="232.4" r="2.6" fill="#9A3412"></circle>
+        <circle cx="287" cy="224.5" r="2.6" fill="#9A3412"></circle>
+        <circle cx="356" cy="216.4" r="2.6" fill="#9A3412"></circle>
+        <circle cx="426" cy="207.8" r="2.6" fill="#9A3412"></circle>
+        <circle cx="495" cy="198.9" r="2.6" fill="#9A3412"></circle>
+        <circle cx="564" cy="189.7" r="2.6" fill="#9A3412"></circle>
+        <circle cx="633" cy="180.1" r="2.6" fill="#9A3412"></circle>
+        <circle cx="702" cy="170.1" r="2.6" fill="#9A3412"></circle>
+        <circle cx="771" cy="159.7" r="2.6" fill="#9A3412"></circle>
+        <circle cx="80" cy="60" r="4" fill="#175E4C"></circle>
+        <circle cx="149" cy="240" r="4" fill="#9A3412"></circle>
+        <circle cx="840" cy="148.9" r="4" fill="#9A3412"></circle>
+
+        <text class="p3dV" x="94" y="58">£22,062 in month 1</text>
+        <text class="p3dC" x="149" y="258" text-anchor="middle">-£23,481</text>
+        <text class="p3dC" x="840" y="136" text-anchor="end">-£427</text>
+
+        <text class="p3dC" x="300" y="110">Negative in every month from month 2 onward</text>
+        <text class="p3dA" x="300" y="126">and climbing back towards zero, reaching -£427 in month 12.</text>
+
+        <text class="p3dM" x="80" y="276" text-anchor="middle">month 1</text>
+        <text class="p3dM" x="850" y="276" text-anchor="end">month 12</text>
+
+        <rect x="14" y="288" width="852" height="52" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p3dB" x="30" y="310">Month 1 records no working capital movement at all, and that is a modelling choice.</text>
+        <text class="p3dA" x="30" y="328">The opening balances were set consistent with month 1 activity, so the build starts in month 2. It is not a finding about the business.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the line never crosses back above zero inside the twelve months, which is why the cash balance keeps falling even as the shape improves.</figcaption>
+    </figure>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Working capital as a stock, the movement as a flow<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Two fields on every row, and confusing them is the commonest mistake in this subject. <span class="mono">workingCapital</span> is a level: receivables plus inventory less payables, at a moment. <span class="mono">deltaWC</span> is a flow: how much that level moved this month, and it is the only one of the two that appears in a cash flow statement.</p>
+        <p>A business can carry an enormous working capital level and generate perfectly healthy cash, provided the level is stable. It can also carry a small level and haemorrhage cash, if the level is doubling. The question is never how much working capital there is. It is which direction it is moving and how fast.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3 ============ -->
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers the levers</span>
+      <h2>Three levers that move no profit, and are not free</h2>
+      <span class="tag concept">8 min live</span>
+    </div>
+    <p class="lede">Turn any one of the three dials and the cash position changes completely while the income statement does not move by a single pound. That is the clearest demonstration in the whole course that profit and cash are different questions. It is also the point at which a model becomes dangerous, because the thing it cannot see is the thing each lever costs.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 336" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three lever cards measured against the base case, in which cash turns negative in month 10, cash at month 12 is minus 47,261 pounds and twelve month net income is 445,631 pounds. Collecting in 45 days takes cash at month 12 to 168,521 pounds and it never goes negative, at the cost of renegotiating terms customers already agreed. Paying suppliers in 60 days takes it to 77,892 pounds, at the cost of supplier goodwill. Holding 30 days of stock takes it to 77,892 pounds, at the cost of stockout risk. A band below records that all three leave twelve month net income at exactly 445,631 pounds and that the model prices none of the costs named on the cards.">
+        <style>
+          .p3cH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p3cS { font: 800 11.5px Inter, sans-serif; fill: #14201C; }
+          .p3cT { font: 800 12.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p3cK { font: 400 11px Inter, sans-serif; fill: #FFFFFF; }
+          .p3cA { font: 800 11.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p3cU { font: 400 10.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p3cX { font: 400 10px Inter, sans-serif; fill: #FFFFFF; }
+          .p3cW { font: 800 12px Inter, sans-serif; fill: #9A3412; }
+          .p3cM { font: 400 10.5px Inter, sans-serif; fill: #14201C; }
+        </style>
+
+        <text class="p3cH" x="14" y="20">Each lever changes one dial and nothing else.</text>
+
+        <rect x="14" y="34" width="852" height="36" rx="8" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p3cS" x="30" y="57">Base case: cash turns negative in month 10, cash at month 12 is -£47,261, twelve month net income £445,631.</text>
+
+        <rect x="14" y="86" width="270" height="160" rx="10" fill="#175E4C"></rect>
+        <text class="p3cT" x="30" y="112">Collect in 45 days</text>
+        <text class="p3cK" x="30" y="132">dso: 45, everything else as base</text>
+        <text class="p3cA" x="30" y="158">Cash at month 12: £168,521</text>
+        <text class="p3cU" x="30" y="176">Never goes negative.</text>
+        <rect x="26" y="190" width="246" height="48" rx="6" fill="#9A3412"></rect>
+        <text class="p3cX" x="38" y="210">The customers agreed 75 days. Asking</text>
+        <text class="p3cX" x="38" y="226">for 45 is a renegotiation, not a memo.</text>
+
+        <rect x="305" y="86" width="270" height="160" rx="10" fill="#175E4C"></rect>
+        <text class="p3cT" x="321" y="112">Pay suppliers in 60 days</text>
+        <text class="p3cK" x="321" y="132">dpo: 60, everything else as base</text>
+        <text class="p3cA" x="321" y="158">Cash at month 12: £77,892</text>
+        <text class="p3cU" x="321" y="176">Never goes negative.</text>
+        <rect x="317" y="190" width="246" height="48" rx="6" fill="#9A3412"></rect>
+        <text class="p3cX" x="329" y="210">Suppliers notice. Paying later spends</text>
+        <text class="p3cX" x="329" y="226">goodwill you may need in a shortage.</text>
+
+        <rect x="596" y="86" width="270" height="160" rx="10" fill="#175E4C"></rect>
+        <text class="p3cT" x="612" y="112">Hold 30 days of stock</text>
+        <text class="p3cK" x="612" y="132">dio: 30, everything else as base</text>
+        <text class="p3cA" x="612" y="158">Cash at month 12: £77,892</text>
+        <text class="p3cU" x="612" y="176">Never goes negative.</text>
+        <rect x="608" y="190" width="246" height="48" rx="6" fill="#9A3412"></rect>
+        <text class="p3cX" x="620" y="210">Half the buffer. A stockout costs an</text>
+        <text class="p3cX" x="620" y="226">order that no row in the model sees.</text>
+
+        <rect x="14" y="262" width="852" height="62" rx="9" fill="#FFF7ED" stroke="#9A3412"></rect>
+        <text class="p3cW" x="30" y="286">All three leave twelve month net income at exactly £445,631. Not one pound of profit moved.</text>
+        <text class="p3cM" x="30" y="306">The model prices the cash and prices none of the costs above. Those costs are real, somebody pays them, and they are not on any row.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the two right hand levers land on the same figure, which is a coincidence of these particular settings and not a rule.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Why no profit moves<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>None of the three dials touches a line on the income statement. Collecting sooner changes when a recorded sale becomes money, not whether it was earned. Paying a supplier later changes when a recorded cost is settled, not what it cost. Holding less stock changes how much is sitting in the warehouse, not what was sold or at what margin. So revenue, cost of sales, gross profit, operating expenses, EBITDA, EBIT, interest, tax and net income are all identical across the base case and all three levers.</p>
+        <p>That is the demonstration to keep. Cash at month 12 moves from minus £47,261 to £168,521 on the first lever, a swing of more than two hundred thousand pounds, and the twelve month profit figure is £445,631 in both runs. Anyone who believes profit and cash are broadly the same thing can be talked out of it in one console command.</p>
+      </div>
+    </details>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>What the model does not price<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Every lever on that diagram is a change somebody else has to accept, and the model has no opinion about whether they will.</p>
+        <ul>
+          <li><strong>Collecting in 45 days rather than 75.</strong> Those terms are in signed contracts. Changing them means going back to laboratories that agreed 75 days and asking for something worse, in a market where a competitor is still offering 75. Some will agree. Some will use it as an opening to renegotiate price. Some will buy elsewhere next time.</li>
+          <li><strong>Paying suppliers in 60 rather than 30.</strong> This is spending goodwill that has no balance. It works until the quarter a component is scarce and a supplier is choosing which customer gets the allocation, and that cost arrives long after the cash benefit was banked and is never attributed to it.</li>
+          <li><strong>Holding 30 days of stock rather than 60.</strong> Half the buffer means half the protection against a demand spike or a late delivery. A stockout costs an order, and possibly the customer. The order that was never placed does not appear in any row of any model, which is exactly what makes this lever look free.</li>
+        </ul>
+        <p>The model prices the cash precisely and the costs not at all. A recommendation built on the cash figure alone is a recommendation with one side of the ledger missing, and saying so out loud is part of presenting the number.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The argument about terms, which does not settle<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p><strong>One position.</strong> An unpaid invoice is an interest-free loan the supplier never agreed to make. A business that does not manage its terms is financing its customers' balance sheets out of its own, and the cost is real: it is the interest on the debt drawn to cover the gap, or the growth foregone because the cash was not there. Terms should be set by whoever owns the balance sheet and enforced, and a sales team that hands out 90 days to close a quarter has spent money it does not control.</p>
+        <p><strong>The other position.</strong> Terms are part of the price. A laboratory comparing two instrument suppliers is comparing total cost including when it has to pay, and 75 days is part of what Marchmont is selling. Pull it to 45 and some customers pay the same, some demand a discount that gives back the benefit, and some quietly go elsewhere. The ones who go elsewhere never appear as a working capital line. They appear as revenue that was never booked, which no model can distinguish from a market that simply did not buy.</p>
+        <p>Both sides are arguing about a quantity nobody in the room has measured, which is how much business the terms are buying. The useful discipline is to say which position you hold, say what evidence would change your mind, and notice that the £168,521 on the diagram is the upper bound of the benefit rather than the benefit.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 4 ============ -->
+  <section class="section" id="part-4">
+    <div class="section-kicker">
+      <span class="klabel">Part 4 · build-along</span>
+      <h2>Turn each dial and watch what does not move</h2>
+      <span class="tag build">26 min hands on</span>
+    </div>
+    <p class="lede">Six steps in the browser console on this page. <span class="mono">MARCHMONT</span> is already loaded. The last step needs no code at all and is the one worth the most.</p>
+
+    <div class="steps">
+      <div class="step">
+        <h4>Read the three balances off month 1</h4>
+        <p>Call <span class="mono">MARCHMONT.run({}, 12)</span> and read <span class="mono">rows[0].ar</span>, <span class="mono">rows[0].inventory</span> and <span class="mono">rows[0].ap</span> against £1,000,000, £464,000 and £232,000. Then check that <span class="mono">workingCapital</span> is the first plus the second less the third.</p>
+      </div>
+      <div class="step">
+        <h4>Explain the zero in month 1</h4>
+        <p><span class="mono">rows[0].deltaWC</span> is zero while every later month is a large positive number. Work out why from the opening balances before reading on, then confirm: the opening balances were set consistent with month 1 activity, so nothing moved. It is a modelling choice and not a fact about Marchmont.</p>
+      </div>
+      <div class="step">
+        <h4>Reproduce the twelve month build</h4>
+        <p>Use <span class="mono">MARCHMONT.cumulative(m, "deltaWC", 12)</span> and check it against £664,607. Then add up <span class="mono">operatingCF</span> over the same twelve months and confirm it comes to minus £116,951, which is net income of £445,631 plus depreciation of £102,025 less the build.</p>
+      </div>
+      <div class="step">
+        <h4>Turn each dial once</h4>
+        <p>Run <span class="mono">{ dso: 45 }</span>, then <span class="mono">{ dpo: 60 }</span>, then <span class="mono">{ dio: 30 }</span>, out to 24 months. Read <span class="mono">MARCHMONT.cashOutMonth</span> on each, which should return 0 every time, and <span class="mono">rows[11].cash</span>, which should give £168,521, £77,892 and £77,892 against a base of minus £47,261.</p>
+      </div>
+      <div class="step">
+        <h4>Prove the income statement did not notice</h4>
+        <p>Run <span class="mono">MARCHMONT.cumulative(r, "netIncome", 12)</span> on all four runs including the base. All four should return £445,631. Then pick any single row and check revenue, cogs, opex and tax across the four runs; every one of them should be identical to the penny.</p>
+      </div>
+      <div class="step">
+        <h4>Write the cost line for each lever</h4>
+        <p>No code. For each of the three, write one sentence naming who pays for it and what they would want in return. If a lever has no cost sentence, the sentence has not been found yet, because a change that costs nobody anything would already have been made.</p>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>The habit to keep.</strong> A working capital number never travels alone. Quote the cash benefit and the cost in the same breath, and name who bears the cost. The model gives you the first half to four decimal places and the second half not at all, and only one of those halves is on your slide by default.</p>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">Marchmont runs DSO 75, DIO 60 and DPO 30. What is the cash conversion cycle?</p>
+      <div class="qopt">A · 165 days, because all three dials add to the time the money is away</div>
+      <div class="qopt">B · 105 days, because it is DSO plus DIO less DPO, and payables runs the other way</div>
+      <div class="qopt">C · 45 days, because inventory and payables cancel against the collection period</div>
+      <q class="qwhy">Follow one instrument. The money leaves on day 30 when the supplier is paid and returns on day 135 when the customer pays, 60 days of stock plus 75 days of invoice after the purchase. The gap is 105 days, and payables is the only term that shortens it.</q>
+    </div>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">Collecting in 45 days instead of 75 takes cash at month 12 from minus £47,261 to £168,521. What happens to twelve month net income?</p>
+      <div class="qopt">A · It rises, because the cash arrives sooner and earns interest</div>
+      <div class="qopt">B · It falls, because faster collection means discounting invoices</div>
+      <div class="qopt">C · Nothing. It is £445,631 in both runs, because terms change when a sale becomes money and not whether it was earned</div>
+      <q class="qwhy">The dial does not touch a single line of the income statement. Revenue, cost of sales, operating expenses and tax are identical to the penny across both runs. A swing of more than two hundred thousand pounds in the bank against no change at all in profit is the sharpest version of the point.</q>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">Someone presents the three working capital levers as free money, on the grounds that they cost no profit. What is wrong with that?</p>
+      <div class="qopt">A · The costs are real and sit outside the model: terms customers already agreed, supplier goodwill, and the risk of a stockout that loses an order</div>
+      <div class="qopt">B · Nothing is wrong; the measured figures show no profit impact, so the levers genuinely cost nothing</div>
+      <div class="qopt">C · The levers do reduce profit, and the model has computed the net income figures incorrectly</div>
+      <q class="qwhy">The net income figures are right and the levers are not free. Each one is a change somebody else has to accept, and the model prices the cash while pricing none of the costs. The lost order in particular never appears in any row, which is precisely what makes the lever look costless.</q>
+    </div>
+
+    <div class="quiz-score"></div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="homework">
+    <div class="section-kicker">
+      <span class="klabel">Before session 4</span>
+      <h2>Homework</h2>
+    </div>
+    <p class="lede">Thirty minutes, half on a real set of accounts and half on a conversation you have actually had.</p>
+    <div class="steps">
+      <div class="step">
+        <h4>Compute a real cycle</h4>
+        <p>Take any published set of accounts and work out DSO, DIO and DPO from the balances and the annual revenue and cost of sales. Then compute the cycle and say whether it is positive or negative, and what that implies about whether growth would fund itself.</p>
+      </div>
+      <div class="step">
+        <h4>Price one lever properly</h4>
+        <p>Pick one customer or supplier term in your own organisation that could be changed. Write down the cash it would release, then write down what the other side would want in exchange and who would have to ask them. Session 7 puts all eight levers side by side and this is the column it cannot fill in for you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OFFICIAL ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Covered today</span>
+      <h2>What this session covers</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Receivables, inventory and payables</span><span class="note">What each balance physically holds, and which one runs in your favour.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">DSO 75, DIO 60, DPO 30 as multiplications</span><span class="note">Receivables on revenue, inventory and payables on cost of sales.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The cash conversion cycle</span><span class="note">105 days: DIO 60 plus DSO 75 less DPO 30, traced along one instrument.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The twelve month build</span><span class="note">£664,607, from £1,000,000 of receivables to £1,539,454 and the rest.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The level against the movement</span><span class="note">Only deltaWC reaches cash; a large stable balance consumes nothing.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The monthly operating cash flow path</span><span class="note">Negative from month 2, climbing to minus £427 by month 12.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Three levers measured, and the profit that never moves</span><span class="note">£445,631 in every run, against a cash swing of over two hundred thousand.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">What the levers cost</span><span class="note">Customer terms, supplier goodwill, stockout risk. None of it priced by the model.</span></div>
+      <div class="covered-row"><span class="status pill inkpill">◐</span><span class="name">The full cash flow statement</span><span class="note">Session 4, by the indirect method, line by line.</span></div>
+      <div class="covered-row"><span class="status pill inkpill">◐</span><span class="name">The other five levers, and growth itself</span><span class="note">Session 7.</span></div>
+      <div class="covered-row"><span class="status pill light">○</span><span class="name">Valuation and what a business is worth</span><span class="note">A different subject with different tools.</span></div>
+      <div class="covered-row"><span class="status pill light">○</span><span class="name">Unit economics, customer acquisition cost and lifetime value</span><span class="note">Covered in the strategy and OKR courses.</span></div>
+    </div>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="section" id="cheatsheet">
+    <div class="section-kicker">
+      <span class="klabel">Take this with you</span>
+      <h2>Cheat sheet</h2>
+    </div>
+    <div class="cheat">
+      <div class="cheat-item"><strong>The three dials.</strong> ar = revenue x dso / 30. inventory = cogs x dio / 30. ap = cogs x dpo / 30.</div>
+      <div class="cheat-item"><strong>Marchmont's settings.</strong> DSO 75, DIO 60, DPO 30. Only the last one holds cash in.</div>
+      <div class="cheat-item"><strong>The cycle.</strong> DSO plus DIO less DPO. For Marchmont, 105 days between money out and money back.</div>
+      <div class="cheat-item"><strong>Level or movement.</strong> workingCapital is a level. deltaWC is the flow, and only the flow reaches cash.</div>
+      <div class="cheat-item"><strong>The build.</strong> £664,607 over twelve months, and none of it is a cost.</div>
+      <div class="cheat-item"><strong>Month 12 balances.</strong> Receivables £1,539,454, inventory £714,307, payables £357,153.</div>
+      <div class="cheat-item"><strong>The levers.</strong> dso 45 gives £168,521 at month 12. dpo 60 and dio 30 each give £77,892. Base is minus £47,261.</div>
+      <div class="cheat-item"><strong>The honest line.</strong> Profit is £445,631 in all four runs, and no lever is free. Name who pays.</div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <div class="wrap">
+      <p>Practitioner session 3 of 10 · learn-finance-with-phoebe · by Phoebe Fu</p>
+      <nav class="pagenav">
+        <a href="p2-the-income-statement.html">← Practitioner session 2 · The income statement</a>
+        <a href="p4-the-cash-flow-statement.html">Practitioner session 4 · The cash flow statement →</a>
+      </nav>
+    </div>
+  </footer>
+
+</main>
+
+<script src="../assets/fin-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

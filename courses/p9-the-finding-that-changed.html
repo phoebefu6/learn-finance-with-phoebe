@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Practitioner session 9 of 10. A 24 month run said a profitable company runs out of cash and dies. The same model, unchanged, run to 48 months recovers on its own in month 28. The window was the finding.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="The finding that changed at 48 months - learn finance with phoebe">
+<meta property="og:description" content="Practitioner session 9 of 10. How a headline died, how to kill your own before anybody reads it, and what survives a correction.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-finance-with-phoebe/courses/p9-the-finding-that-changed.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-finance-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The finding that changed at 48 months - learn finance with phoebe">
+<meta name="twitter:description" content="The model was right both times. The claim was about the window.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-finance-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Practitioner session 9 · The finding that changed at 48 months - learn finance with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-finance-with-phoebe</a> / Practitioner session 9 of 10</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Finance with Phoebe · Practitioner session 9 of 10</div>
+    <h1>The finding that changed <span class="accent">at 48 months</span></h1>
+    <p class="sub">The first pass of the Marchmont bench was run to 24 months. It showed a company profitable in every month, below zero in the bank from month 10, and still under water when the run stopped. The sentence being drafted was "a profitable company runs out of cash and dies". Before it was written down the same model was run again with one argument changed, to 48 months, and the balance comes back above zero on its own in month 28 after eighteen months under. The headline was wrong. What was wrong with it was not the model, not the arithmetic and not a key: it was the window.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Hands on</span>
+      <span class="chip audience">Analysts about to publish a finding</span>
+      <span class="chip audience">Anyone who has to retract one</span>
+      <span class="chip time">60 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-4 · Welcome</span>
+      <span class="a2" style="flex:5">4-22 · The claim, and the run that killed it</span>
+      <span class="a3" style="flex:5">22-42 · Killing your own first</span>
+      <span class="a4" style="flex:4">42-60 · What survives a correction</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>A true story, and the thing it is evidence for</h2>
+    </div>
+    <p class="lede">Session 6 named the horizon as an assumption and showed the two windows side by side. This is what happened when that was not done in time. The interesting part is not that a draft was wrong, which is ordinary. It is that every figure in the wrong draft was correct, the balance sheet tied in the run that produced it, and no check in the engine would ever have flagged it.</p>
+
+    <div class="legend">
+      <span class="pill">Live = run together in the session</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">🔍 Every diagram zooms</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with today.</strong> The horizon treated as an input with a value, reported next to the answer rather than left in a function signature. Four tests you can run on your own claim before anybody else sees it, each of them one line. The difference between a finding and a reading of a window, which is that one of them survives an extension and the other does not. A method for retracting half a claim and keeping the other half. And the opposite error, which is available from exactly the same mistake pointed the other way.</p>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>The uncomfortable part.</strong> The draft that died passed every automated check there was. <span class="mono">MARCHMONT.ties()</span> returns ok on a 24 month run and on a 48 month run, with a worst error of 2.24e-8 across the whole canon set. Profitability was real. The cash figures were real. There is no assertion that could have been added to the bench to catch this, because nothing was broken. The failure was a conclusion drawn from a window that did not contain the event, and only reading catches that.</p>
+    </div>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The horizon is an input, and it is the one with no default worth trusting<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Fifteen assumption keys get argued over before a run. The horizon gets typed once, usually as whatever the function does when you leave the second argument off, and then never appears in the output. Marchmont's engine defaults to 24 months. Nobody chose 24 months; it was chosen in the source file by whoever wrote the signature, for no reason connected to the question being asked.</p>
+        <p>Treat it the way the growth rate is treated. It has a value, the value changes the answer, and the value belongs next to the answer. A figure quoted without its horizon cannot be reproduced by the person reading it, which means it cannot be disagreed with, which means it is not yet a finding.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>"Marchmont troughs at -£115,501 and does not recover" and "Marchmont troughs at -£115,501 and recovers in month 28" are both accurate reports of the same model. The first one is missing four words: over a 24 month run.</p>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 1 ============ -->
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers the claim and its death</span>
+      <h2>Three stages, and one changed argument</h2>
+      <span class="tag concept">14 min live</span>
+    </div>
+    <p class="lede">No assumption key was touched between the draft and the correction. The growth rate, the margin, the collection days and the opening balances were identical. The second argument to <span class="mono">run</span> went from 24 to 48, and a company that died became a company with a financing requirement.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 270" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Three stages side by side. Stage one, the claim as drafted: run to 24 months, profitable in every month, cash below zero from month 10, never comes back inside the window, headline a profitable company dies. Stage two, the run that killed it: same model, same keys, run to 48 months, trough minus 115,501 pounds in month 19, back above zero in month 28, nothing else changed. Stage three, what was left: kept that profit and cash diverge, kept that the gap is real and needs funding, retracted that the company dies, reported the run that killed it, leaving a finding with a correction on it. A closing band records that a result which flips when you extend the window was never a finding.">
+        <style>
+          .p9aH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p9aT { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+          .p9aS { font: 400 11px Inter, sans-serif; fill: #FFFFFF; }
+          .p9aB { font: 800 11px Inter, sans-serif; fill: #FFFFFF; }
+          .p9aN { font: 800 12px Inter, sans-serif; fill: #9A3412; }
+          .p9aM { font: 400 10.5px Inter, sans-serif; fill: #14201C; }
+        </style>
+        <defs>
+          <marker id="p9aAr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#55665F"></path></marker>
+        </defs>
+
+        <text class="p9aH" x="14" y="20">One claim, three stages, and the only difference is a horizon.</text>
+
+        <rect x="14" y="36" width="268" height="146" rx="10" fill="#9A3412"></rect>
+        <text class="p9aT" x="30" y="60">Stage 1 · as drafted</text>
+        <text class="p9aS" x="30" y="84">Run to 24 months</text>
+        <text class="p9aS" x="30" y="104">Profitable in every month</text>
+        <text class="p9aS" x="30" y="124">Below zero from month 10</text>
+        <text class="p9aS" x="30" y="144">Never comes back in view</text>
+        <text class="p9aB" x="30" y="168">Headline: the company dies</text>
+
+        <path d="M 284 109 L 302 109" fill="none" stroke="#55665F" stroke-width="1.6" marker-end="url(#p9aAr)"></path>
+
+        <rect x="306" y="36" width="268" height="146" rx="10" fill="#0C3A2E"></rect>
+        <text class="p9aT" x="322" y="60">Stage 2 · the run that killed it</text>
+        <text class="p9aS" x="322" y="84">Same model, same keys</text>
+        <text class="p9aS" x="322" y="104">Run to 48 months</text>
+        <text class="p9aS" x="322" y="124">Trough -£115,501, month 19</text>
+        <text class="p9aS" x="322" y="144">Back above zero in month 28</text>
+        <text class="p9aB" x="322" y="168">Nothing else was changed</text>
+
+        <path d="M 576 109 L 594 109" fill="none" stroke="#55665F" stroke-width="1.6" marker-end="url(#p9aAr)"></path>
+
+        <rect x="598" y="36" width="268" height="146" rx="10" fill="#175E4C"></rect>
+        <text class="p9aT" x="614" y="60">Stage 3 · what was left</text>
+        <text class="p9aS" x="614" y="84">Kept: profit and cash diverge</text>
+        <text class="p9aS" x="614" y="104">Kept: the gap needs funding</text>
+        <text class="p9aS" x="614" y="124">Dropped: the company dies</text>
+        <text class="p9aS" x="614" y="144">Reported: the run that did it</text>
+        <text class="p9aB" x="614" y="168">A finding with a correction</text>
+
+        <rect x="14" y="202" width="852" height="56" rx="9" fill="#FFF7ED" stroke="#9A3412"></rect>
+        <text class="p9aN" x="30" y="224">A result that flips when you extend the window was never a finding.</text>
+        <text class="p9aM" x="30" y="244">The model was right in both runs. The claim was a statement about the window, written as though it were a statement about the company.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - stage 2 is a single character of difference in the call. That is the entire distance between the two conclusions.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The two runs, side by side, in the console<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>One reader, two horizons. The variable that matters is the last one, and its name is doing real work: <span class="mono">back</span> returns zero when the balance does not come back <em>inside this window</em>, which is not the same statement as never.</p>
+        <div class="prompt-box"><span class="label">console</span>function verdict(months) {
+  const r = MARCHMONT.run({}, months);
+  if (!MARCHMONT.ties(r).ok) throw new Error("does not tie at " + months);
+
+  let t = r.rows[0];
+  for (const row of r.rows) if (row.cash &lt; t.cash) t = row;
+
+  let back = 0;                      // 0 means "not inside this window"
+  for (const row of r.rows) {
+    if (row.month &gt; t.month &amp;&amp; row.cash &gt;= 0) { back = row.month; break; }
+  }
+  return { horizon: months, out: MARCHMONT.cashOutMonth(r), at: t.month, back: back };
+}
+
+verdict(24);   // out 10, trough at 19, back 0
+verdict(48);   // out 10, trough at 19, back 28</div>
+        <p>Both rows are correct. The trough is the same month and the same figure in both, because extending a horizon cannot change a month the engine has already computed. Only the last field moves, and the whole headline hung off it.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Zero is not a value, it is a missing value with a number on it<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The recovery reader returns 0 when it finds nothing. That is a convenient thing for a function to do and a dangerous thing for a reader to receive, because 0 is a perfectly good month number in a context where months are integers, and because "no recovery found" reads at a glance as "no recovery".</p>
+        <p>The fix is not clever. Return something that cannot be mistaken for an answer, or return the horizon alongside it so the reader has to look at both. A field called <span class="mono">back</span> with a value of 0 and no horizon next to it is a fact that has been stripped of the only context that makes it readable, and that stripping is where the draft went wrong rather than anywhere in the arithmetic.</p>
+        <div class="prompt-box"><span class="label">console</span>// the same information, shaped so the missing case cannot be read as a result
+function recovery(r, horizon) {
+  let t = r.rows[0];
+  for (const row of r.rows) if (row.cash &lt; t.cash) t = row;
+
+  for (const row of r.rows) {
+    if (row.month &gt; t.month &amp;&amp; row.cash &gt;= 0) return { month: row.month, seen: true };
+  }
+  return { month: null, seen: false, searchedTo: horizon };
+}</div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why months 1 to 24 are identical in both runs<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The engine steps forward month by month from a solved opening sheet, and no month reads a later one. So months 1 to 24 of the 48 month run are the same values as months 1 to 24 of the 24 month run, and the trough at month 19 is the same trough in both. The horizon is a pure reporting choice: it changes what you can see and nothing about what happened.</p>
+        <p>That is worth confirming once by hand rather than believing, because it is the property that makes extending a window a cheap check. If extending the horizon changed earlier months, comparing two windows would not be a test of the reading, it would be a test of the model, and a much more expensive conversation.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2 ============ -->
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers testing your own claim</span>
+      <h2>Kill it yourself, before somebody else does it for free</h2>
+      <span class="tag concept">16 min live</span>
+    </div>
+    <p class="lede">Four tests, one line each, run before the sentence leaves your machine. The draft that died would have failed the first two and had never been given the last two.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 332" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four pre-publication tests with a verdict and a method for each. Extend the window by half again: failed, rerun at 36 and 48 months and compare the conclusion rather than the figures. Look for extremes on the edge: failed, a trough in the final month of a window is an artefact until a longer run agrees. Write the opposite claim first: not done, draft the sentence you would publish if this were wrong, then look for its run. Sweep the ladder, not one setting: not done, five growth rates, two horizons, and read all ten rather than the one you began in. A band records that all four are one line of code each and cheaper than a retraction, and that none of them is a check the tie can perform. A dark band records that the horizon belongs next to the answer in the same sentence.">
+        <style>
+          .p9bH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p9bA { font: 400 10px Inter, sans-serif; fill: #55665F; }
+          .p9bL { font: 800 10.5px Inter, sans-serif; fill: #14201C; }
+          .p9bF { font: 800 10.5px Inter, sans-serif; fill: #9A3412; }
+          .p9bC { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+          .p9bN { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p9bM { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+          .p9bT { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+        </style>
+
+        <text class="p9bH" x="14" y="20">Four tests, run before anybody else reads the sentence.</text>
+
+        <text class="p9bA" x="24" y="46">Test</text>
+        <text class="p9bA" x="310" y="46">The draft</text>
+        <text class="p9bA" x="410" y="46">How it is run</text>
+        <line x1="14" y1="54" x2="866" y2="54" stroke="#14201C" stroke-width="1.4"></line>
+
+        <rect x="14" y="58" width="852" height="34" rx="5" fill="#F0F7F4"></rect>
+        <text class="p9bL" x="24" y="80">Extend the window by half again</text>
+        <text class="p9bF" x="310" y="80">Failed</text>
+        <text class="p9bC" x="410" y="80">Rerun at 36 and 48 months and compare the conclusion, not the figures</text>
+
+        <rect x="14" y="92" width="852" height="34" rx="5" fill="#FFFFFF"></rect>
+        <text class="p9bL" x="24" y="114">Look for extremes on the edge</text>
+        <text class="p9bF" x="310" y="114">Failed</text>
+        <text class="p9bC" x="410" y="114">A trough in the final month of a window is an artefact until a longer run agrees</text>
+
+        <rect x="14" y="126" width="852" height="34" rx="5" fill="#F0F7F4"></rect>
+        <text class="p9bL" x="24" y="148">Write the opposite claim first</text>
+        <text class="p9bF" x="310" y="148">Not done</text>
+        <text class="p9bC" x="410" y="148">Draft the sentence you would publish if this were wrong, then look for its run</text>
+
+        <rect x="14" y="160" width="852" height="34" rx="5" fill="#FFFFFF"></rect>
+        <text class="p9bL" x="24" y="182">Sweep the ladder, not one setting</text>
+        <text class="p9bF" x="310" y="182">Not done</text>
+        <text class="p9bC" x="410" y="182">Five growth rates, two horizons, and read all ten rather than the one you began in</text>
+
+        <line x1="14" y1="198" x2="866" y2="198" stroke="#DCE8E3" stroke-width="1"></line>
+
+        <rect x="14" y="208" width="852" height="58" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p9bN" x="30" y="230">All four are one line each, and all four are cheaper than a retraction.</text>
+        <text class="p9bM" x="30" y="252">None of them is a check the tie can perform. The sheet ties in both runs and both runs are arithmetically correct.</text>
+
+        <rect x="14" y="276" width="852" height="44" rx="9" fill="#0C3A2E"></rect>
+        <text class="p9bT" x="30" y="304">Report the horizon next to the answer, in the same sentence, every time.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the two "failed" rows are the two that were available at the time and were not run.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Test one: extend by half again and compare the conclusion<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Run it, run it again at one and a half times the length, and compare the sentence rather than the figures. The figures are supposed to change when the window gets longer, because there is more of them. The conclusion is not.</p>
+        <p>This is the cheapest test available and it is the one that would have caught the draft on its own. It also has a useful failure mode: if the conclusion is stable from 24 to 36 to 48 months you have learned something worth putting in the write-up, which is that the claim does not depend on where the window ends.</p>
+        <div class="prompt-box"><span class="label">console</span>[24, 36, 48].map(verdict);
+// [ {horizon:24, out:10, at:19, back:0},
+//   {horizon:36, out:10, at:19, back:28},
+//   {horizon:48, out:10, at:19, back:28} ]
+//
+// the conclusion changes between the first row and the second. that is the finding.</div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Test two: an extreme on the edge is an artefact until proved otherwise<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>If the deepest month in a run is the last month of the run, the model has reported where you stopped looking. Marchmont's trough at 4% growth sits at month 19 inside a 24 month window, which is why the depth in the dead draft was right. At 8% growth the trough is -£7,885,358 in month 48 on a 48 month run, which is the same shape of unanswered question one order of magnitude further along.</p>
+        <p>The check is a comparison, not a judgement, so it can be an assertion in the bench rather than something a reader has to remember. Any run whose extreme month equals its horizon gets flagged and does not get quoted until a longer run agrees with it.</p>
+        <div class="prompt-box"><span class="label">console</span>function edgeFlag(over, months) {
+  const r = MARCHMONT.run(over, months);
+  if (!MARCHMONT.ties(r).ok) throw new Error("does not tie");
+
+  let t = r.rows[0];
+  for (const row of r.rows) if (row.cash &lt; t.cash) t = row;
+  return t.month === months;      // true means: do not quote this trough yet
+}
+
+edgeFlag({}, 12);              // true
+edgeFlag({}, 24);              // false
+edgeFlag({ growth: 0.08 }, 48);// true</div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Test three: write the opposite claim before you look for it<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Draft the sentence you would publish if your claim were false, in full, before running anything else. For the dead headline the opposite is "a profitable company with a working capital gap comes back on its own if you wait long enough". Having written that down, the next question asks itself: what run would produce it, and has anybody done that run.</p>
+        <p>The value of writing it out is that a vague opposite is easy to dismiss and a specific one is not. "It might recover" invites a shrug. "It recovers in month 28 after eighteen months under" is a claim with a shape, and a shape is a thing you can go and test in one call.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Test four: the sweep, and what it catches that a longer window does not<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Extending the window fixes a claim about time. It does nothing for a claim that was read off a single setting, and the canon set exists for that reason: five growth rates crossed with five collection settings, each run to both 24 and 48 months, fifty runs with the worst tie error at 2.24e-8.</p>
+        <div class="prompt-box"><span class="label">console</span>for (const g of [0, 0.02, 0.04, 0.06, 0.08]) {
+  for (const h of [24, 48]) {
+    const r = MARCHMONT.run({ growth: g }, h);
+    if (!MARCHMONT.ties(r).ok) throw new Error("does not tie: " + g + " " + h);
+    console.log(g, h, MARCHMONT.cashOutMonth(r));
+  }
+}
+// ten rows. the gap opens in three of the five growth settings
+// and closes inside 48 months in exactly one of them.</div>
+        <p>Reading all ten rows is what stops the correction becoming the next error. The 48 month run at 4% says Marchmont recovers. It does not say that companies like Marchmont recover, and the rows underneath it say plainly that most of them do not.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3 ============ -->
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers the correction</span>
+      <h2>What to keep when the headline dies</h2>
+      <span class="tag concept">14 min live</span>
+    </div>
+    <p class="lede">A dead headline usually takes less with it than it feels like at the time. The robust part of the Marchmont work survived the correction untouched, and the two errors available here point in opposite directions and come from the same habit.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 304" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two opposite errors side by side. Error one, reading one window: base case run to 24 months, the line never comes back, claim a profitable company dies, killed by the same run at 48 months. Error two, reading one setting: base case at 4 percent run to 48 months, it recovers in month 28, claim a growing company always recovers, killed by 6 percent growth where the trough is minus 897,962 pounds with no recovery by month 48. A band records that both errors are produced the same way, one run generalised, and that the fix is more than one run with the conditions reported beside the answer. A closing band records what survived the correction: profit and cash diverge hard and for a long time, and the gap is real and needs funding, both true at 24 months and at 48.">
+        <style>
+          .p9cH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p9cT { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+          .p9cS { font: 400 11px Inter, sans-serif; fill: #FFFFFF; }
+          .p9cB { font: 800 11px Inter, sans-serif; fill: #FFFFFF; }
+          .p9cK { font: 800 12px Inter, sans-serif; fill: #9A3412; }
+          .p9cI { font: 400 10.5px Inter, sans-serif; fill: #14201C; }
+          .p9cN { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p9cM { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+        </style>
+
+        <text class="p9cH" x="14" y="20">Two opposite errors, one habit.</text>
+
+        <rect x="14" y="34" width="418" height="126" rx="10" fill="#9A3412"></rect>
+        <text class="p9cT" x="32" y="58">Error one · read one window</text>
+        <text class="p9cS" x="32" y="82">Run: base case, 24 months</text>
+        <text class="p9cS" x="32" y="102">Reading: the line never comes back</text>
+        <text class="p9cS" x="32" y="122">Claim: a profitable company dies</text>
+        <text class="p9cB" x="32" y="146">Killed by: the same run at 48 months</text>
+
+        <rect x="448" y="34" width="418" height="126" rx="10" fill="#0C3A2E"></rect>
+        <text class="p9cT" x="466" y="58">Error two · read one setting</text>
+        <text class="p9cS" x="466" y="82">Run: base case at 4%, 48 months</text>
+        <text class="p9cS" x="466" y="102">Reading: it recovers in month 28</text>
+        <text class="p9cS" x="466" y="122">Claim: a growing company always recovers</text>
+        <text class="p9cB" x="466" y="146">Killed by: 6%, -£897,962, no recovery by 48</text>
+
+        <rect x="14" y="176" width="852" height="52" rx="9" fill="#FFF7ED" stroke="#9A3412"></rect>
+        <text class="p9cK" x="30" y="198">Both errors are produced the same way: one run, generalised.</text>
+        <text class="p9cI" x="30" y="218">The fix is not a longer window. It is more than one run, with the conditions reported beside the answer.</text>
+
+        <rect x="14" y="240" width="852" height="52" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p9cN" x="30" y="262">What survived the correction is the part that held in every run.</text>
+        <text class="p9cM" x="30" y="282">Profit and cash diverge hard and for a long time, and the gap is real and has to be funded. True at 24 months and at 48.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the right hand box is the error nobody made here, and it was one careless sentence away at every point after the correction.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Separating the robust part from the dead part<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Go through the draft claim by claim and mark each one with the run that supports it. The Marchmont draft had four claims in it, and two of them were never in danger.</p>
+        <p><strong>Profit and cash diverge, hard, for a long time.</strong> Twelve month net income of <strong>£445,631</strong> against free cash flow of <strong>-£297,261</strong>, a gap of <strong>£742,892</strong>, of which <strong>£664,607</strong> is the working capital build. Unchanged by the horizon, because it is a twelve month total inside both windows.</p>
+        <p><strong>The gap is real and has to be funded.</strong> The balance goes under in month 10 and stays under for eighteen months. Recovering in month 28 does not help anybody in month 19, so the funding requirement survives the correction completely.</p>
+        <p><strong>The company does not recover.</strong> Dead. The correction run produced month 28.</p>
+        <p><strong>Therefore borrowing is only a deferral.</strong> Dead, and it was the most damaging of the four, because it is the one that would have led somewhere. It was a conclusion built on the claim above it rather than on any run of its own, which is the pattern worth looking for: a claim with no run attached, sitting downstream of one that has.</p>
+        <div class="prompt-box"><span class="label">console</span>const long = MARCHMONT.run({}, 48);
+MARCHMONT.profitableThrough(long, 48);                      // true
+Math.round(MARCHMONT.cumulative(long, "netIncome", 12));    //  445631
+Math.round(MARCHMONT.cumulative(long, "freeCF", 12));       // -297261
+// the surviving half of the claim, checked against the run that killed the other half</div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Where practitioners genuinely disagree about publishing the correction<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Everyone agrees the corrected number goes out. What to do with the dead one is an argument, and it is not a soft argument about tone.</p>
+        <p>One position: <strong>publish the trail, including the claim that died and the run that killed it.</strong> A correction is the strongest available evidence that the work is being checked, and the near miss teaches more than the result does, because the result looks obvious once you have it and the miss shows how it nearly did not happen. Suppressing it means the next person runs 24 months and reaches the same place, and the audience learns nothing about what a window can do to a conclusion. On this view an analysis with no visible corrections is either lucky or not being checked.</p>
+        <p>The other position: <strong>a document carrying every abandoned claim is unreadable, and the abandoned claim is the part that gets quoted.</strong> "A profitable company runs out of cash and dies" is a better sentence than anything that replaced it, and printing it next to its retraction guarantees it travels on its own, stripped of the correction, into somebody else's deck. Readers act on documents, not on their footnotes. On this view the retraction belongs in a change log where the people who need it will look, and the published page carries the number people are meant to use.</p>
+        <p>Both sides have watched their own failure happen: one has seen the same mistake repeat because nobody recorded it, the other has seen a dead headline outlive its correction by years. There is no run that settles it, and the honest move is to say which risk you are choosing and why, rather than presenting a house style as a principle.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Writing the correction so it cannot be half quoted<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Whichever side of the argument above you land on, a correction has a shape that travels better than prose. Name the claim, name the run that supported it including its horizon, name the run that killed it, and name what is left. Four lines, each of them checkable by somebody who has the engine.</p>
+        <p>The detail that does most of the work is putting the horizon inside the dead claim rather than in a note about it. "Over a 24 month run, Marchmont never recovers" is a sentence that carries its own limitation wherever it goes, and it is much harder to quote out of context than "Marchmont never recovers, see footnote". The condition is not an apology for the claim, it is part of what the claim says.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 4 ============ -->
+  <section class="section" id="part-4">
+    <div class="section-kicker">
+      <span class="klabel">Part 4 · build-along</span>
+      <h2>Reproduce the death, then build the check</h2>
+      <span class="tag build">14 min hands on</span>
+    </div>
+    <p class="lede">Five steps in the console and one on paper. The first step is to get the wrong answer deliberately, because it is much harder to respect a trap you have never fallen into.</p>
+
+    <div class="steps">
+      <div class="step">
+        <h4>Produce the dead claim on purpose</h4>
+        <p>Run the base case to 24 months and read out the four facts the draft was built on: profitable in every month, below zero from month 10, the trough at month 19, and no recovery in view. Write the headline sentence out in full. Every word of it is supported by that run.</p>
+      </div>
+      <div class="step">
+        <h4>Kill it with one character</h4>
+        <p>Change 24 to 48 and rerun the same reader. Confirm that the crossing month and the trough month are identical and that only the recovery field moved. Then check that months 1 to 24 match value for value across the two runs.</p>
+      </div>
+      <div class="step">
+        <h4>Make the missing case impossible to misread</h4>
+        <p>Rewrite the recovery reader so that "not found" cannot be received as a month. Return a null and the horizon searched, or throw. Then rerun the 24 month case and see what your new return value forces the caller to do.</p>
+      </div>
+      <div class="step">
+        <h4>Add the edge flag to the bench</h4>
+        <p>Write the check that compares the trough month against the horizon and returns true when they are equal. Run it over the base case at 12, 24 and 48 months and over 8% growth at 48 months. Decide whether a flagged run should warn or refuse.</p>
+      </div>
+      <div class="step">
+        <h4>Sweep ten rows and look for the opposite error</h4>
+        <p>Five growth rates crossed with 24 and 48 months, tie checked on every run. Find the rows that would support "it always recovers" and the rows that contradict it, then write the one sentence that is true of all ten.</p>
+      </div>
+      <div class="step">
+        <h4>Write the four line correction</h4>
+        <p>The claim, the run that supported it with its horizon, the run that killed it, and what is left standing. No console for this one. Then decide, and say out loud, whether you would publish it next to the number or in a log.</p>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>The habit to keep.</strong> Before a claim goes out, ask what run would make it false and whether anybody has done that run. If the answer is that no such run exists, the claim is stronger than you thought. If the answer is that nobody has looked, it is not a finding yet, however many times the balance sheet tied on the way to it.</p>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">The 24 month run and the 48 month run use identical assumptions and the balance sheet ties in both. What was wrong with the draft?</p>
+      <div class="qopt">A · The 24 month run contained an arithmetic error that the longer run corrected</div>
+      <div class="qopt">B · Nothing in the run. The conclusion described the window rather than the company, because the recovery in month 28 was outside the window and its absence was read as its non existence</div>
+      <div class="qopt">C · The tie check was set at the wrong tolerance and passed a run it should have rejected</div>
+      <q class="qwhy">Extending a horizon cannot change a month the engine has already computed, so months 1 to 24 are identical in both. Every figure in the draft was correct. The failure was a reading, and no assertion in the bench would have caught it.</q>
+    </div>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">Which part of the original claim survived the correction?</p>
+      <div class="qopt">A · None of it, since the headline was withdrawn</div>
+      <div class="qopt">B · All of it except the recovery month, which was simply added on</div>
+      <div class="qopt">C · That profit and cash diverge hard and for a long time, and that the gap is real and has to be funded; the death and the conclusion that borrowing only defers it both went</div>
+      <q class="qwhy">Twelve month net income of £445,631 against free cash flow of -£297,261 is inside both windows and never moved. The balance is under from month 10 for eighteen months, so the funding requirement stands. What died was the ending, and the recommendation that had been built on the ending.</q>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">After the correction, somebody writes "a growing company that sells on credit recovers on its own if you wait". What is wrong with that?</p>
+      <div class="qopt">A · It is the same error pointed the other way: it generalises one run, and at 6% growth the trough is -£897,962 with no recovery by month 48</div>
+      <div class="qopt">B · Nothing, because the 48 month run is the longer and therefore the more reliable of the two</div>
+      <div class="qopt">C · It is wrong only because the recovery takes eighteen months, which is too long to describe as recovering on its own</div>
+      <q class="qwhy">One run generalised produced the first error and would produce this one. The ladder is measured across five settings: the gap opens in three of them and closes inside 48 months in exactly one. A longer window fixes a claim about time and does nothing for a claim read off a single setting.</q>
+    </div>
+
+    <div class="quiz-score"></div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="homework">
+    <div class="section-kicker">
+      <span class="klabel">Before session 10</span>
+      <h2>Homework</h2>
+    </div>
+    <p class="lede">Thirty minutes, and the second half is not about Marchmont.</p>
+    <div class="steps">
+      <div class="step">
+        <h4>Find a second claim that depends on its window</h4>
+        <p>Pick any statement in the measured set that involves a month number and test it at three horizons. Write down which ones are stable and which ones move. A claim that survives all three is worth more than a claim nobody tried to break.</p>
+      </div>
+      <div class="step">
+        <h4>Extend the window on something of your own</h4>
+        <p>Take a conclusion you have drawn from real data over some period and ask what a period half again as long would show. If you cannot get the longer period, write down what the claim would have to say about its own window to be honest, and see whether it still reads as a finding.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OFFICIAL ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Covered today</span>
+      <h2>What this session covers</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The claim that died and the run that killed it</span><span class="note">24 months said it never comes back; 48 months returns month 28.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The horizon as an input with a value</span><span class="note">Reported next to the answer, not left in a function signature.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Why no check in the engine could catch it</span><span class="note">The sheet ties in both runs; worst error 2.24e-8 across the canon set.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">A missing value shaped so it cannot be read as a result</span><span class="note">Zero from a recovery reader means not in view, not never.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Four tests to run before publishing</span><span class="note">Extend by half, flag edges, write the opposite, sweep the ladder.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Keeping the robust half of a dead claim</span><span class="note">£445,631 against -£297,261 survived; the death and its recommendation did not.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The opposite error, from the same habit</span><span class="note">At 6% the trough is -£897,962 and has not closed by month 48.</span></div>
+      <div class="covered-row"><span class="status pill inkpill">◐</span><span class="name">Choosing a horizon on purpose</span><span class="note">Session 6, which set up the two windows this one takes apart.</span></div>
+      <div class="covered-row"><span class="status pill inkpill">◐</span><span class="name">Turning the corrected figure into a request</span><span class="note">Session 8 sizes it; leader session 6 presents it.</span></div>
+      <div class="covered-row"><span class="status pill light">○</span><span class="name">Statistical inference and confidence intervals</span><span class="note">The model is deterministic; there is no sampling here to be uncertain about.</span></div>
+      <div class="covered-row"><span class="status pill light">○</span><span class="name">Whether any of this is a reason to buy or sell anything</span><span class="note">Nothing here is advice about any investment.</span></div>
+    </div>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="section" id="cheatsheet">
+    <div class="section-kicker">
+      <span class="klabel">Take this with you</span>
+      <h2>Cheat sheet</h2>
+    </div>
+    <div class="cheat">
+      <div class="cheat-item"><strong>The story.</strong> 24 months said the company dies. 48 months, nothing else changed, returns month 28.</div>
+      <div class="cheat-item"><strong>The rule.</strong> A result that flips when you extend the window was never a finding.</div>
+      <div class="cheat-item"><strong>The horizon.</strong> An input with a value. It goes in the sentence, not in a footnote.</div>
+      <div class="cheat-item"><strong>Zero is missing.</strong> A recovery reader returning 0 means not in view. Return null and the horizon instead.</div>
+      <div class="cheat-item"><strong>Four tests.</strong> Extend by half again. Flag extremes on the edge. Write the opposite. Sweep the ladder.</div>
+      <div class="cheat-item"><strong>What survived.</strong> £445,631 against -£297,261, and eighteen months under water that still need funding.</div>
+      <div class="cheat-item"><strong>What died.</strong> The ending, and the recommendation that had been built on the ending.</div>
+      <div class="cheat-item"><strong>The other error.</strong> "It always recovers" is the same mistake reversed: 6% troughs at -£897,962 and does not come back by month 48.</div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <div class="wrap">
+      <p>Practitioner session 9 of 10 · learn-finance-with-phoebe · by Phoebe Fu</p>
+      <nav class="pagenav">
+        <a href="p8-sizing-a-funding-requirement.html">← Practitioner session 8 · Sizing a funding requirement</a>
+        <a href="p10-the-model-bench.html">Practitioner session 10 · The model bench →</a>
+      </nav>
+    </div>
+  </footer>
+
+</main>
+
+<script src="../assets/fin-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

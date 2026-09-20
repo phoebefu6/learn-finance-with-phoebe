@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Practitioner session 7 of 10. Eight levers measured one at a time against a base case that runs out of cash in month 10. Four of them move cash by up to £168,521 and change twelve month profit by exactly nothing.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="The levers - learn finance with phoebe">
+<meta property="og:description" content="Practitioner session 7 of 10. Eight measured levers, the four that move no profit at all, and the costs the model refuses to price.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-finance-with-phoebe/courses/p7-the-levers.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-finance-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The levers - learn finance with phoebe">
+<meta name="twitter:description" content="Four changes worth up to £168,521 of cash, and the profit line does not move by a single pound.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-finance-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Practitioner session 7 · The levers - learn finance with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-finance-with-phoebe</a> / Practitioner session 7 of 10</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Finance with Phoebe · Practitioner session 7 of 10</div>
+    <h1>The <span class="accent">levers</span></h1>
+    <p class="sub">Marchmont's base case runs out of cash in month 10 and is at -£47,261 by month 12. Eight things can be done about it, and each one has been run on its own with every other assumption held at base. All eight work: every one of them keeps the cash line above zero for the whole year. What separates them is not whether they work but what they cost, and the model is only willing to price some of that. Four of the eight move cash by as much as £168,521 and change twelve month net income by exactly nothing, which is the cleanest demonstration available that profit and cash are two different questions asked of the same transactions.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Hands on</span>
+      <span class="chip audience">Analysts asked what we can do about it</span>
+      <span class="chip audience">Anyone choosing between fixes</span>
+      <span class="chip time">60 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-4 · Welcome</span>
+      <span class="a2" style="flex:5">4-24 · Eight levers, measured</span>
+      <span class="a3" style="flex:4">24-40 · The four that move no profit</span>
+      <span class="a4" style="flex:5">40-60 · What the model will not price</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>What is being levered against</h2>
+    </div>
+    <p class="lede">One base case, one horizon, one key changed at a time. Marchmont grows 4% a month, holds a 42% margin, collects in 75 days, holds 60 days of stock and pays suppliers in 30. Cash goes below zero in month 10 and stands at -£47,261 at month 12, while twelve month net income is £445,631. Every figure below is the same model with one assumption moved, run to 24 months, tie checked before it was read.</p>
+
+    <div class="legend">
+      <span class="pill">Live = run together in the session</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">🔍 Every diagram zooms</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with today.</strong> Eight measured levers with their cash and profit effects side by side, reproducible in the console in six lines. The finding that collecting sooner, paying later and holding less stock move cash without touching the income statement by a single pound. The reason that is a statement about accounting rather than about business skill. And a working method for choosing between levers the model has declined to rank, because the thing that separates them is not in the model.</p>
+    </div>
+
+    <div class="callout warn">
+      <p><strong>Read this before the table.</strong> None of these levers is free, and the model does not know that. Collecting in 45 days means going back to customers who agreed 75. Paying suppliers in 60 means spending goodwill with people whose cooperation you will need again. Holding 30 days of stock instead of 60 means accepting a stockout risk that the model has no variable for. The cash column is real and measured. The cost column does not exist, and its absence is not evidence that the cost is zero.</p>
+    </div>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>One key at a time, and why<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Levers get run one at a time because combining them hides which one did the work. Two changes together produce one number, and that number cannot be decomposed after the fact when somebody asks whether the supplier renegotiation was worth the relationship. Run singly they can be added up later with a known error; run together they cannot be taken apart at all.</p>
+        <p>Each run uses the same horizon as the base it is compared against, which is 24 months here. Comparing a lever measured over 24 months against a base measured over 48 would attribute part of the horizon to the lever, which is the error session 6 spent its time on.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>Collection at 45 days and payment at 60 days both keep Marchmont solvent on their own. Run together they would also keep it solvent, and the combined figure would tell you nothing about whether you needed to ask the suppliers at all.</p>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 1 ============ -->
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers the eight</span>
+      <h2>Eight levers, one company, one key each</h2>
+      <span class="tag concept">16 min live</span>
+    </div>
+    <p class="lede">Cash at month 12 against a base of -£47,261. Every bar is a single assumption moved, everything else held. The weakest of them lands at £60,630 and the strongest at £232,489, on the same business in the same year.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 368" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cash at month 12 for the base case and eight single-lever runs. The base case is minus 47,261 pounds, drawn to the left of the zero line. Collect in 60 days not 75 gives 60,630 pounds. Pay suppliers in 60 not 30 gives 77,892 pounds. Hold 30 days of stock not 60 gives the same 77,892 pounds. Cut fixed opex by 15,000 pounds gives 87,739 pounds. Collect in 45 days not 75 gives 168,521 pounds. Grow 2 percent a month not 4 gives 186,555 pounds. Gross margin of 47 percent instead of 42 gives 188,915 pounds. Borrow another 300,000 pounds gives 232,489 pounds. The four timing levers are drawn in a pale fill to mark that they leave profit unchanged, and the other four in a solid fill because they also change profit.">
+        <style>
+          .p7aH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p7aL { font: 400 11px Inter, sans-serif; fill: #14201C; }
+          .p7aV { font: 800 10px Inter, sans-serif; fill: #175E4C; }
+          .p7aW { font: 700 10px Inter, sans-serif; fill: #FFFFFF; }
+          .p7aA { font: 400 10px Inter, sans-serif; fill: #55665F; }
+          .p7aN { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p7aM { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+        </style>
+
+        <text class="p7aH" x="14" y="20">Cash at month 12, one assumption moved per row, 24 month run.</text>
+
+        <rect x="14" y="36" width="14" height="10" rx="2" fill="#8FBFAE"></rect>
+        <text class="p7aA" x="34" y="45">timing only, profit unchanged</text>
+        <rect x="222" y="36" width="14" height="10" rx="2" fill="#175E4C"></rect>
+        <text class="p7aA" x="242" y="45">also changes profit</text>
+        <rect x="392" y="36" width="14" height="10" rx="2" fill="#9A3412"></rect>
+        <text class="p7aA" x="412" y="45">the base case, for comparison</text>
+
+        <line x1="14" y1="56" x2="860" y2="56" stroke="#DCE8E3" stroke-width="1"></line>
+        <line x1="376" y1="62" x2="376" y2="280" stroke="#CBD9D3" stroke-width="1.2"></line>
+
+        <text class="p7aL" x="14" y="78">Base case, nothing changed</text>
+        <rect x="290" y="67" width="86" height="15" rx="3" fill="#9A3412"></rect>
+        <text class="p7aW" x="296" y="78">-£47,261</text>
+
+        <text class="p7aL" x="14" y="102">Collect in 60 days not 75</text>
+        <rect x="376" y="91" width="111" height="15" rx="3" fill="#8FBFAE"></rect>
+        <text class="p7aV" x="493" y="102">£60,630</text>
+
+        <text class="p7aL" x="14" y="126">Pay suppliers in 60 not 30</text>
+        <rect x="376" y="115" width="142" height="15" rx="3" fill="#8FBFAE"></rect>
+        <text class="p7aV" x="524" y="126">£77,892</text>
+
+        <text class="p7aL" x="14" y="150">Hold 30 days stock not 60</text>
+        <rect x="376" y="139" width="142" height="15" rx="3" fill="#8FBFAE"></rect>
+        <text class="p7aV" x="524" y="150">£77,892</text>
+
+        <text class="p7aL" x="14" y="174">Cut fixed opex by £15,000</text>
+        <rect x="376" y="163" width="160" height="15" rx="3" fill="#175E4C"></rect>
+        <text class="p7aV" x="542" y="174">£87,739</text>
+
+        <text class="p7aL" x="14" y="198">Collect in 45 days not 75</text>
+        <rect x="376" y="187" width="307" height="15" rx="3" fill="#8FBFAE"></rect>
+        <text class="p7aV" x="689" y="198">£168,521</text>
+
+        <text class="p7aL" x="14" y="222">Grow 2% a month not 4%</text>
+        <rect x="376" y="211" width="340" height="15" rx="3" fill="#175E4C"></rect>
+        <text class="p7aV" x="722" y="222">£186,555</text>
+
+        <text class="p7aL" x="14" y="246">Gross margin 47% not 42%</text>
+        <rect x="376" y="235" width="344" height="15" rx="3" fill="#175E4C"></rect>
+        <text class="p7aV" x="726" y="246">£188,915</text>
+
+        <text class="p7aL" x="14" y="270">Borrow another £300,000</text>
+        <rect x="376" y="259" width="424" height="15" rx="3" fill="#175E4C"></rect>
+        <text class="p7aV" x="806" y="270">£232,489</text>
+
+        <text class="p7aA" x="376" y="294" text-anchor="middle">zero</text>
+
+        <rect x="14" y="304" width="852" height="54" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p7aN" x="30" y="326">All eight clear zero. None of them is the answer on its own.</text>
+        <text class="p7aM" x="30" y="346">The bar lengths are the only part of the comparison the model can compute. What each one costs is not on this chart because it is not in the model.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the bars are sorted by cash, which is the one ordering the engine can produce and the one least likely to be the right ordering to act on.</figcaption>
+    </figure>
+
+    <table class="clean">
+      <thead>
+        <tr><th>Lever</th><th>Cash goes negative</th><th>Cash at m12</th><th>12m net income</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Base case, nothing changed</td><td>month 10</td><td>-£47,261</td><td>£445,631</td></tr>
+        <tr><td>Collect in 45 days not 75</td><td>never</td><td>£168,521</td><td>£445,631</td></tr>
+        <tr><td>Collect in 60 days not 75</td><td>never</td><td>£60,630</td><td>£445,631</td></tr>
+        <tr><td>Pay suppliers in 60 not 30</td><td>never</td><td>£77,892</td><td>£445,631</td></tr>
+        <tr><td>Hold 30 days stock not 60</td><td>never</td><td>£77,892</td><td>£445,631</td></tr>
+        <tr><td>Grow 2% a month not 4%</td><td>never</td><td>£186,555</td><td>£296,285</td></tr>
+        <tr><td>Gross margin 47% not 42%</td><td>never</td><td>£188,915</td><td>£671,018</td></tr>
+        <tr><td>Cut fixed opex by £15,000</td><td>never</td><td>£87,739</td><td>£580,631</td></tr>
+        <tr><td>Borrow another £300,000</td><td>never</td><td>£232,489</td><td>£425,381</td></tr>
+      </tbody>
+    </table>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Running them, in six lines<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Each lever is one override object. The loop below reproduces the whole table, and the tie check runs before any figure is read out of any run.</p>
+        <div class="prompt-box"><span class="label">console</span>const levers = {
+  "base":            {},
+  "collect in 45":   { dso: 45 },
+  "collect in 60":   { dso: 60 },
+  "pay in 60":       { dpo: 60 },
+  "hold 30 days":    { dio: 30 },
+  "grow 2%":         { growth: 0.02 },
+  "margin 47%":      { grossMargin: 0.47 },
+  "opex down 15k":   { opexFixed: 80000 },
+  "borrow 300k":     { openingDebt: 600000, openingCash: 550000 }
+};
+
+for (const name in levers) {
+  const r = MARCHMONT.run(levers[name], 24);
+  if (!MARCHMONT.ties(r).ok) throw new Error("does not tie: " + name);
+
+  console.log(
+    name,
+    MARCHMONT.cashOutMonth(r),
+    Math.round(r.rows[11].cash),
+    Math.round(MARCHMONT.cumulative(r, "netIncome", 12))
+  );
+}</div>
+        <p>The borrowing lever needs two keys rather than one, because money borrowed arrives in the bank and stays owed at the same time. Raise <span class="mono">openingDebt</span> without raising <span class="mono">openingCash</span> and you have modelled a company that took on an obligation and never received the money.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Two levers that land on exactly the same figure<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Paying suppliers in 60 days instead of 30 and holding 30 days of stock instead of 60 both give cash at month 12 of <strong>£77,892</strong>. That is not a coincidence and it is not a bug. Both inventory and payables are driven off the same cost of goods figure in the engine, and both moves are 30 days in the same direction on that base, so they release identical amounts of cash.</p>
+        <p>They are completely different things to do in a business. One is a conversation with suppliers, the other is a change to how much stock sits in the warehouse and how fast you can ship. The model cannot see the difference, and two identical numbers landing on two different decisions is exactly the situation where somebody reaches for the one that is easier to arrange rather than the one that is cheaper to live with.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Why borrowing shows the largest cash figure and the lowest profit<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Borrowing another £300,000 produces cash at month 12 of <strong>£232,489</strong>, the largest figure in the table, and twelve month net income of <strong>£425,381</strong>, below the base case figure of £445,631. That is the only lever in the eight whose price appears anywhere on a statement.</p>
+        <p>The engine charges interest at 9% a year on drawn debt, so more debt means more interest, less pretax profit, less tax and less net income. The cost is visible, quantified and arrives every month on the income statement. Every other cost in this table is invisible, and it is worth sitting with the fact that the lever with a published price looks worse on the profit line than the levers whose price nobody has written down.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2 ============ -->
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers the headline finding</span>
+      <h2>Four levers, and the profit line does not move</h2>
+      <span class="tag concept">12 min live</span>
+    </div>
+    <p class="lede">Collect sooner. Collect somewhat sooner. Pay later. Hold less stock. Four different operational changes, worth between £60,630 and £168,521 of cash at month 12, and twelve month net income is £445,631 in all four cases. Not approximately. To the pound.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two columns comparing the same four runs. In the cash column, the base case is minus 47,261 pounds, collecting in 45 days gives 168,521 pounds, collecting in 60 gives 60,630 pounds, paying suppliers in 60 gives 77,892 pounds and holding 30 days of stock gives 77,892 pounds. In the twelve month net income column every one of the five rows, base case included, is 445,631 pounds. A band below records that the four changes moved cash to four different figures and left profit identical in all of them.">
+        <style>
+          .p7bH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p7bT { font: 800 13px Inter, sans-serif; fill: #FFFFFF; }
+          .p7bS { font: 400 11px Inter, sans-serif; fill: #FFFFFF; }
+          .p7bB { font: 800 11.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p7bN { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p7bM { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+        </style>
+
+        <text class="p7bH" x="14" y="20">The same four runs, read down two different statements.</text>
+
+        <rect x="14" y="34" width="418" height="196" rx="10" fill="#175E4C"></rect>
+        <text class="p7bT" x="32" y="60">Cash at month 12</text>
+        <text class="p7bS" x="32" y="88">Base case, nothing changed</text>
+        <text class="p7bB" x="414" y="88" text-anchor="end">-£47,261</text>
+        <text class="p7bS" x="32" y="116">Collect in 45 days not 75</text>
+        <text class="p7bB" x="414" y="116" text-anchor="end">£168,521</text>
+        <text class="p7bS" x="32" y="144">Collect in 60 days not 75</text>
+        <text class="p7bB" x="414" y="144" text-anchor="end">£60,630</text>
+        <text class="p7bS" x="32" y="172">Pay suppliers in 60 not 30</text>
+        <text class="p7bB" x="414" y="172" text-anchor="end">£77,892</text>
+        <text class="p7bS" x="32" y="200">Hold 30 days stock not 60</text>
+        <text class="p7bB" x="414" y="200" text-anchor="end">£77,892</text>
+        <text class="p7bS" x="32" y="221">Five different answers.</text>
+
+        <rect x="448" y="34" width="418" height="196" rx="10" fill="#0C3A2E"></rect>
+        <text class="p7bT" x="466" y="60">Twelve month net income</text>
+        <text class="p7bS" x="466" y="88">Base case, nothing changed</text>
+        <text class="p7bB" x="848" y="88" text-anchor="end">£445,631</text>
+        <text class="p7bS" x="466" y="116">Collect in 45 days not 75</text>
+        <text class="p7bB" x="848" y="116" text-anchor="end">£445,631</text>
+        <text class="p7bS" x="466" y="144">Collect in 60 days not 75</text>
+        <text class="p7bB" x="848" y="144" text-anchor="end">£445,631</text>
+        <text class="p7bS" x="466" y="172">Pay suppliers in 60 not 30</text>
+        <text class="p7bB" x="848" y="172" text-anchor="end">£445,631</text>
+        <text class="p7bS" x="466" y="200">Hold 30 days stock not 60</text>
+        <text class="p7bB" x="848" y="200" text-anchor="end">£445,631</text>
+        <text class="p7bS" x="466" y="221">One answer, five times.</text>
+
+        <rect x="14" y="244" width="852" height="50" rx="9" fill="#FFF7ED" stroke="#9A3412"></rect>
+        <text class="p7bN" x="30" y="266">Timing is not performance. Change when money moves and the income statement never finds out.</text>
+        <text class="p7bM" x="30" y="286">Anybody reviewing these four decisions on the profit line alone would see four identical outcomes and conclude that nothing had been done.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the right hand column is not rounded. It is the same figure, computed five times from five different runs.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Why the profit line cannot move<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Look at what the income statement is made of in the engine: revenue, cost of goods, opex, depreciation, interest and tax. Collection terms appear in none of them. Revenue is recorded when it is earned, so a customer paying in 45 days rather than 75 changes nothing about the revenue line, and cost of goods is recognised against that revenue regardless of when the supplier invoice clears.</p>
+        <p>The three timing keys only ever write to the balance sheet and to the working capital movement in the cash flow statement. There is no path from <span class="mono">dso</span>, <span class="mono">dio</span> or <span class="mono">dpo</span> to <span class="mono">netIncome</span>. The equality is structural, which is why it holds to the pound rather than approximately.</p>
+        <div class="prompt-box"><span class="label">console</span>const keys = ["dso", "dio", "dpo"];
+const base12 = MARCHMONT.cumulative(MARCHMONT.run({}, 24), "netIncome", 12);
+
+for (const k of keys) {
+  for (const v of [20, 30, 45, 60, 75, 90, 120]) {
+    const over = {};
+    over[k] = v;
+    const p = MARCHMONT.cumulative(MARCHMONT.run(over, 24), "netIncome", 12);
+    if (Math.abs(p - base12) > 0.01) throw new Error(k + " moved profit at " + v);
+  }
+}
+
+"profit never moved";   // 21 runs, three keys, no effect on the income statement</div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What this means in a review<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A finance team that pulls Marchmont back from insolvency by renegotiating collection will show a profit line identical to the one they would have shown by doing nothing. If the review is run off the income statement, and most are, the work is invisible. Worse, the team that did nothing and the team that saved the company are indistinguishable on the page.</p>
+        <p>The practical fix is to report the pair. Profit for the period, and the change in cash over the same period, side by side. The four levers are unreadable on the first and obvious on the second, and a pair of numbers is not a harder report to produce than one.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The other four, and where their effect actually comes from<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The remaining four move both columns, and each for a different reason. <strong>Gross margin 47% instead of 42%</strong> raises twelve month net income to <strong>£671,018</strong> and cash at month 12 to <strong>£188,915</strong>: more profit on every sale, and less money tied up in inventory because each unit costs less to hold.</p>
+        <p><strong>Cutting fixed opex by £15,000 a month</strong> gives net income of <strong>£580,631</strong> and cash of <strong>£87,739</strong>. It is the most direct of the four and it is also the one whose cost lands on people rather than on a statement.</p>
+        <p><strong>Growing 2% a month instead of 4%</strong> gives cash of <strong>£186,555</strong> and net income of <strong>£296,285</strong>, well below the base case figure of £445,631. It is the only lever in the eight that fixes the cash problem by making the company smaller, and it works precisely because the cash problem was caused by the growth.</p>
+        <p><strong>Borrowing £300,000</strong> gives cash of <strong>£232,489</strong> and net income of <strong>£425,381</strong>. It does not change anything about how the business runs. It buys time, and the interest is the fee for the time.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3 ============ -->
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers what is not priced</span>
+      <h2>The column the model does not have</h2>
+      <span class="tag concept">12 min live</span>
+    </div>
+    <p class="lede">Every figure so far is a measurement. What follows is the part of each decision that no run produces, and leaving it out of the page is how a measured table becomes a misleading recommendation.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 336" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The four timing levers with the cash they release and the cost the model does not price. Collect in 45 days not 75 releases 168,521 pounds and spends terms customers have already agreed. Collect in 60 days not 75 releases 60,630 pounds and spends the same relationship in a smaller step. Pay suppliers in 60 not 30 releases 77,892 pounds and spends supplier goodwill and queue position when stock is short. Hold 30 days of stock not 60 releases 77,892 pounds and takes on stockout risk and the orders a stockout loses. A band records that borrowing is the only lever whose price appears on a statement, with twelve month net income falling from 445,631 pounds to 425,381 pounds.">
+        <style>
+          .p7cH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p7cA { font: 400 10px Inter, sans-serif; fill: #55665F; }
+          .p7cL { font: 700 10.5px Inter, sans-serif; fill: #14201C; }
+          .p7cV { font: 800 10.5px Inter, sans-serif; fill: #175E4C; }
+          .p7cC { font: 400 10.5px Inter, sans-serif; fill: #9A3412; }
+          .p7cT { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+          .p7cS { font: 400 11px Inter, sans-serif; fill: #FFFFFF; }
+          .p7cN { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p7cM { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+        </style>
+
+        <text class="p7cH" x="14" y="20">Two of these three columns come out of the engine.</text>
+
+        <text class="p7cA" x="24" y="46">Lever</text>
+        <text class="p7cA" x="276" y="46">Cash at m12</text>
+        <text class="p7cA" x="396" y="46">What it spends, which nothing in the model prices</text>
+        <line x1="14" y1="54" x2="866" y2="54" stroke="#14201C" stroke-width="1.4"></line>
+
+        <rect x="14" y="60" width="852" height="28" rx="5" fill="#F0F7F4"></rect>
+        <text class="p7cL" x="24" y="79">Collect in 45 days not 75</text>
+        <text class="p7cV" x="276" y="79">£168,521</text>
+        <text class="p7cC" x="396" y="79">Terms customers already agreed, reopened by the side that wrote them</text>
+
+        <rect x="14" y="92" width="852" height="28" rx="5" fill="#FFFFFF"></rect>
+        <text class="p7cL" x="24" y="111">Collect in 60 days not 75</text>
+        <text class="p7cV" x="276" y="111">£60,630</text>
+        <text class="p7cC" x="396" y="111">The same conversation, asked for in a smaller step and refused less often</text>
+
+        <rect x="14" y="124" width="852" height="28" rx="5" fill="#F0F7F4"></rect>
+        <text class="p7cL" x="24" y="143">Pay suppliers in 60 not 30</text>
+        <text class="p7cV" x="276" y="143">£77,892</text>
+        <text class="p7cC" x="396" y="143">Supplier goodwill, and your place in the queue the next time stock is short</text>
+
+        <rect x="14" y="156" width="852" height="28" rx="5" fill="#FFFFFF"></rect>
+        <text class="p7cL" x="24" y="175">Hold 30 days stock not 60</text>
+        <text class="p7cV" x="276" y="175">£77,892</text>
+        <text class="p7cC" x="396" y="175">Stockout risk, and the orders a stockout loses while it lasts</text>
+
+        <line x1="14" y1="190" x2="866" y2="190" stroke="#DCE8E3" stroke-width="1"></line>
+
+        <rect x="14" y="202" width="852" height="62" rx="9" fill="#0C3A2E"></rect>
+        <text class="p7cT" x="32" y="226">Borrow another £300,000 is the only lever whose price is written down.</text>
+        <text class="p7cS" x="32" y="248">Twelve month net income falls from £445,631 to £425,381, and the interest arrives every month on the income statement.</text>
+
+        <rect x="14" y="276" width="852" height="52" rx="9" fill="#FFF7ED" stroke="#9A3412"></rect>
+        <text class="p7cN" x="30" y="298">An empty cost column is not a cost of zero.</text>
+        <text class="p7cM" x="30" y="318">The model measures the cash released and is silent on everything else. Presenting the first without the second turns a measurement into a recommendation.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the right hand column is written by hand every time, because there is no run that produces it.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Choosing when the model will not rank<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The engine hands over one ordering, by cash released, and it is rarely the ordering to act on. Four questions do most of the remaining work, and none of them needs a model.</p>
+        <p><strong>Who pays for it?</strong> Name the party whose position gets worse: a customer, a supplier, the warehouse, the people on the opex line, or the lender. A lever whose cost lands on somebody who is not in the room is the easiest to choose and the most likely to be regretted.</p>
+        <p><strong>Can it be undone?</strong> Borrowing can be repaid. Stock can be rebuilt. A customer who has been told their agreed terms are being shortened has learned something about you that does not get unlearned.</p>
+        <p><strong>Is it a one-off or a rate?</strong> Collecting 30 days sooner releases the cash once and then the business runs at the new level. A margin improvement or a cost cut keeps paying every month. On a problem that grows with revenue, a one-off release buys a fixed amount of time and a rate change changes the shape.</p>
+        <p><strong>Does it treat the cause?</strong> Marchmont's gap exists because it is growing at 4% a month while collecting in 75 days. Slowing growth and collecting faster both address that. Borrowing funds it, which is the right move if the growth is worth having, and session 8 sizes exactly how much.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Where practitioners genuinely disagree<span class="mini">5 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Given this table, two experienced people will reach for different levers first, and the argument between them is real rather than a matter of one of them being confused.</p>
+        <p>One position: <strong>take the working capital first, always.</strong> It costs no profit, it needs nobody's permission, it can be started on Monday, and the cash it releases is cash the business already earned and simply had not collected. Borrowing on top of a working capital position you have not tidied is paying interest to avoid a phone call. On this view the four timing levers are the cheapest money in the business and leaving them unpulled while asking a bank for money is close to negligent.</p>
+        <p>The other position: <strong>the timing levers are the most expensive things in the list, precisely because their price is invisible.</strong> Debt has a rate, a term and a covenant, all of which can be compared, negotiated and explained to a board. Shortened customer terms and stretched supplier payments have no rate, so they never get compared, and the cost shows up two years later as a customer who takes the next contract elsewhere or a supplier who allocates scarce stock to somebody who paid on time. On this view the priced lever is the honest one and the free ones are borrowing from relationships at an unknown rate.</p>
+        <p>Neither side is wrong about the mechanics and both are describing real failures they have watched happen. The useful move in a room is to say which of the two you are arguing from, because the disagreement is about how to value an unpriced cost and not about any number in the table.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>What a lever run does not tell you<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Three limits are worth naming before this table is put in front of anybody. First, every run assumes the change is achieved in full and immediately, from month 1. A collection improvement that takes nine months to land is a different and much smaller number.</p>
+        <p>Second, every run assumes the change has no side effects anywhere else in the model. Shortening customer terms with no loss of revenue, and holding half the stock with no lost orders, are both assumptions rather than findings, and they are the assumptions doing the most work in the table.</p>
+        <p>Third, the horizon is 24 months in every row. A lever that releases cash once looks the same as a lever that changes the rate over that window, and the two diverge afterwards. Rerunning the table at 48 months before recommending anything is one line of change and is the check session 6 argued for.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 4 ============ -->
+  <section class="section" id="part-4">
+    <div class="section-kicker">
+      <span class="klabel">Part 4 · build-along</span>
+      <h2>Measure them, then argue about them</h2>
+      <span class="tag build">16 min hands on</span>
+    </div>
+    <p class="lede">Six steps in the console on this page, then one that has no console in it at all.</p>
+
+    <div class="steps">
+      <div class="step">
+        <h4>Reproduce the table</h4>
+        <p>Run the lever loop and check all nine rows against the printed figures. Pay attention to the borrowing row, which needs both <span class="mono">openingDebt</span> and <span class="mono">openingCash</span> moved together, and see what happens to the cash column if you move only one.</p>
+      </div>
+      <div class="step">
+        <h4>Prove the profit column, do not eyeball it</h4>
+        <p>Run the three timing keys across seven values each and assert that twelve month net income never moves by more than a penny from £445,631. Twenty one runs, one assertion. An equality you have asserted is worth more than an equality you have read off four rows.</p>
+      </div>
+      <div class="step">
+        <h4>Find the path that does not exist</h4>
+        <p>Open <span class="mono">fin-live.js</span> and trace <span class="mono">dso</span> forward through the month loop. Write down every variable it touches and stop when you reach one that feeds <span class="mono">netIncome</span>. The exercise is finished when you are satisfied that there is no such variable.</p>
+      </div>
+      <div class="step">
+        <h4>Break the equality on purpose</h4>
+        <p>Imagine a version of the engine where shortening collection terms costs one point of gross margin. Run <span class="mono">{ dso: 45, grossMargin: 0.41 }</span> and compare both columns against the base. That run is a different claim about the world, and knowing which claim you are running is the whole skill.</p>
+      </div>
+      <div class="step">
+        <h4>Rerun the whole table at 48 months</h4>
+        <p>Change the horizon on every row and compare which levers still keep the cash line above zero at the end of the longer window. Note any lever whose verdict changes, because that is a lever that buys time rather than fixing anything.</p>
+      </div>
+      <div class="step">
+        <h4>Write the cost column by hand</h4>
+        <p>For each of the eight, write one sentence naming who pays and whether it can be undone. No model produces this column and no version of the model ever will. A table published without it is an argument disguised as a measurement.</p>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>The habit to keep.</strong> Whenever a lever is shown, the cash figure and the cost sentence travel together on the same line. The cash figure is measured and the cost sentence is a judgement, and labelling which is which is what lets somebody else disagree with the judgement without having to re-derive the measurement.</p>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">Collecting in 45 days instead of 75 moves cash at month 12 from -£47,261 to £168,521 and leaves twelve month net income at £445,631. Why does profit not move?</p>
+      <div class="qopt">A · It does move, but the change is too small to appear at this level of rounding</div>
+      <div class="qopt">B · Revenue and cost of goods are recorded when they are earned and incurred, so collection terms never reach the income statement; the equality is structural and holds to the pound</div>
+      <div class="qopt">C · The extra cash earns interest which happens to offset the improvement exactly</div>
+      <q class="qwhy">There is no path from dso, dio or dpo to netIncome anywhere in the engine. All three write only to balances and to the working capital movement. Twenty one runs across the three keys leave twelve month net income unchanged to within a penny.</q>
+    </div>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">Paying suppliers in 60 days and holding 30 days of stock both give cash at month 12 of £77,892. What follows from that?</p>
+      <div class="qopt">A · One of the two runs has been misconfigured, since two different changes cannot give identical figures</div>
+      <div class="qopt">B · The two decisions are interchangeable and either can be taken on the same grounds</div>
+      <div class="qopt">C · The model cannot distinguish them, so the choice has to be made on costs that are not in the model at all</div>
+      <q class="qwhy">Both balances are driven off the same cost of goods figure and both moves are 30 days, so the cash released is identical by construction. One decision spends supplier goodwill and the other accepts stockout risk. Identical cash figures are the signal that the model has run out of things to say.</q>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">A deck shows the eight levers ranked by cash released, with no other column. What is the problem?</p>
+      <div class="qopt">A · The ranking presents the only ordering the model can compute as though it were the ordering to act on, and the costs that would change that ordering are missing rather than zero</div>
+      <div class="qopt">B · Cash released is the wrong measure and the ranking should use twelve month net income instead</div>
+      <div class="qopt">C · There is no problem, since all eight levers keep the cash line above zero and any of them would work</div>
+      <q class="qwhy">Every figure in the ranking is correct and reproducible. What is missing is that collecting sooner reopens agreed terms, paying later spends goodwill, holding less stock takes on stockout risk, and the only lever with a written down price looks the worst on the profit line. Sorting by the one computable column quietly recommends the levers whose costs nobody wrote down.</q>
+    </div>
+
+    <div class="quiz-score"></div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="homework">
+    <div class="section-kicker">
+      <span class="klabel">Before session 8</span>
+      <h2>Homework</h2>
+    </div>
+    <p class="lede">Thirty minutes, half of it away from the console.</p>
+    <div class="steps">
+      <div class="step">
+        <h4>Combine two levers and then try to take them apart</h4>
+        <p>Run collection at 45 days and payment at 60 together, then compare the combined cash at month 12 against the two single runs added up. Write down the difference and one sentence on why adding single levers is an approximation rather than an identity.</p>
+      </div>
+      <div class="step">
+        <h4>Price one invisible cost, roughly, and say so</h4>
+        <p>Pick the supplier lever and estimate what stretching payment to 60 days would cost in your own organisation, in whatever unit fits. Mark the estimate clearly as an estimate. The point is not accuracy, it is that an unpriced cost left unpriced always loses to a measured benefit.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OFFICIAL ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Covered today</span>
+      <h2>What this session covers</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Eight levers measured one at a time</span><span class="note">Cash out month, cash at m12 and twelve month profit for each.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The four that move no profit at all</span><span class="note">£445,631 in every case, to the pound, across twenty one runs.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Why that equality is structural</span><span class="note">No path from dso, dio or dpo to netIncome anywhere in the engine.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Two levers landing on the same figure</span><span class="note">£77,892 twice, from the same cost of goods base and the same 30 days.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The only lever with a written down price</span><span class="note">Borrowing: cash £232,489, profit down to £425,381.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The costs the model does not price</span><span class="note">Agreed terms, supplier goodwill, stockout risk; written by hand every time.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Choosing when the model will not rank</span><span class="note">Who pays, can it be undone, one-off or rate, does it treat the cause.</span></div>
+      <div class="covered-row"><span class="status pill inkpill">◐</span><span class="name">Turning the trough into a number to ask for</span><span class="note">Session 8.</span></div>
+      <div class="covered-row"><span class="status pill inkpill">◐</span><span class="name">Rerunning the levers at 48 months</span><span class="note">Set up here in the build-along, taken apart in session 9.</span></div>
+      <div class="covered-row"><span class="status pill light">○</span><span class="name">Supplier negotiation and credit control practice</span><span class="note">Named as the real work behind two levers; a different discipline.</span></div>
+      <div class="covered-row"><span class="status pill light">○</span><span class="name">Whether any of this is a reason to buy or sell anything</span><span class="note">Nothing here is advice about any investment.</span></div>
+    </div>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="section" id="cheatsheet">
+    <div class="section-kicker">
+      <span class="klabel">Take this with you</span>
+      <h2>Cheat sheet</h2>
+    </div>
+    <div class="cheat">
+      <div class="cheat-item"><strong>The base.</strong> Cash out in month 10, -£47,261 at month 12, twelve month profit £445,631.</div>
+      <div class="cheat-item"><strong>Timing levers.</strong> Collect 45: £168,521. Collect 60: £60,630. Pay in 60: £77,892. Hold 30 days: £77,892.</div>
+      <div class="cheat-item"><strong>All four, same profit.</strong> £445,631 in every one of them. Not rounded, identical.</div>
+      <div class="cheat-item"><strong>Performance levers.</strong> Grow 2%: £186,555. Margin 47%: £188,915. Opex down £15,000: £87,739.</div>
+      <div class="cheat-item"><strong>The priced one.</strong> Borrow £300,000: cash £232,489, profit £425,381. Interest is the fee.</div>
+      <div class="cheat-item"><strong>Not free.</strong> Agreed terms reopened, supplier goodwill spent, stockout risk taken. None of it in the model.</div>
+      <div class="cheat-item"><strong>Four questions.</strong> Who pays, can it be undone, one-off or rate, does it treat the cause.</div>
+      <div class="cheat-item"><strong>Report the pair.</strong> Profit and the change in cash, same period, same line. Timing work is invisible otherwise.</div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <div class="wrap">
+      <p>Practitioner session 7 of 10 · learn-finance-with-phoebe · by Phoebe Fu</p>
+      <nav class="pagenav">
+        <a href="p6-driving-the-model.html">← Practitioner session 6 · Driving the model</a>
+        <a href="p8-sizing-a-funding-requirement.html">Practitioner session 8 · Sizing a funding requirement →</a>
+      </nav>
+    </div>
+  </footer>
+
+</main>
+
+<script src="../assets/fin-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>

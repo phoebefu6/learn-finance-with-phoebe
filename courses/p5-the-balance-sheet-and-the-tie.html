@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- social:start -->
+<meta name="description" content="Practitioner session 5 of 10. The balance sheet as a position, the solved opening equity of £1,662,000, the 2.24e-8 worst tie error across 50 canon runs, and what happens when you break the tie on purpose.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn with Phoebe">
+<meta property="og:title" content="The balance sheet and the tie - learn finance with phoebe">
+<meta property="og:description" content="Practitioner session 5 of 10. Every line on the sheet, where it came from, and the error check that finds your mistake for you.">
+<meta property="og:url" content="https://phoebefu6.github.io/learn-finance-with-phoebe/courses/p5-the-balance-sheet-and-the-tie.html">
+<meta property="og:image" content="https://phoebefu6.github.io/learn-finance-with-phoebe/assets/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The balance sheet and the tie - learn finance with phoebe">
+<meta name="twitter:description" content="Break the check on purpose and the error tells you exactly what you missed and when.">
+<meta name="twitter:image" content="https://phoebefu6.github.io/learn-finance-with-phoebe/assets/og-cover.png">
+<!-- social:end -->
+<title>Practitioner session 5 · The balance sheet and the tie - learn finance with phoebe</title>
+<link rel="stylesheet" href="../assets/style.css?v=1">
+</head>
+<body>
+
+<div class="toolbar">
+  <div class="wrap">
+    <span class="crumb"><a href="../index.html">learn-finance-with-phoebe</a> / Practitioner session 5 of 10</span>
+    <button class="btn" id="toggle-all" type="button">Expand all</button>
+    <button class="btn primary" id="zoom-toggle" type="button">Projector zoom: off</button>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Learn Finance with Phoebe · Practitioner session 5 of 10</div>
+    <h1>The balance sheet <span class="accent">and the tie</span></h1>
+    <p class="sub">Session 1 wired net income into equity and the change in cash into the cash line, and left the tie sitting there as a fact about a working model. This one takes the sheet apart. Seven lines, each of which arrived from something the other two statements did, held equal by an identity that no convention chose. Marchmont's opening equity of <strong>£1,662,000</strong> is not an input: it is solved, and the reason that is correct rather than convenient is worth twenty minutes. Then the part that only works if you do it: change one line in the engine so the sheet stops tying, watch the tie check report the exact size and the exact month of what you broke, and put it back.</p>
+    <div class="chip-row">
+      <span class="chip level">🟢 Hands on</span>
+      <span class="chip audience">Analysts who build the model</span>
+      <span class="chip audience">Anyone reviewing somebody else's</span>
+      <span class="chip time">60 min</span>
+    </div>
+    <div class="agenda">
+      <span class="a1" style="flex:1">0-4 · Welcome</span>
+      <span class="a2" style="flex:6">4-32 · The position, and the solved opening</span>
+      <span class="a3" style="flex:6">32-54 · Build-along: break it, then fix it</span>
+      <span class="a4" style="flex:1">54-60 · Q&amp;A</span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ INTRO ============ -->
+  <section class="section" id="intro">
+    <div class="section-kicker">
+      <span class="klabel">Part 0</span>
+      <h2>Where this picks up</h2>
+    </div>
+    <p class="lede">Session 1 named the two wires and ran the check. Session 3 produced the receivables, inventory and payables balances. Session 4 turned them into the bridge and landed on the change in cash. Every one of those outputs is a line on the sheet, so today is where the parts come back together and where the check earns its keep. Session 6 starts driving the model from its assumptions. The engine is <span class="mono">assets/fin-live.js</span>, loaded on this page.</p>
+
+    <div class="legend">
+      <span class="pill">Live = run together in the session</span>
+      <span class="pill">Self-study = the full depth, after class</span>
+      <span class="pill">🔍 Every diagram zooms</span>
+    </div>
+
+    <div class="callout win">
+      <p><strong>★ What you walk out with today.</strong> Seven Marchmont lines and the activity that produced each one, so you can read a sheet as a record of what happened rather than a list of balances. The solved opening equity of £1,662,000, why solving is the honest option and what it costs you. The tie as a working check, with its measured result: 2.24e-8 worst error across the full canon set of 50 model runs, against a tolerance of 0.01. And two deliberate breaks, one that produces a constant error and one that produces a growing one, because the shape of a failure tells you what kind of mistake you made.</p>
+    </div>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>A position, not a period<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>The income statement and the cash flow statement both cover a stretch of time and are meaningless without one. The balance sheet is a single instant. Nothing on it happened during the month; everything on it is what was left standing at the end of it.</p>
+        <p>That is why the sheet has no subtotal you can call performance. It has a shape instead, and the shape is the whole argument: what the business controls on one side, and who has a claim on it on the other.</p>
+        <div class="callout example">
+          <span class="ex-pill">Real world</span>
+          <p>Marchmont's cash line at the end of month 10 is minus £7,432. Nothing about that figure says the month was bad. It says that on one particular evening, after ten months of profitable trading, the balance was below zero. The reason lives on the other two statements.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>The fields the sheet is made of<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Each row the engine returns carries the whole sheet, plus the two totals and the difference between them. There is no separate balance sheet object, because the sheet is the row.</p>
+        <div class="prompt-box"><span class="label">row fields used today</span>cash          the bank balance at month end
+ar            receivables: invoiced, not yet collected
+inventory     instruments made, not yet sold
+netFixed      fixed assets at cost less depreciation to date
+ap            payables: received, not yet paid for
+equity        the owners' claim, opening plus profits kept
+assets        cash + ar + inventory + netFixed
+liabsEquity   ap + debt + equity
+tieError      assets - liabsEquity, computed per month</div>
+        <p class="mono">No credentials of any kind are involved. If an example ever needs one, the string is the word placeholder.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 1 ============ -->
+  <section class="section" id="part-1">
+    <div class="section-kicker">
+      <span class="klabel">Part 1 · covers the position</span>
+      <h2>Seven lines, and what put each one there</h2>
+      <span class="tag concept">11 min live</span>
+    </div>
+    <p class="lede">Every balance on the sheet is the residue of an activity somewhere else. Reading it well means naming that activity for each line, which turns a list of balances into a history.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The Marchmont balance sheet in two columns. On the left, what the company controls: cash, moved only by free cash flow from the cash flow statement; receivables, invoiced revenue not yet collected, driven by the collection setting; inventory, instruments made and not yet sold, driven by the stock setting; and net fixed assets, capital spending less depreciation to date. On the right, who has a claim on it: payables, supplier costs received and not yet paid; debt, fixed at 300,000 pounds in this model; and equity, the owners' claim, which is the solved opening figure of 1,662,000 pounds plus every month's net income since. A note records that the two sides carry the same total at every month end and that this is an identity rather than a convention.">
+        <style>
+          .p5aH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p5aC { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p5aT { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+          .p5aS { font: 400 10.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p5aN { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p5aM { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+        </style>
+
+        <text class="p5aH" x="14" y="20">Each balance is the leftover of something the other two statements did.</text>
+
+        <rect x="14" y="34" width="418" height="34" rx="8" fill="#C9E3D9"></rect>
+        <text class="p5aC" x="32" y="56">What Marchmont controls</text>
+
+        <rect x="448" y="34" width="418" height="34" rx="8" fill="#C9E3D9"></rect>
+        <text class="p5aC" x="466" y="56">Who has a claim on it</text>
+
+        <rect x="14" y="80" width="418" height="62" rx="9" fill="#175E4C"></rect>
+        <text class="p5aT" x="32" y="104">cash</text>
+        <text class="p5aS" x="32" y="124">Moved by freeCF and by nothing else in the engine.</text>
+
+        <rect x="14" y="150" width="418" height="62" rx="9" fill="#175E4C"></rect>
+        <text class="p5aT" x="32" y="174">ar, receivables</text>
+        <text class="p5aS" x="32" y="194">Revenue invoiced and not yet collected. Set by DSO.</text>
+
+        <rect x="14" y="220" width="418" height="62" rx="9" fill="#175E4C"></rect>
+        <text class="p5aT" x="32" y="244">inventory</text>
+        <text class="p5aS" x="32" y="264">Instruments built and not yet sold. Set by DIO.</text>
+
+        <rect x="14" y="290" width="418" height="62" rx="9" fill="#175E4C"></rect>
+        <text class="p5aT" x="32" y="314">netFixed</text>
+        <text class="p5aS" x="32" y="334">Capex added, depreciation taken off, month after month.</text>
+
+        <rect x="448" y="80" width="418" height="62" rx="9" fill="#0C3A2E"></rect>
+        <text class="p5aT" x="466" y="104">ap, payables</text>
+        <text class="p5aS" x="466" y="124">Supplier costs received and not yet paid. Set by DPO.</text>
+
+        <rect x="448" y="150" width="418" height="62" rx="9" fill="#0C3A2E"></rect>
+        <text class="p5aT" x="466" y="174">debt</text>
+        <text class="p5aS" x="466" y="194">£300,000 throughout. Nothing drawn, nothing repaid.</text>
+
+        <rect x="448" y="220" width="418" height="132" rx="9" fill="#9A3412"></rect>
+        <text class="p5aT" x="466" y="244">equity</text>
+        <text class="p5aS" x="466" y="266">The owners' claim on whatever is left over.</text>
+        <text class="p5aS" x="466" y="286">Opening: £1,662,000, solved rather than supplied.</text>
+        <text class="p5aS" x="466" y="306">Then plus net income, every month, and nothing else.</text>
+        <text class="p5aS" x="466" y="326">No dividend is paid, so no profit ever leaves.</text>
+
+        <rect x="14" y="366" width="852" height="52" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p5aN" x="30" y="388">The two sides carry the same total at every month end.</text>
+        <text class="p5aM" x="30" y="406">Not because anyone rounded them together. Everything owned was funded by somebody, so the claims must add to the same amount.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - three of the four left hand lines and one of the right hand ones are pure working capital, which is why session 3 was the session that decided the shape of this page.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>The identity, and why it is not a rule<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Everything a business controls was paid for by somebody: a supplier waiting to be paid, a lender, or the owners, including through profits they left in the business. There is no fourth source. So the total of what it controls is the total of the claims on it, necessarily, not by agreement.</p>
+        <p>That is what makes the sheet usable as a test. A rule can be waived and a convention can be argued about. An identity cannot fail, so when the two sides differ the failure is in the recording, and the recording is the thing you can go and look at.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Equity is the residual, and it behaves like one<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Payables and debt are claims for fixed amounts: a supplier is owed what the invoice says. Equity is whatever is left after those are satisfied, which means it absorbs every change that is not itself a claim. Profit raises it, a loss lowers it, and no one negotiates the figure.</p>
+        <p>In this engine that residual character is literal. Equity is the only balance on the sheet that no assumption drives directly. It opens as a solved number and then moves by net income, once a month, for as long as the model runs.</p>
+        <div class="prompt-box"><span class="label">fin-live.js</span>var equityNew = equity + netIncome;
+// the only write to equity after month 0</div>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Net fixed assets, the line that hides two movements<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>One balance, two opposing flows. Capex adds to it and never touched the income statement. Depreciation takes off it and never touched the bank. A single netFixed figure therefore tells you nothing about either on its own, which is exactly why both appear separately on the cash flow statement.</p>
+        <div class="prompt-box"><span class="label">fin-live.js</span>var netFixedNew = netFixed + capex - depreciation;</div>
+        <p>Marchmont spent £180,310 and depreciated £102,025 over twelve months, so the line grew. A company whose net fixed assets shrink year after year is depreciating faster than it is investing, which is a fact about the future rather than the past.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 2 ============ -->
+  <section class="section" id="part-2">
+    <div class="section-kicker">
+      <span class="klabel">Part 2 · covers the opening</span>
+      <h2>£1,662,000 that nobody supplied</h2>
+      <span class="tag concept">8 min live</span>
+    </div>
+    <p class="lede">Marchmont existed before month 1. It opens with customers who already owe it money, stock already on the shelf, suppliers already owed and a loan already drawn. Six of the seven opening balances are given. The seventh is worked out.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 356" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The opening balance sheet at month zero. Owned: cash of 250,000 pounds, receivables of 1,000,000 pounds, inventory of 464,000 pounds and net fixed assets of 480,000 pounds. Owed: payables of 232,000 pounds and debt of 300,000 pounds. Everything owned less everything owed is what the owners have, and that gives a solved opening equity of 1,662,000 pounds. A note records that this is the accumulated history of a company that traded before month one, not a plug inserted to make the sheet balance.">
+        <style>
+          .p5bH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p5bL { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+          .p5bV { font: 800 15px Inter, sans-serif; fill: #14201C; }
+          .p5bK { font: 800 11.5px Inter, sans-serif; fill: #9A3412; }
+          .p5bC { font: 400 10.5px Inter, sans-serif; fill: #14201C; }
+          .p5bT { font: 800 14px Inter, sans-serif; fill: #FFFFFF; }
+          .p5bS { font: 400 10.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p5bN { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p5bM { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+        </style>
+
+        <text class="p5bH" x="14" y="18">The opening sheet, and the one number nobody handed us.</text>
+
+        <text class="p5bL" x="14" y="38">Owned at month 0</text>
+
+        <rect x="14" y="46" width="204" height="64" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p5bL" x="32" y="70">cash</text>
+        <text class="p5bV" x="32" y="94">£250,000</text>
+
+        <rect x="230" y="46" width="204" height="64" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p5bL" x="248" y="70">receivables</text>
+        <text class="p5bV" x="248" y="94">£1,000,000</text>
+
+        <rect x="446" y="46" width="204" height="64" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p5bL" x="464" y="70">inventory</text>
+        <text class="p5bV" x="464" y="94">£464,000</text>
+
+        <rect x="662" y="46" width="204" height="64" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p5bL" x="680" y="70">net fixed assets</text>
+        <text class="p5bV" x="680" y="94">£480,000</text>
+
+        <text class="p5bL" x="14" y="128">Owed at month 0</text>
+
+        <rect x="14" y="136" width="204" height="64" rx="9" fill="#FFF7ED" stroke="#9A3412"></rect>
+        <text class="p5bL" x="32" y="160">payables</text>
+        <text class="p5bV" x="32" y="184">£232,000</text>
+
+        <rect x="230" y="136" width="204" height="64" rx="9" fill="#FFF7ED" stroke="#9A3412"></rect>
+        <text class="p5bL" x="248" y="160">debt</text>
+        <text class="p5bV" x="248" y="184">£300,000</text>
+
+        <rect x="446" y="136" width="420" height="64" rx="9" fill="#C9E3D9"></rect>
+        <text class="p5bK" x="466" y="162">Everything owned, less everything owed,</text>
+        <text class="p5bC" x="466" y="182">is by definition what the owners have in it.</text>
+
+        <rect x="14" y="216" width="852" height="60" rx="9" fill="#0C3A2E"></rect>
+        <text class="p5bT" x="32" y="244">Opening equity, solved: £1,662,000</text>
+        <text class="p5bS" x="32" y="264">Six balances given, one worked out. The engine never asks for this figure and never reads an input for it.</text>
+
+        <rect x="14" y="290" width="852" height="54" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p5bN" x="30" y="312">This is history, not a plug.</text>
+        <text class="p5bM" x="30" y="330">It is every pound the owners ever put in and every pound of profit the business ever kept, which is not separately knowable from outside.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the opening receivables, inventory and payables are set consistently with month 1 activity, which is also why the month 1 working capital movement is zero.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Why solving is correct rather than convenient<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Equity is not a measurement of anything. It is a definition: what is left when the claims of everybody else are met. Asking a modeller to supply it as an input is asking them to state a number that, if it disagrees with the other six, is simply wrong, because the other six describe things that physically exist and equity does not.</p>
+        <p>So the engine computes it once, at month 0, from the six balances that do describe real things.</p>
+        <div class="prompt-box"><span class="label">fin-live.js</span>var equity = (cash + ar + inv + netFixed) - (ap + debt);
+// £1,662,000 under the base assumptions</div>
+        <p>Session 1 set out the argument against this and it is a real one: a solved opening means month 0 cannot fail, so the tie is testing the forward mechanics rather than the opening data. The useful response is not to argue, it is to know precisely which half of the model the check covers.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>What a plug is, and why this is not one<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A plug is a figure inserted repeatedly to absorb a difference nobody has explained, usually every period, often with a name like other or adjustment. Its signature is that it moves when something unrelated changes and nobody can say why.</p>
+        <p>Marchmont's opening equity is computed once, from a definition, and never touched again. After month 0 it moves only by net income. If it were a plug, a change in the collection setting would move it; run <span class="mono">{ dso: 45 }</span> and it does not, because collecting sooner rearranges cash and receivables on the same side of the sheet.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Testing the opening data separately<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>If the tie cannot test the opening position, something else has to. The honest substitute is a reasonableness check on the six given balances, which is a different kind of test and worth running by hand.</p>
+        <p>Opening receivables of £1,000,000 against month 1 revenue of £400,000 implies two and a half months of sales uncollected, which is the 75 day collection setting and is consistent. Opening inventory of £464,000 against a 60 day stock setting is two months of cost of sales, also consistent. A sheet whose opening receivables implied eight months of sales would tie perfectly and still be wrong, and only this check would catch it.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 3 ============ -->
+  <section class="section" id="part-3">
+    <div class="section-kicker">
+      <span class="klabel">Part 3 · covers the check</span>
+      <h2>The tie, measured across fifty runs</h2>
+      <span class="tag concept">8 min live</span>
+    </div>
+    <p class="lede">One passing run proves almost nothing. Models fail on particular settings, and a check that has only ever been run on the base case is a check that has never been tested. The canon set is fifty runs.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 344" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A five by five grid of model runs. The rows are monthly growth rates of 0, 2, 4, 6 and 8 percent and the columns are collection settings of 30, 45, 60, 75 and 90 days. Every cell is run to both 24 and 48 months and every one of them ties, making 50 runs in total. A panel on the right records that the worst assets minus liabilities and equity error anywhere in the set is 2.24 times ten to the minus 8, against a tolerance of 0.01, which is floating point noise rather than an accounting error.">
+        <style>
+          .p5cH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p5cS { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+          .p5cL { font: 700 10.5px Inter, sans-serif; fill: #14201C; }
+          .p5cD { font: 700 9.5px Inter, sans-serif; fill: #175E4C; }
+          .p5cT { font: 800 12px Inter, sans-serif; fill: #FFFFFF; }
+          .p5cB { font: 800 19px Inter, sans-serif; fill: #FFFFFF; }
+          .p5cP { font: 400 10.5px Inter, sans-serif; fill: #FFFFFF; }
+          .p5cN { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p5cM { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+        </style>
+
+        <text class="p5cH" x="14" y="18">Five growth rates, five collection settings, two horizons each.</text>
+        <text class="p5cS" x="14" y="38">Every cell below is run to 24 months and again to 48. Fifty runs, fifty ties.</text>
+
+        <text class="p5cL" x="142" y="60" text-anchor="end">days</text>
+        <text class="p5cL" x="196" y="60" text-anchor="middle">30</text>
+        <text class="p5cL" x="288" y="60" text-anchor="middle">45</text>
+        <text class="p5cL" x="380" y="60" text-anchor="middle">60</text>
+        <text class="p5cL" x="472" y="60" text-anchor="middle">75</text>
+        <text class="p5cL" x="564" y="60" text-anchor="middle">90</text>
+
+        <text class="p5cS" x="14" y="169">growth</text>
+
+        <text class="p5cL" x="142" y="93" text-anchor="end">0%</text>
+        <text class="p5cL" x="142" y="131" text-anchor="end">2%</text>
+        <text class="p5cL" x="142" y="169" text-anchor="end">4%</text>
+        <text class="p5cL" x="142" y="207" text-anchor="end">6%</text>
+        <text class="p5cL" x="142" y="245" text-anchor="end">8%</text>
+
+        <rect x="150" y="70" width="92" height="38" rx="6" fill="#F0F7F4" stroke="#DCE8E3"></rect>
+        <rect x="242" y="70" width="92" height="38" rx="6" fill="#F0F7F4" stroke="#DCE8E3"></rect>
+        <rect x="334" y="70" width="92" height="38" rx="6" fill="#F0F7F4" stroke="#DCE8E3"></rect>
+        <rect x="426" y="70" width="92" height="38" rx="6" fill="#F0F7F4" stroke="#DCE8E3"></rect>
+        <rect x="518" y="70" width="92" height="38" rx="6" fill="#F0F7F4" stroke="#DCE8E3"></rect>
+        <rect x="150" y="108" width="92" height="38" rx="6" fill="#F0F7F4" stroke="#DCE8E3"></rect>
+        <rect x="242" y="108" width="92" height="38" rx="6" fill="#F0F7F4" stroke="#DCE8E3"></rect>
+        <rect x="334" y="108" width="92" height="38" rx="6" fill="#F0F7F4" stroke="#DCE8E3"></rect>
+        <rect x="426" y="108" width="92" height="38" rx="6" fill="#F0F7F4" stroke="#DCE8E3"></rect>
+        <rect x="518" y="108" width="92" height="38" rx="6" fill="#F0F7F4" stroke="#DCE8E3"></rect>
+        <rect x="150" y="146" width="92" height="38" rx="6" fill="#C9E3D9" stroke="#8FBFAE"></rect>
+        <rect x="242" y="146" width="92" height="38" rx="6" fill="#C9E3D9" stroke="#8FBFAE"></rect>
+        <rect x="334" y="146" width="92" height="38" rx="6" fill="#C9E3D9" stroke="#8FBFAE"></rect>
+        <rect x="426" y="146" width="92" height="38" rx="6" fill="#C9E3D9" stroke="#8FBFAE"></rect>
+        <rect x="518" y="146" width="92" height="38" rx="6" fill="#C9E3D9" stroke="#8FBFAE"></rect>
+        <rect x="150" y="184" width="92" height="38" rx="6" fill="#F0F7F4" stroke="#DCE8E3"></rect>
+        <rect x="242" y="184" width="92" height="38" rx="6" fill="#F0F7F4" stroke="#DCE8E3"></rect>
+        <rect x="334" y="184" width="92" height="38" rx="6" fill="#F0F7F4" stroke="#DCE8E3"></rect>
+        <rect x="426" y="184" width="92" height="38" rx="6" fill="#F0F7F4" stroke="#DCE8E3"></rect>
+        <rect x="518" y="184" width="92" height="38" rx="6" fill="#F0F7F4" stroke="#DCE8E3"></rect>
+        <rect x="150" y="222" width="92" height="38" rx="6" fill="#F0F7F4" stroke="#DCE8E3"></rect>
+        <rect x="242" y="222" width="92" height="38" rx="6" fill="#F0F7F4" stroke="#DCE8E3"></rect>
+        <rect x="334" y="222" width="92" height="38" rx="6" fill="#F0F7F4" stroke="#DCE8E3"></rect>
+        <rect x="426" y="222" width="92" height="38" rx="6" fill="#F0F7F4" stroke="#DCE8E3"></rect>
+        <rect x="518" y="222" width="92" height="38" rx="6" fill="#F0F7F4" stroke="#DCE8E3"></rect>
+
+        <text class="p5cD" x="196" y="93" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="288" y="93" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="380" y="93" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="472" y="93" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="564" y="93" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="196" y="131" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="288" y="131" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="380" y="131" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="472" y="131" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="564" y="131" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="196" y="169" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="288" y="169" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="380" y="169" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="472" y="169" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="564" y="169" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="196" y="207" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="288" y="207" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="380" y="207" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="472" y="207" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="564" y="207" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="196" y="245" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="288" y="245" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="380" y="245" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="472" y="245" text-anchor="middle">24 ✓ 48 ✓</text>
+        <text class="p5cD" x="564" y="245" text-anchor="middle">24 ✓ 48 ✓</text>
+
+        <rect x="626" y="70" width="240" height="190" rx="9" fill="#0C3A2E"></rect>
+        <text class="p5cT" x="644" y="96">Worst error anywhere</text>
+        <text class="p5cB" x="644" y="128">2.24e-8</text>
+        <text class="p5cP" x="644" y="152">against a tolerance of 0.01</text>
+        <text class="p5cP" x="644" y="182">Two hundredths of a millionth</text>
+        <text class="p5cP" x="644" y="200">of a penny. That is the</text>
+        <text class="p5cP" x="644" y="218">arithmetic, not the accounting.</text>
+        <text class="p5cP" x="644" y="244">ties() returns ok: true.</text>
+
+        <rect x="14" y="274" width="852" height="56" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p5cN" x="30" y="296">The shaded row is the base case. The other twenty cells are why the result means anything.</text>
+        <text class="p5cM" x="30" y="316">A check that has only been run where it was expected to pass has not been tested. Anything worse than tolerance is reported as broken, never plotted.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - the highlighted row is 4% growth, the base case. The base case is one of fifty, not the evidence.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>What the check actually reads<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>Each row carries its own <span class="mono">tieError</span>, computed as <span class="mono">assets - liabsEquity</span> at the moment the row is built. <span class="mono">ties</span> walks all of them, keeps the largest absolute value and compares it to a tolerance that defaults to a penny.</p>
+        <div class="prompt-box"><span class="label">fin-live.js</span>tieError: assets - liabsEquity
+// stored on every row, one per month
+
+// and the walk:
+var e = Math.abs(result.rows[i].tieError);
+if (e &gt; worst) worst = e;
+return { ok: worst &lt;= tolerance, worst: worst };</div>
+        <p>Two consequences worth holding onto. The check reads a stored field rather than recomputing, so editing a row's balances without editing its tieError will not be caught. And it reports the worst month only, so a single failing month and a dozen failing months look identical until you inspect the rows.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Why the tolerance is not zero<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>A computer adding decimal amounts does not land on exact zero, and the residue accumulates slightly with the number of months. Demanding an exact match would make the check fail on correct models, which trains everybody to ignore it.</p>
+        <p>A penny is the right order of magnitude because it is the smallest amount that could be a real accounting error. The measured worst across all fifty runs is 2.24e-8, which is roughly six orders of magnitude inside that, so the tolerance is not doing any work in practice and would not hide a genuine mistake.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Running the sweep yourself<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <div class="prompt-box"><span class="label">console</span>const growths = [0, 0.02, 0.04, 0.06, 0.08];
+const dsos = [30, 45, 60, 75, 90];
+let worst = 0, runs = 0;
+
+for (const growth of growths) {
+  for (const dso of dsos) {
+    for (const months of [24, 48]) {
+      const r = MARCHMONT.run({ growth: growth, dso: dso }, months);
+      const t = MARCHMONT.ties(r);
+      runs += 1;
+      if (!t.ok) throw new Error("no tie at " + growth + "/" + dso);
+      if (t.worst &gt; worst) worst = t.worst;
+    }
+  }
+}
+
+runs;    // 50
+worst;   // the canon figure</div>
+        <p>The <span class="mono">throw</span> is the load bearing line. A sweep that records failures and keeps going will hand you a summary with a broken run inside it.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 4 ============ -->
+  <section class="section" id="part-4">
+    <div class="section-kicker">
+      <span class="klabel">Part 4 · covers the failure</span>
+      <h2>Break it on purpose, twice</h2>
+      <span class="tag concept">7 min live</span>
+    </div>
+    <p class="lede">A check you have only ever seen pass is a check you do not understand. Two deliberate breaks, one that drops a single leg and one that cuts a wire for good, and the two failures look nothing like each other.</p>
+
+    <figure class="zoomable">
+      <svg viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two deliberate failures compared. On the left, one month's leg dropped: the tie error is zero for the first six months, jumps in month seven and then stays flat at a constant 38,356 pounds, which is exactly month seven's net income. On the right, the equity wire cut for good: the tie error is non zero from month one and grows every month, reaching 445,631 pounds by month twelve, which is the entire year's profit that never reached equity. A note records that a flat error means one missing entry while a growing error means a broken rule.">
+        <style>
+          .p5dH { font: 800 12px Inter, sans-serif; fill: #14201C; }
+          .p5dT { font: 800 12.5px Inter, sans-serif; fill: #14201C; }
+          .p5dL { font: 700 10.5px Inter, sans-serif; fill: #9A3412; }
+          .p5dM { font: 400 10.5px Inter, sans-serif; fill: #55665F; }
+          .p5dN { font: 800 12px Inter, sans-serif; fill: #14201C; }
+        </style>
+
+        <text class="p5dH" x="14" y="20">Same check, two failures, and the shape says which mistake you made.</text>
+
+        <rect x="14" y="34" width="418" height="200" rx="10" fill="#FAFCFB" stroke="#DCE8E3"></rect>
+        <text class="p5dT" x="32" y="58">Break one: a single leg dropped</text>
+        <line x1="40" y1="196" x2="410" y2="196" stroke="#CBD9D3" stroke-width="1"></line>
+        <polyline points="40,196 238,196 238,110 403,110" fill="none" stroke="#9A3412" stroke-width="2.6"></polyline>
+        <circle cx="403" cy="110" r="4" fill="#9A3412"></circle>
+        <text class="p5dL" x="250" y="100">flat at £38,356</text>
+        <text class="p5dM" x="250" y="130">month 7 net income, exactly</text>
+        <text class="p5dM" x="32" y="222">Constant from month 7 on. One entry missed, and it never repeats.</text>
+
+        <rect x="448" y="34" width="418" height="200" rx="10" fill="#FAFCFB" stroke="#DCE8E3"></rect>
+        <text class="p5dT" x="466" y="58">Break two: the wire cut for good</text>
+        <line x1="474" y1="196" x2="844" y2="196" stroke="#CBD9D3" stroke-width="1"></line>
+        <polyline points="474,193.3 507.6,189.9 541.2,185.7 574.8,180.8 608.4,175.1 642,168.5 675.6,161.1 709.2,152.8 742.8,143.6 776.4,133.4 810,122.2 843.6,110"
+                  fill="none" stroke="#9A3412" stroke-width="2.6"></polyline>
+        <circle cx="843.6" cy="110" r="4" fill="#9A3412"></circle>
+        <text class="p5dL" x="490" y="100">£445,631 by month 12</text>
+        <text class="p5dM" x="490" y="130">the whole year's profit, never reaching equity</text>
+        <text class="p5dM" x="466" y="222">Growing every month. The first non zero month is where you cut it.</text>
+
+        <rect x="14" y="250" width="852" height="56" rx="9" fill="#F0F7F4" stroke="#8FBFAE"></rect>
+        <text class="p5dN" x="30" y="272">A flat error is a missing entry. A growing error is a broken rule.</text>
+        <text class="p5dM" x="30" y="292">Reading the shape before you go looking saves the afternoon, because the two faults live in completely different parts of a model.</text>
+      </svg>
+      <figcaption>🔍 Click to zoom - both of these are produced by editing the engine and running it, not by drawing a plausible curve. The numbers are what the broken model reported.</figcaption>
+    </figure>
+
+    <details class="card" open>
+      <summary><span class="mode live">Live</span>Break one: drop a single leg<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>In a copy of <span class="mono">fin-live.js</span>, stop equity rising in exactly one month and leave every other line alone. This is what recording an invoice against receivables and forgetting the revenue side looks like from the outside.</p>
+        <div class="prompt-box"><span class="label">fin-live.js, deliberately broken</span>// was:  var equityNew = equity + netIncome;
+var equityNew = (m === 7) ? equity : equity + netIncome;</div>
+        <p>Run it and the tie error is zero for six months, becomes <strong>£38,356</strong> in month 7, and then stays at £38,356 for every month after. It stays flat because later months add their own net income correctly; only the one leg is missing, forever. And £38,356 is month 7's net income, which is the whole point of the check. The failure names the transaction.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode live">Live</span>Break two: cut the wire and leave it cut<span class="mini">4 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <div class="prompt-box"><span class="label">fin-live.js, deliberately broken</span>// was:  var equityNew = equity + netIncome;
+var equityNew = equity;</div>
+        <p>Now profit never reaches equity at all. The tie error is non zero from month 1 and grows every month, reaching <strong>£445,631</strong> by month 12, which is exactly twelve month net income. A rule has been broken rather than an entry missed, so the damage compounds.</p>
+        <p>Put the line back and re-run before doing anything else. The discipline that matters here is not the break, it is restoring the file and confirming <span class="mono">ties</span> returns ok again, because a broken engine left on disk is the one that gets used next week.</p>
+      </div>
+    </details>
+
+    <details class="card">
+      <summary><span class="mode self">Self-study</span>Breaking a row without touching the engine<span class="mini">3 min</span><span class="caret">▶</span></summary>
+      <div class="body">
+        <p>If you would rather not edit the file, you can break a single row in memory. Because <span class="mono">ties</span> reads the stored <span class="mono">tieError</span> rather than recomputing it, the row's own total has to be updated too, which is itself the lesson.</p>
+        <div class="prompt-box"><span class="label">console</span>const m = MARCHMONT.run({}, 12);
+
+m.rows[6].ar = m.rows[6].ar + 5000;          // an invoice raised
+m.rows[6].assets = m.rows[6].assets + 5000;  // the asset side moves
+m.rows[6].tieError = m.rows[6].assets - m.rows[6].liabsEquity;
+
+MARCHMONT.ties(m);   // { ok: false, worst: 5000 }</div>
+        <p>Change only the first line and the check still passes, which is worth seeing once. A check that reads a stored result can only catch what the recording step recorded.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- ============ PART 5 ============ -->
+  <section class="section" id="part-5">
+    <div class="section-kicker">
+      <span class="klabel">Part 5 · build-along</span>
+      <h2>Read the sheet, then break it</h2>
+      <span class="tag build">22 min hands on</span>
+    </div>
+    <p class="lede">Six steps. The first three are in the console on this page. The last three need a copy of <span class="mono">fin-live.js</span> you are willing to damage.</p>
+
+    <div class="steps">
+      <div class="step">
+        <h4>Rebuild both totals by hand</h4>
+        <p>Take <span class="mono">rows[11]</span> and add cash, ar, inventory and netFixed yourself. Then add ap, debt and equity. Compare each against the stored <span class="mono">assets</span> and <span class="mono">liabsEquity</span>. You are checking the engine's arithmetic, which is a reasonable thing to do once with any model you did not write.</p>
+      </div>
+      <div class="step">
+        <h4>Recover the opening equity</h4>
+        <p>Take <span class="mono">rows[0].equity</span> and subtract <span class="mono">rows[0].netIncome</span>. You should land on £1,662,000. Confirm the same figure comes out of the six opening balances directly, and note that nothing in the assumptions supplied it.</p>
+      </div>
+      <div class="step">
+        <h4>Show that a working capital change does not move equity</h4>
+        <p>Run the base case and <span class="mono">{ dso: 45 }</span> side by side and compare month 12 equity. They should be identical, because collecting sooner moves money between two lines on the same side of the sheet. If equity had moved, the model would be claiming that collection terms change profit.</p>
+      </div>
+      <div class="step">
+        <h4>Drop one leg and read the error</h4>
+        <p>In your copy, stop equity rising in one chosen month. Print every month's tieError. Confirm the error is zero before that month, equal to that month's net income from it onwards, and flat thereafter.</p>
+      </div>
+      <div class="step">
+        <h4>Cut the wire and read the shape</h4>
+        <p>Now remove the net income addition entirely. Print the same column. Say in one sentence how you would tell these two failures apart if somebody handed you only the tieError column and no explanation.</p>
+      </div>
+      <div class="step">
+        <h4>Restore, and prove you restored it</h4>
+        <p>Put the original line back and run the fifty run sweep. Anything other than ok across all fifty means something else is still edited. Finishing a deliberate break by proving the check passes again is the part people skip.</p>
+      </div>
+    </div>
+
+    <div class="callout tip">
+      <p><strong>The habit to keep.</strong> Tie check any run before you read a single figure from it, including runs somebody else produced. It is one line, it cannot give a false pass on the mechanics it covers, and the alternative is interpreting a shape that came out of a broken model with complete confidence.</p>
+    </div>
+  </section>
+
+  <!-- ============ QUIZ ============ -->
+  <section class="section" id="quiz">
+    <div class="section-kicker">
+      <span class="klabel">Check yourself</span>
+      <h2>Three questions</h2>
+    </div>
+
+    <div class="quiz-q" data-answer="2">
+      <p class="qtext">Marchmont's opening equity of £1,662,000 is computed from the other six opening balances rather than supplied. What is that?</p>
+      <div class="qopt">A · A plug, because any figure that makes the sheet balance is by definition a plug</div>
+      <div class="qopt">B · An error, because equity should always be an input to a model</div>
+      <div class="qopt">C · A definition applied once: equity is what is left after every other claim, and it is not separately observable for a company you did not found</div>
+      <q class="qwhy">A plug is inserted repeatedly to absorb unexplained differences. This is computed once at month 0 from six balances that describe real things, and then moves only by net income. The real cost is that month 0 cannot fail, so the tie tests the forward mechanics rather than the opening data, and that is worth saying out loud.</q>
+    </div>
+
+    <div class="quiz-q" data-answer="0">
+      <p class="qtext">A tie error is zero for six months, becomes £38,356 in month 7 and stays at exactly £38,356 for the rest of the run. What happened?</p>
+      <div class="qopt">A · One side of a single entry in month 7 was not recorded, and the error is the size of the leg that is missing</div>
+      <div class="qopt">B · The model has been losing accuracy since month 7 and the drift has stabilised</div>
+      <div class="qopt">C · The company made a loss of £38,356 in month 7</div>
+      <q class="qwhy">A flat error is a single missing entry: later months carry on correctly, so nothing adds to it. A rule that has been broken produces a growing error instead, which is the other deliberate break. The flat value is exactly month 7's net income, which is how the failure names the transaction.</q>
+    </div>
+
+    <div class="quiz-q" data-answer="1">
+      <p class="qtext">Across the fifty run canon set the worst tie error is 2.24e-8 against a tolerance of 0.01. Why does the sweep matter rather than just the base case?</p>
+      <div class="qopt">A · It does not; the base case is the only run anybody uses, so the other forty nine are decoration</div>
+      <div class="qopt">B · Models fail on particular settings, so a check only ever run where it was expected to pass has not been tested</div>
+      <div class="qopt">C · Running more cases reduces the floating point error</div>
+      <q class="qwhy">The canon set crosses five growth rates with five collection settings at two horizons precisely because a sign or an accumulation can break at one combination and nowhere else. More runs do not make the arithmetic more accurate; they make the passing result mean something.</q>
+    </div>
+
+    <div class="quiz-score"></div>
+  </section>
+
+  <!-- ============ HOMEWORK ============ -->
+  <section class="section" id="homework">
+    <div class="section-kicker">
+      <span class="klabel">Before session 6</span>
+      <h2>Homework</h2>
+    </div>
+    <p class="lede">Thirty minutes, in the console and on a copy of the engine.</p>
+    <div class="steps">
+      <div class="step">
+        <h4>Invent your own break</h4>
+        <p>Choose any line in the engine other than the equity wire and break it so the sheet stops tying. Predict the shape of the error before you run it, then run it and see whether you were right. Being wrong is the useful outcome.</p>
+      </div>
+      <div class="step">
+        <h4>Reconcile the opening balances against the assumptions</h4>
+        <p>Check that opening receivables, inventory and payables are each consistent with month 1 activity and the 75, 60 and 30 day settings. Write down what you would have to see to conclude the opening data was wrong even though the sheet tied. Session 6 starts changing those settings.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OFFICIAL ============ -->
+  <section class="section" id="official">
+    <div class="section-kicker">
+      <span class="klabel">Covered today</span>
+      <h2>What this session covers</h2>
+    </div>
+    <div class="covered">
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The sheet as a position</span><span class="note">A single instant, with no performance figure on it anywhere.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Seven lines and where each came from</span><span class="note">Cash, receivables, inventory, net fixed assets against payables, debt, equity.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The identity behind the balance</span><span class="note">Everything controlled was funded by somebody, so the claims must add to the same total.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The solved opening equity</span><span class="note">£1,662,000, computed once from six given balances, and what solving it costs.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">The tie measured across the canon set</span><span class="note">2.24e-8 worst across 50 runs, against a 0.01 tolerance.</span></div>
+      <div class="covered-row"><span class="status pill solid">✓</span><span class="name">Two deliberate breaks and their shapes</span><span class="note">Flat £38,356 for a dropped leg, growing to £445,631 for a cut wire.</span></div>
+      <div class="covered-row"><span class="status pill inkpill">◐</span><span class="name">Driving the sheet from the assumptions</span><span class="note">Practitioner session 6, and the levers in session 7.</span></div>
+      <div class="covered-row"><span class="status pill inkpill">◐</span><span class="name">Breaking the model on a full bench</span><span class="note">Practitioner session 10.</span></div>
+      <div class="covered-row"><span class="status pill light">○</span><span class="name">What the net assets are worth</span><span class="note">A different subject with different tools; not covered here.</span></div>
+      <div class="covered-row"><span class="status pill light">○</span><span class="name">Statutory presentation and audit</span><span class="note">Jurisdiction specific and not the point here.</span></div>
+    </div>
+  </section>
+
+  <!-- ============ CHEAT SHEET ============ -->
+  <section class="section" id="cheatsheet">
+    <div class="section-kicker">
+      <span class="klabel">Take this with you</span>
+      <h2>Cheat sheet</h2>
+    </div>
+    <div class="cheat">
+      <div class="cheat-item"><strong>A position, not a period.</strong> Nothing on the sheet happened during the month; it is what was left at the end of it.</div>
+      <div class="cheat-item"><strong>The identity.</strong> assets = cash + ar + inventory + netFixed. liabsEquity = ap + debt + equity.</div>
+      <div class="cheat-item"><strong>Equity is the residual.</strong> Solved once at £1,662,000, then plus net income and nothing else.</div>
+      <div class="cheat-item"><strong>Not a plug.</strong> A plug is inserted repeatedly to absorb a difference nobody has explained.</div>
+      <div class="cheat-item"><strong>What the tie covers.</strong> The forward mechanics. Not the opening data, which needs its own reasonableness check.</div>
+      <div class="cheat-item"><strong>The measured result.</strong> 2.24e-8 worst across the 50 run canon set, tolerance 0.01.</div>
+      <div class="cheat-item"><strong>Flat error.</strong> One entry missed. The amount is the leg you did not record.</div>
+      <div class="cheat-item"><strong>Growing error.</strong> A rule broken. The first non zero month is where it started.</div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <div class="wrap">
+      <p>Practitioner session 5 of 10 · learn-finance-with-phoebe · by Phoebe Fu</p>
+      <nav class="pagenav">
+        <a href="p4-the-cash-flow-statement.html">← Practitioner session 4 · The cash flow statement</a>
+        <a href="p6-driving-the-model.html">Practitioner session 6 · Driving the model →</a>
+      </nav>
+    </div>
+  </footer>
+
+</main>
+
+<script src="../assets/fin-live.js?v=1"></script>
+<script src="../assets/app.js?v=1"></script>
+</body>
+</html>
