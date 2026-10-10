@@ -467,26 +467,26 @@ recovers(long);                  // 28</div>
 
     <div class="quiz-q" data-answer="2">
       <p class="qtext">The base case run to 24 months ends below zero. The same base case run to 48 months recovers in month 28. Which assumption changed?</p>
-      <div class="qopt">A · Growth, because a longer run compounds revenue further</div>
-      <div class="qopt">B · The opening cash balance, which has to be raised to support a longer run</div>
-      <div class="qopt">C · None of the fifteen keys changed; the horizon changed, and the horizon is an assumption too</div>
-      <q class="qwhy">Months 1 to 24 are identical value for value across both runs, because the engine computes forward from the opening sheet. Only the window changed, and it changed the conclusion from "does not come back" to "needs about £115,501".</q>
+      <button class="qopt" type="button">A · Growth, because a longer run compounds revenue further</button>
+      <button class="qopt" type="button">B · The opening cash balance, which has to be raised to support a longer run</button>
+      <button class="qopt" type="button">C · None of the fifteen keys changed; the horizon changed, and the horizon is an assumption too</button>
+      <p class="qwhy">Months 1 to 24 are identical value for value across both runs, because the engine computes forward from the opening sheet. Only the window changed, and it changed the conclusion from "does not come back" to "needs about £115,501".</p>
     </div>
 
     <div class="quiz-q" data-answer="0">
       <p class="qtext">At 8% growth the lowest cash in a 48 month run is -£7,885,358, in month 48. How should that be reported?</p>
-      <div class="qopt">A · As still falling at the end of the run, because the minimum landing on the last month means the model never found a bottom</div>
-      <div class="qopt">B · As the trough, and a facility should be sized against it</div>
-      <div class="qopt">C · As proof that the model breaks down at high growth rates</div>
-      <q class="qwhy">A minimum on a boundary month is a property of where the run was cut, not of the company. The model has not broken, it has simply not been asked a long enough question, and quoting -£7,885,358 as a trough invites somebody to size something against a number that is not a bottom.</q>
+      <button class="qopt" type="button">A · As still falling at the end of the run, because the minimum landing on the last month means the model never found a bottom</button>
+      <button class="qopt" type="button">B · As the trough, and a facility should be sized against it</button>
+      <button class="qopt" type="button">C · As proof that the model breaks down at high growth rates</button>
+      <p class="qwhy">A minimum on a boundary month is a property of where the run was cut, not of the company. The model has not broken, it has simply not been asked a long enough question, and quoting -£7,885,358 as a trough invites somebody to size something against a number that is not a bottom.</p>
     </div>
 
     <div class="quiz-q" data-answer="1">
       <p class="qtext">Someone ranks the levers by cash moved and concludes that collection terms matter more than margin. What is the first thing to ask?</p>
-      <div class="qopt">A · Whether the balance sheet tied on each run, since an untied run would invalidate the ordering</div>
-      <div class="qopt">B · How big each step was, because an ordering built from steps of different sizes is partly an ordering of the steps rather than the keys</div>
-      <div class="qopt">C · Whether the runs used 24 or 48 months, since the ordering cannot survive a horizon change</div>
-      <q class="qwhy">Tie checking and the horizon both matter and both should be recorded, but neither is what breaks this particular claim. Thirty days off collection and five points of margin are not comparable steps, so the ordering they produce is not a ranking of sensitivity until the steps are made comparable and stated.</q>
+      <button class="qopt" type="button">A · Whether the balance sheet tied on each run, since an untied run would invalidate the ordering</button>
+      <button class="qopt" type="button">B · How big each step was, because an ordering built from steps of different sizes is partly an ordering of the steps rather than the keys</button>
+      <button class="qopt" type="button">C · Whether the runs used 24 or 48 months, since the ordering cannot survive a horizon change</button>
+      <p class="qwhy">Tie checking and the horizon both matter and both should be recorded, but neither is what breaks this particular claim. Thirty days off collection and five points of margin are not comparable steps, so the ordering they produce is not a ranking of sensitivity until the steps are made comparable and stated.</p>
     </div>
 
     <div class="quiz-score"></div>

@@ -582,26 +582,26 @@ MARCHMONT.ties(m);   // { ok: false, worst: 5000 }</div>
 
     <div class="quiz-q" data-answer="2">
       <p class="qtext">Marchmont's opening equity of £1,662,000 is computed from the other six opening balances rather than supplied. What is that?</p>
-      <div class="qopt">A · A plug, because any figure that makes the sheet balance is by definition a plug</div>
-      <div class="qopt">B · An error, because equity should always be an input to a model</div>
-      <div class="qopt">C · A definition applied once: equity is what is left after every other claim, and it is not separately observable for a company you did not found</div>
-      <q class="qwhy">A plug is inserted repeatedly to absorb unexplained differences. This is computed once at month 0 from six balances that describe real things, and then moves only by net income. The real cost is that month 0 cannot fail, so the tie tests the forward mechanics rather than the opening data, and that is worth saying out loud.</q>
+      <button class="qopt" type="button">A · A plug, because any figure that makes the sheet balance is by definition a plug</button>
+      <button class="qopt" type="button">B · An error, because equity should always be an input to a model</button>
+      <button class="qopt" type="button">C · A definition applied once: equity is what is left after every other claim, and it is not separately observable for a company you did not found</button>
+      <p class="qwhy">A plug is inserted repeatedly to absorb unexplained differences. This is computed once at month 0 from six balances that describe real things, and then moves only by net income. The real cost is that month 0 cannot fail, so the tie tests the forward mechanics rather than the opening data, and that is worth saying out loud.</p>
     </div>
 
     <div class="quiz-q" data-answer="0">
       <p class="qtext">A tie error is zero for six months, becomes £38,356 in month 7 and stays at exactly £38,356 for the rest of the run. What happened?</p>
-      <div class="qopt">A · One side of a single entry in month 7 was not recorded, and the error is the size of the leg that is missing</div>
-      <div class="qopt">B · The model has been losing accuracy since month 7 and the drift has stabilised</div>
-      <div class="qopt">C · The company made a loss of £38,356 in month 7</div>
-      <q class="qwhy">A flat error is a single missing entry: later months carry on correctly, so nothing adds to it. A rule that has been broken produces a growing error instead, which is the other deliberate break. The flat value is exactly month 7's net income, which is how the failure names the transaction.</q>
+      <button class="qopt" type="button">A · One side of a single entry in month 7 was not recorded, and the error is the size of the leg that is missing</button>
+      <button class="qopt" type="button">B · The model has been losing accuracy since month 7 and the drift has stabilised</button>
+      <button class="qopt" type="button">C · The company made a loss of £38,356 in month 7</button>
+      <p class="qwhy">A flat error is a single missing entry: later months carry on correctly, so nothing adds to it. A rule that has been broken produces a growing error instead, which is the other deliberate break. The flat value is exactly month 7's net income, which is how the failure names the transaction.</p>
     </div>
 
     <div class="quiz-q" data-answer="1">
       <p class="qtext">Across the fifty run canon set the worst tie error is 2.24e-8 against a tolerance of 0.01. Why does the sweep matter rather than just the base case?</p>
-      <div class="qopt">A · It does not; the base case is the only run anybody uses, so the other forty nine are decoration</div>
-      <div class="qopt">B · Models fail on particular settings, so a check only ever run where it was expected to pass has not been tested</div>
-      <div class="qopt">C · Running more cases reduces the floating point error</div>
-      <q class="qwhy">The canon set crosses five growth rates with five collection settings at two horizons precisely because a sign or an accumulation can break at one combination and nowhere else. More runs do not make the arithmetic more accurate; they make the passing result mean something.</q>
+      <button class="qopt" type="button">A · It does not; the base case is the only run anybody uses, so the other forty nine are decoration</button>
+      <button class="qopt" type="button">B · Models fail on particular settings, so a check only ever run where it was expected to pass has not been tested</button>
+      <button class="qopt" type="button">C · Running more cases reduces the floating point error</button>
+      <p class="qwhy">The canon set crosses five growth rates with five collection settings at two horizons precisely because a sign or an accumulation can break at one combination and nowhere else. More runs do not make the arithmetic more accurate; they make the passing result mean something.</p>
     </div>
 
     <div class="quiz-score"></div>

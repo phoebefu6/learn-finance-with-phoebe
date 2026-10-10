@@ -392,26 +392,26 @@ MARCHMONT.cumulative(m, "freeCF", 12);
 
     <div class="quiz-q" data-answer="1">
       <p class="qtext">What are the two links that turn three statements into one model?</p>
-      <div class="qopt">A · Revenue flows into the cash flow statement, and cash flows into the income statement</div>
-      <div class="qopt">B · Net income is added to equity, and the change in cash moves the cash line, both on the balance sheet</div>
-      <div class="qopt">C · Each statement is recalculated from the other two, so all three are derived</div>
-      <q class="qwhy">In the engine the two links are one line each: equity plus netIncome, and cash plus freeCF. Nothing else writes to either balance, which is exactly what makes the tie a genuine test rather than a restatement.</q>
+      <button class="qopt" type="button">A · Revenue flows into the cash flow statement, and cash flows into the income statement</button>
+      <button class="qopt" type="button">B · Net income is added to equity, and the change in cash moves the cash line, both on the balance sheet</button>
+      <button class="qopt" type="button">C · Each statement is recalculated from the other two, so all three are derived</button>
+      <p class="qwhy">In the engine the two links are one line each: equity plus netIncome, and cash plus freeCF. Nothing else writes to either balance, which is exactly what makes the tie a genuine test rather than a restatement.</p>
     </div>
 
     <div class="quiz-q" data-answer="2">
       <p class="qtext">A run comes back with a worst tie error of 2.24e-8. What does that mean?</p>
-      <div class="qopt">A · The model has a small but real error that should be traced before the results are used</div>
-      <div class="qopt">B · The balance sheet has been forced to balance by a plug, so the check is meaningless</div>
-      <div class="qopt">C · Floating point noise well inside the 0.01 tolerance; the sheet ties and the run is usable</div>
-      <q class="qwhy">Adding decimal numbers on a computer does not land on exact zero. Two hundredths of a millionth of a penny is the arithmetic, not the accounting. That is the worst figure across the full canon set of 50 model runs.</q>
+      <button class="qopt" type="button">A · The model has a small but real error that should be traced before the results are used</button>
+      <button class="qopt" type="button">B · The balance sheet has been forced to balance by a plug, so the check is meaningless</button>
+      <button class="qopt" type="button">C · Floating point noise well inside the 0.01 tolerance; the sheet ties and the run is usable</button>
+      <p class="qwhy">Adding decimal numbers on a computer does not land on exact zero. Two hundredths of a millionth of a penny is the arithmetic, not the accounting. That is the worst figure across the full canon set of 50 model runs.</p>
     </div>
 
     <div class="quiz-q" data-answer="0">
       <p class="qtext">A model reports assets minus liabilities and equity of £8,400 in month 7. What has most likely happened?</p>
-      <div class="qopt">A · One side of a transaction worth £8,400 has been recorded and the other side has not</div>
-      <div class="qopt">B · The company lost £8,400 in month 7 and the model is reporting it correctly</div>
-      <div class="qopt">C · The tolerance is set too tightly and should be widened until the check passes</div>
-      <q class="qwhy">The tie failure is not a loss and it is not a threshold problem. It is a measurement of an incomplete entry, and the amount is the amount you missed. Widening the tolerance to make it pass hides the one signal in the model that finds mistakes for you.</q>
+      <button class="qopt" type="button">A · One side of a transaction worth £8,400 has been recorded and the other side has not</button>
+      <button class="qopt" type="button">B · The company lost £8,400 in month 7 and the model is reporting it correctly</button>
+      <button class="qopt" type="button">C · The tolerance is set too tightly and should be widened until the check passes</button>
+      <p class="qwhy">The tie failure is not a loss and it is not a threshold problem. It is a measurement of an incomplete entry, and the amount is the amount you missed. Widening the tolerance to make it pass hides the one signal in the model that finds mistakes for you.</p>
     </div>
 
     <div class="quiz-score"></div>

@@ -525,26 +525,26 @@ Math.round(r.rows[11].cash);                          //  -47261, a level at one
 
     <div class="quiz-q" data-answer="2">
       <p class="qtext">Marchmont's cash first goes below zero in month 10 at -£7,432. Why is that not the size of the facility?</p>
-      <div class="qopt">A · It is the right size, because a facility only has to cover the point at which the balance first goes under</div>
-      <div class="qopt">B · It is the wrong size only because it ignores interest, which would have to be added on top</div>
-      <div class="qopt">C · It is the depth in one month of a gap that goes on deepening for nine more, reaching -£115,501 in month 19; the balance is already -£28,360 in month 11</div>
-      <q class="qwhy">The first crossing says when the problem starts, not how big it gets. The same run reports -£28,360 in month 11, -£47,261 in month 12 and a trough of -£115,501 in month 19. Sizing on the crossing funds the crossing.</q>
+      <button class="qopt" type="button">A · It is the right size, because a facility only has to cover the point at which the balance first goes under</button>
+      <button class="qopt" type="button">B · It is the wrong size only because it ignores interest, which would have to be added on top</button>
+      <button class="qopt" type="button">C · It is the depth in one month of a gap that goes on deepening for nine more, reaching -£115,501 in month 19; the balance is already -£28,360 in month 11</button>
+      <p class="qwhy">The first crossing says when the problem starts, not how big it gets. The same run reports -£28,360 in month 11, -£47,261 in month 12 and a trough of -£115,501 in month 19. Sizing on the crossing funds the crossing.</p>
     </div>
 
     <div class="quiz-q" data-answer="0">
       <p class="qtext">A run to 24 months reports a trough of -£115,501 in month 19 and never shows the balance back above zero. What can it size and what can it not?</p>
-      <div class="qopt">A · It can size the amount, because the trough turns inside the window, but it cannot set a term, because the recovery month is outside the window and a reader returning zero means "not in view" rather than "never"</div>
-      <div class="qopt">B · It can do neither, because any figure taken from a window that does not contain the recovery is unusable</div>
-      <div class="qopt">C · It can do both, because 24 months is long enough for a working capital cycle and the term can be assumed to be 24 months</div>
-      <q class="qwhy">The trough is at month 19, which is inside the window and not on its edge, so the depth is a real turning point. The recovery is in month 28, which the 24 month run cannot see. Reading the absence of a recovery as an absence of recovery is the error session 9 takes apart.</q>
+      <button class="qopt" type="button">A · It can size the amount, because the trough turns inside the window, but it cannot set a term, because the recovery month is outside the window and a reader returning zero means "not in view" rather than "never"</button>
+      <button class="qopt" type="button">B · It can do neither, because any figure taken from a window that does not contain the recovery is unusable</button>
+      <button class="qopt" type="button">C · It can do both, because 24 months is long enough for a working capital cycle and the term can be assumed to be 24 months</button>
+      <p class="qwhy">The trough is at month 19, which is inside the window and not on its edge, so the depth is a real turning point. The recovery is in month 28, which the 24 month run cannot see. Reading the absence of a recovery as an absence of recovery is the error session 9 takes apart.</p>
     </div>
 
     <div class="quiz-q" data-answer="1">
       <p class="qtext">Growth comes in at 6% a month rather than the 4% the request was built on. What is the right move?</p>
-      <div class="qopt">A · Scale the existing request in proportion to the growth rate and keep the same term</div>
-      <div class="qopt">B · Rerun and resize, because at 6% the trough is -£897,962, the crossing moves to month 6 and there is no recovery inside 48 months, so there is no term to carry over</div>
-      <div class="qopt">C · Leave the request alone, since faster growth means more profit and the extra profit will cover the difference</div>
-      <q class="qwhy">The ladder is measured and it is not proportional. Between 4% and 6% the gap stops being a temporary shortfall with a closing date and becomes something four years does not close. A scaled figure would carry a recovery month the model no longer produces.</q>
+      <button class="qopt" type="button">A · Scale the existing request in proportion to the growth rate and keep the same term</button>
+      <button class="qopt" type="button">B · Rerun and resize, because at 6% the trough is -£897,962, the crossing moves to month 6 and there is no recovery inside 48 months, so there is no term to carry over</button>
+      <button class="qopt" type="button">C · Leave the request alone, since faster growth means more profit and the extra profit will cover the difference</button>
+      <p class="qwhy">The ladder is measured and it is not proportional. Between 4% and 6% the gap stops being a temporary shortfall with a closing date and becomes something four years does not close. A scaled figure would carry a recovery month the model no longer produces.</p>
     </div>
 
     <div class="quiz-score"></div>
